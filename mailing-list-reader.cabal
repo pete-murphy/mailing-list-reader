@@ -41,6 +41,12 @@ library
     , blaze-markup
     , bytestring
     , containers
+    , crypton-connection
+    , crypton-x509-system
+    , data-default
+    , http-client
+    , http-client-tls
+    , http-types
     , lens
     , lens-aeson
     , megaparsec
@@ -49,6 +55,7 @@ library
     , taggy
     , taggy-lens
     , text
+    , tls
     , wreq
   default-language: Haskell2010
 
