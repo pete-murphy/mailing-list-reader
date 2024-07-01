@@ -1,92 +1,108 @@
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
 module Parser where
 
-import Control.Monad
-import qualified Data.Text.Lazy as TL
-import qualified Data.Text.Lazy.IO as TL
-import Data.Void
-import Text.Megaparsec
-import Text.Megaparsec.Char
+import Control.Applicative ((<|>))
+import Control.Applicative qualified as Applicative
+import Control.Monad qualified as Monad
+import Data.Aeson (ToJSON)
+import Data.Text.Lazy (LazyText)
+import Data.Text.Lazy qualified as Text.Lazy
+import Data.Text.Lazy.IO qualified as Text.Lazy.IO
+import Data.Void (Void)
+import GHC.Generics (Generic)
+import Text.Megaparsec (Parsec)
+import Text.Megaparsec qualified as Megaparsec
+import Text.Megaparsec.Char qualified as Megaparsec.Char
 
--- import Control.Applicative.Combinators
-
-type Parser a = Parsec Void TL.Text a
+type Parser a = Parsec Void LazyText a
 
 data Header = Header
-  { author :: TL.Text,
-    subject :: TL.Text,
-    messageID :: TL.Text,
-    inReplyTo :: Maybe TL.Text,
-    references :: Maybe TL.Text,
-    date :: TL.Text
+  { author :: LazyText,
+    subject :: LazyText,
+    messageID :: LazyText,
+    inReplyTo :: Maybe LazyText,
+    references :: Maybe LazyText,
+    date :: LazyText
   }
+  deriving (Generic, Show, ToJSON)
 
 data Message
   = Message
-  { content :: TL.Text,
-    author :: TL.Text,
-    subject :: TL.Text,
-    messageID :: TL.Text,
-    inReplyTo :: Maybe TL.Text,
-    references :: Maybe TL.Text,
-    date :: TL.Text
+  { content :: LazyText,
+    author :: LazyText,
+    subject :: LazyText,
+    messageID :: LazyText,
+    inReplyTo :: Maybe LazyText,
+    references :: Maybe LazyText,
+    date :: LazyText
   }
-  deriving (Show)
+  deriving (Generic, Show, ToJSON)
 
 preambleP :: Parser ()
 preambleP = do
-  void $ string "From"
-  void $ skipManyTill (anySingleBut '\n') newline
+  Monad.void (Megaparsec.Char.string "From")
+  Monad.void (Megaparsec.skipManyTill (Megaparsec.anySingleBut '\n') Megaparsec.Char.newline)
 
-authorP :: Parser TL.Text
+authorP :: Parser LazyText
 authorP = do
-  void $ string "From: "
-  void $ skipMany (anySingleBut '(')
-  name <- TL.pack <$> between (char '(') (char ')') (many (anySingleBut ')'))
-  newline
-  return name
+  Monad.void (Megaparsec.Char.string "From: ")
+  Monad.void (Megaparsec.skipMany (Megaparsec.anySingleBut '('))
+  name <-
+    Text.Lazy.pack
+      <$> Megaparsec.between
+        (Megaparsec.Char.char '(')
+        (Megaparsec.Char.char ')')
+        (Applicative.many (Megaparsec.anySingleBut ')'))
+  Monad.void (Megaparsec.Char.newline)
+  pure name
 
-lineRemainderP :: Parser TL.Text
+lineRemainderP :: Parser LazyText
 lineRemainderP = do
   prefix <- singleLineRemainder
-  rest <- many (hspace1 *> singleLineRemainder)
-  return $ TL.intercalate " " (prefix : rest)
+  rest <- Applicative.many (Megaparsec.Char.hspace1 *> singleLineRemainder)
+  pure (Text.Lazy.intercalate " " (prefix : rest))
   where
     singleLineRemainder =
-      TL.pack <$> someTill anySingle newline
+      Text.Lazy.pack <$> Megaparsec.someTill Megaparsec.anySingle Megaparsec.Char.newline
 
-dateP :: Parser TL.Text
+dateP :: Parser LazyText
 dateP = do
-  void $ string "Date: "
+  Monad.void (Megaparsec.Char.string "Date: ")
   lineRemainderP
 
-subjectP :: Parser TL.Text
+subjectP :: Parser LazyText
 subjectP = do
-  void $ string "Subject: "
+  Monad.void (Megaparsec.Char.string "Subject: ")
   lineRemainderP
 
-inReplyToP :: Parser TL.Text
+inReplyToP :: Parser LazyText
 inReplyToP = do
-  void $ string "In-Reply-To: "
+  Monad.void (Megaparsec.Char.string "In-Reply-To: ")
   lineRemainderP
 
-referencesP :: Parser TL.Text
+referencesP :: Parser LazyText
 referencesP = do
-  void $ string "References: "
+  Monad.void (Megaparsec.Char.string "References: ")
   lineRemainderP
 
-messageIDP :: Parser TL.Text
+messageIDP :: Parser LazyText
 messageIDP = do
-  void $ string "Message-ID: "
+  Monad.void (Megaparsec.Char.string "Message-ID: ")
   lineRemainderP
 
-contentP :: Parser TL.Text
+contentP :: Parser LazyText
 contentP = do
-  TL.pack <$> someTill anySingle (lookAhead (void $ try headerP) <|> eof)
+  Text.Lazy.pack
+    <$> Megaparsec.someTill
+      Megaparsec.anySingle
+      (Megaparsec.lookAhead (Monad.void (Megaparsec.try headerP)) <|> Megaparsec.eof)
 
 headerP :: Parser Header
 headerP = do
@@ -94,20 +110,20 @@ headerP = do
   author <- authorP
   date <- dateP
   subject <- subjectP
-  inReplyTo <- optional inReplyToP
-  references <- optional referencesP
+  inReplyTo <- Applicative.optional inReplyToP
+  references <- Applicative.optional referencesP
   messageID <- messageIDP
-  return $ Header {..}
+  pure Header {..}
 
 messageP :: Parser Message
 messageP = do
   Header {..} <- headerP
   content <- contentP
-  return $ Message {..}
+  pure Message {..}
 
 testParser :: IO ()
 testParser = do
-  txt <- TL.readFile "./data/may.txt"
-  case runParser (many messageP) "input" txt of
-    Left errBundle -> putStrLn $ errorBundlePretty errBundle
-    Right result -> print $ result
+  text <- Text.Lazy.IO.readFile "./data/may.txt"
+  case Megaparsec.runParser (Applicative.many messageP) "input" text of
+    Left errBundle -> putStrLn (Megaparsec.errorBundlePretty errBundle)
+    Right result -> print result

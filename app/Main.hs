@@ -1,26 +1,20 @@
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE BlockArguments #-}
+{-# LANGUAGE ImportQualifiedPost #-}
+
 module Main where
 
-import Text.Megaparsec
-import qualified Data.Text.Lazy as TL
-import qualified Data.Text.Lazy.IO as TL
-import Control.Monad
-import Data.Traversable
-import Parser
-import RSS
-import Scraper
+import Data.Aeson qualified as Aeson
+import Parser qualified
+import Scraper qualified
+import Text.Megaparsec qualified as Megaparsec
 
 main :: IO ()
 main = do
-    txts <- fetchAllMonths
-    messages <- fmap concat $ for txts $ \txt -> do
-        case runParser (many messageP) "input" txt of
-            Left errBundle -> do
-                putStrLn $ errorBundlePretty errBundle
-                fail "An error occurred"
-            Right result -> return result
-    let theFeed = atom messages
-    TL.writeFile "atom.xml" theFeed
+  messages <-
+    Scraper.fetchAllMonths >>= foldMap \text -> do
+      case Megaparsec.runParser (Megaparsec.many Parser.messageP) "input" text of
+        Left errBundle -> do
+          putStrLn (Megaparsec.errorBundlePretty errBundle)
+          fail "An error occurred"
+        Right result -> pure result
+  Aeson.encodeFile "messages.json" messages
