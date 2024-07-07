@@ -11,7 +11,8 @@ module Parser where
 import Control.Applicative ((<|>))
 import Control.Applicative qualified as Applicative
 import Control.Monad qualified as Monad
-import Data.Aeson (ToJSON)
+import Data.Aeson (FromJSON, ToJSON)
+import Data.Function ((&))
 import Data.Text.Lazy (LazyText)
 import Data.Text.Lazy qualified as Text.Lazy
 import Data.Text.Lazy.IO qualified as Text.Lazy.IO
@@ -31,10 +32,9 @@ data Header = Header
     references :: Maybe LazyText,
     date :: LazyText
   }
-  deriving (Generic, Show, ToJSON)
+  deriving (Generic, Show, ToJSON, FromJSON)
 
-data Message
-  = Message
+data Message = Message
   { content :: LazyText,
     author :: LazyText,
     subject :: LazyText,
@@ -43,7 +43,7 @@ data Message
     references :: Maybe LazyText,
     date :: LazyText
   }
-  deriving (Generic, Show, ToJSON)
+  deriving (Generic, Show, ToJSON, FromJSON)
 
 preambleP :: Parser ()
 preambleP = do
@@ -85,7 +85,13 @@ subjectP = do
 inReplyToP :: Parser LazyText
 inReplyToP = do
   Monad.void (Megaparsec.Char.string "In-Reply-To: ")
-  lineRemainderP
+  lineRemainder <- lineRemainderP
+  -- Sometimes this looks like
+  --
+  --   In-Reply-To: <ID> (So-and-so's message of "Some date")
+  --
+  -- and we want to extract only the ID.
+  pure (Text.Lazy.takeWhile (/= ' ') lineRemainder)
 
 referencesP :: Parser LazyText
 referencesP = do
@@ -118,7 +124,19 @@ headerP = do
 messageP :: Parser Message
 messageP = do
   Header {..} <- headerP
-  content <- contentP
+  content' <- contentP
+  let content =
+        content'
+          & Text.Lazy.strip
+          & Text.Lazy.lines
+          & reverse
+          -- & dropWhile Text.Lazy.null
+          & span (\ln -> Text.Lazy.isPrefixOf "> " ln || Text.Lazy.null ln)
+          & \case
+            ([], rest) -> rest
+            (_, rest) -> dropWhile (\ln -> (Text.Lazy.isPrefixOf "On " ln && Text.Lazy.isSuffixOf "> wrote:" ln)) rest
+          & reverse
+          & Text.Lazy.unlines
   pure Message {..}
 
 testParser :: IO ()
