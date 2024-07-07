@@ -1,4 +1,6 @@
 .stack-work/
 *~
 dist-newstyle/
-messages.json
+messages*.json
+*.ndjson
+NOTES.md
