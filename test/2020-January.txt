@@ -1,0 +1,4200 @@
+From genaim at gmail.com  Thu Jan  2 09:02:51 2020
+From: genaim at gmail.com (Samir Genaim)
+Date: Thu, 2 Jan 2020 10:02:51 +0100
+Subject: [Haskell-cafe] WST 2020 Call for Papers
+In-Reply-To: <CABUq9nUVj-F5gizentiFX6qs-Eh9748AcHKd-63MQbthMCYiZg@mail.gmail.com>
+References: <CABUq9nUVj-F5gizentiFX6qs-Eh9748AcHKd-63MQbthMCYiZg@mail.gmail.com>
+Message-ID: <CABUq9nUd88PuR6TY3+LUpW5XWFBn+6YKqpF0tSed3e_QJdxV5g@mail.gmail.com>
+
+==========================================================================
+                           WST 2020 - Call for Papers
+                    17th International Workshop on Termination
+                        http://costa.fdi.ucm.es/wst2020
+
+                         July 4-5, 2020, Paris, France
+                      co-located with IJCAR and FSCD 2020.
+==========================================================================
+
+The Workshop on Termination (WST) traditionally brings together, in an
+informal setting, researchers interested in all aspects of termination,
+whether this interest be practical or theoretical, primary or derived.
+The workshop also provides a ground for cross-fertilization of ideas from
+the different communities interested in termination (e.g., working on
+computational mechanisms, programming languages, software engineering,
+constraint solving, etc.). The friendly atmosphere enables fruitful
+exchanges leading to joint research and subsequent publications.
+
+The workshop is co-located with IJCAR and FSCD 2020.
+
+    https://ijcar2020.org/  https://fscd2020.org/
+
+IMPORTANT DATES:
+
+  * submission deadline:  April 12, 2020
+  * notification:         May 10, 2020
+  * final version due:    May 31, 2020
+  * workshop:             July 4-5, 2020
+
+TOPICS: The 17th International Workshop on Termination welcomes
+contributions on all aspects of termination. In particular, papers
+investigating applications of termination (for example in complexity
+analysis, program analysis and transformation, theorem proving, program
+correctness, modeling computational systems, etc.) are very welcome.
+
+Topics of interest include (but are not limited to):
+
+  * abstraction methods in termination analysis
+  * certification of termination and complexity proofs
+  * challenging termination problems
+  * comparison and classification of termination methods
+  * complexity analysis in any domain
+  * implementation of termination methods
+  * non-termination analysis and loop detection
+  * normalization and infinitary normalization
+  * operational termination of logic-based systems
+  * ordinal notation and subrecursive hierarchies
+  * SAT, SMT, and constraint solving for (non-)termination analysis
+  * scalability and modularity of termination methods
+  * termination analysis in any domain (lambda calculus, declarative
+    programming, rewriting, transition systems, etc.)
+  * well-founded relations and well-quasi-orders
+
+COMPETITION: Since 2003, the catalytic effect of WST to stimulate
+new research on termination has been enhanced by the celebration
+of the Termination Competition and its continuously developing
+problem databases containing thousands of programs as challenges
+for termination analysis in different categories, see
+
+    http://termination-portal.org/wiki/Termination_Competition
+
+In 2020, the Termination Competition will run shortly before WST and
+the main venues (IJCAR-FSCD), and the results will be presented at
+IJCAR or FSCD.
+
+
+PROGRAM COMMITTEE:
+
+Martin Avanzini - INRIA Sophia, Antipolis
+Florian Frohn - Max-Planck-Institut für Informatik, Saarbrücken
+Carsten Fuhs - Birkbeck, U. of London
+Samir Genaim (chair) - U. Complutense de Madrid
+Jürgen Giesl - RWTH Aachen
+Matthias Heizmann - U. of Freiburg
+Cynthia Kop - Radboud U. Nijmegen
+Salvador Lucas - U. Politècnica de València
+Étienne Payet - U. de La Réunion
+Albert Rubio -  U. Complutense de Madrid
+René Thiemann - U. of Innsbruck
+Johannes Waldmann - HTWK Leipzig
+
+INVITED SPEAKERS:
+     tba
+
+SUBMISSION: Submissions are short papers/extended abstracts which
+should not exceed 5 pages. There will be no formal reviewing. In
+particular, we welcome short versions of recently published articles
+and papers submitted elsewhere. The program committee checks relevance
+and provides additional feedback for each submission. The accepted
+papers will be made available electronically before the workshop.
+
+Papers should be submitted electronically via the submission page:
+
+     https://easychair.org/conferences/?conf=wst2020
+
+Please, use LaTeX and the LIPIcs style file
+
+     http://drops.dagstuhl.de/styles/lipics/lipics-authors.tgz
+
+to prepare your submission.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200102/c73b5c88/attachment.html>
+
+From robstewart57 at gmail.com  Fri Jan  3 10:28:58 2020
+From: robstewart57 at gmail.com (Rob Stewart)
+Date: Fri, 3 Jan 2020 10:28:58 +0000
+Subject: [Haskell-cafe] [ANN] rdf4h-4.0.0 released - working with RDF in
+	Haskell
+Message-ID: <CA+ZOasKAnzddjqeXHJk=t-BLrOkwa_8O7ROJnf5hWKXgoNyUgQ@mail.gmail.com>
+
+Hi,
+
+rdf4h-4.0.0 has been released.
+
+This library [1,2] is for working with semantic web RDF data. It
+includes multiple graph representations, RDF parsers/serialisers, and
+an API for querying and modifying RDF graphs.
+
+Version 4.0.0 is significant because it is the first release of the
+rdf4h library to be 100% compliant [3] with the parser unit tests
+defined by the W3C RDF Test Suite Curation Community Group [4] for
+parsing NTriple, Turtle and XML RDF formats.
+
+[1] https://hackage.haskell.org/package/rdf4h-4.0.0
+[2] https://github.com/robstewart57/rdf4h
+[3] https://travis-ci.org/robstewart57/rdf4h
+[4] https://www.w3.org/community/rdf-tests/
+
+Special thanks to Slava Kravchenko, Pierre Le Marre and Renzo
+Carbonara whose efforts contributed to this milestone.
+
+--
+Rob Stewart
+
+From ghosh.debasish at gmail.com  Sat Jan  4 14:58:50 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Sat, 4 Jan 2020 20:28:50 +0530
+Subject: [Haskell-cafe] Lift data from IO to Validation
+Message-ID: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+
+Hi -
+
+I am not an experienced Haskell programmer and would like to have some help
+with the following problem ..
+
+I am trying to validate a bunch of inputs and found the package
+Data.Validation. I am also using Data.Time for date and time. I have a
+function like this ..
+
+validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+
+It's supposed to validate a date for which I need to fetch the current date
+and time. I can do that with getZonedTime :: IO ZonedTime. I want to check
+if the current time is less than the date time I pass to the function and
+return an appropriate Validation.
+
+The question is how do I lift the result from IO into the Validation ? Or
+is there any alternative strategy that I should consider for this
+validation ? I have a number of other validations which follow the same
+strategy but don't have the IO. My final goal is to be able to compose all
+these validations applicatively to prepare a final ADT in a smart
+constructor.
+
+Any help will be appreciated ..
+
+regards.
+
+-- 
+Debasish Ghosh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200104/132582e0/attachment.html>
+
+From tom-lists-haskell-cafe-2017 at jaguarpaw.co.uk  Sat Jan  4 15:01:51 2020
+From: tom-lists-haskell-cafe-2017 at jaguarpaw.co.uk (Tom Ellis)
+Date: Sat, 4 Jan 2020 15:01:51 +0000
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+Message-ID: <20200104150151.GB6228@weber>
+
+On Sat, Jan 04, 2020 at 08:28:50PM +0530, Debasish Ghosh wrote:
+> validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+> 
+> It's supposed to validate a date for which I need to fetch the current date
+> and time. I can do that with getZonedTime :: IO ZonedTime. I want to check
+> if the current time is less than the date time I pass to the function and
+> return an appropriate Validation.
+
+How about
+
+    validateNow = do
+        zonedTime <- getZonedTime
+        return (validateOpenDate zonedTime)
+
+From ietf-dane at dukhovni.org  Sat Jan  4 15:50:22 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Sat, 4 Jan 2020 10:50:22 -0500
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+Message-ID: <20200104155022.GZ73491@straasha.imrryr.org>
+
+On Sat, Jan 04, 2020 at 08:28:50PM +0530, Debasish Ghosh wrote:
+
+> I am trying to validate a bunch of inputs and found the package
+> Data.Validation. I am also using Data.Time for date and time. I have a
+> function like this.
+> 
+>   validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+> 
+> It's supposed to validate a date for which I need to fetch the current
+> date and time. I can do that with getZonedTime :: IO ZonedTime. I want
+> to check if the current time is less than the date time I pass to the
+> function and return an appropriate Validation.
+
+This function is not pure.  It needs an external input that affects its
+output.  Therefore, the honest type of this function is either:
+
+    -- | Validate date relative to current time
+    validateOpenDate :: ZonedTime -> IO (Validation [String] ZonedTime)
+
+or (with the caller doing the time lookup):
+
+    -- | Validate date relative to supplied time
+    validateOpenDate :: ZonedTime -> ZonedTime -> Validation [String] ZonedTime
+
+The "supplied time could be generalized to an "Environment" that carries
+whatever context information might be needed:
+
+    type Env = Env { curTime :: !ZonedTime }
+
+With all the validation functions now:
+
+    validateOpenDate :: ZonedTime -> Reader Env (Validation [String] ZonedTime)
+    validateOpenData inputDate = do
+        now <- asks curTime
+        if inputDate > now
+        then ...
+        else ...
+
+and then
+
+    import Control.Monad.Reader
+
+    main :: IO ()
+    main = do
+        env <- Env <$> getZonedTime
+        flip runReader env $ do
+            -- computations doing validation relative to the environment
+
+> The question is how do I lift the result from IO into the Validation?
+
+The only way to do that without changing the output type is to lie, and
+use "unsafePerformIO" to extract the date inside a pure function.  This
+is not recommended.
+
+> Or is there any alternative strategy that I should consider for this
+> validation ? I have a number of other validations which follow the
+> same strategy but don't have the IO. My final goal is to be able to
+> compose all these validations applicatively to prepare a final ADT in
+> a smart constructor.
+
+You should be able "compose" the validations in the context of an
+environment.  Either Monadically, or Applicatively.
+
+-- 
+    Viktor.
+
+From ghosh.debasish at gmail.com  Sat Jan  4 19:26:42 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Sun, 5 Jan 2020 00:56:42 +0530
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <20200104155022.GZ73491@straasha.imrryr.org>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+ <20200104155022.GZ73491@straasha.imrryr.org>
+Message-ID: <CAE7GCT7Q87dTtMpE8MCvHnpRVYW3k2CbS0-AnXwj=4Bnm3eAUw@mail.gmail.com>
+
+Thanks for all the suggestions .. Here's an example of a validation
+function with Reader Env ..
+
+validateOpenDate :: ZonedTime -> Reader Env (Validation [String] ZonedTime)
+validateOpenDate openDate = do
+  now <- asks curTime
+  if zonedTimeToUTC openDate > zonedTimeToUTC now
+  then return $ Failure ["Account open date cannot be in the future"]
+  else return $ Success openDate
+
+I have a few such functions and I wire them together to form a smart
+constructor that builds an ADT ..
+
+makeAccount :: String -> String -> ZonedTime -> IO (Validation [String]
+Account)
+makeAccount no name openDate = do
+  env <- Env <$> getZonedTime
+  flip runReader env $ do
+    validAccountNo       <- validateAccountNo no
+    validAccountName     <- validateAccountName name
+    validOpeningDate     <- validateOpenDate openDate
+    return $ return $ Account <$> validAccountNo <*> validAccountName <*>
+validOpeningDate
+
+Does this look like an idiomatic implementation ? Is there any scope to
+make things better ? I compose applicatively as I need to accumulate all
+validation errors. And also Validation does not have a Monad ..
+
+regards.
+
+On Sat, Jan 4, 2020 at 9:20 PM Viktor Dukhovni <ietf-dane at dukhovni.org>
+wrote:
+
+> On Sat, Jan 04, 2020 at 08:28:50PM +0530, Debasish Ghosh wrote:
+>
+> > I am trying to validate a bunch of inputs and found the package
+> > Data.Validation. I am also using Data.Time for date and time. I have a
+> > function like this.
+> >
+> >   validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+> >
+> > It's supposed to validate a date for which I need to fetch the current
+> > date and time. I can do that with getZonedTime :: IO ZonedTime. I want
+> > to check if the current time is less than the date time I pass to the
+> > function and return an appropriate Validation.
+>
+> This function is not pure.  It needs an external input that affects its
+> output.  Therefore, the honest type of this function is either:
+>
+>     -- | Validate date relative to current time
+>     validateOpenDate :: ZonedTime -> IO (Validation [String] ZonedTime)
+>
+> or (with the caller doing the time lookup):
+>
+>     -- | Validate date relative to supplied time
+>     validateOpenDate :: ZonedTime -> ZonedTime -> Validation [String]
+> ZonedTime
+>
+> The "supplied time could be generalized to an "Environment" that carries
+> whatever context information might be needed:
+>
+>     type Env = Env { curTime :: !ZonedTime }
+>
+> With all the validation functions now:
+>
+>     validateOpenDate :: ZonedTime -> Reader Env (Validation [String]
+> ZonedTime)
+>     validateOpenData inputDate = do
+>         now <- asks curTime
+>         if inputDate > now
+>         then ...
+>         else ...
+>
+> and then
+>
+>     import Control.Monad.Reader
+>
+>     main :: IO ()
+>     main = do
+>         env <- Env <$> getZonedTime
+>         flip runReader env $ do
+>             -- computations doing validation relative to the environment
+>
+> > The question is how do I lift the result from IO into the Validation?
+>
+> The only way to do that without changing the output type is to lie, and
+> use "unsafePerformIO" to extract the date inside a pure function.  This
+> is not recommended.
+>
+> > Or is there any alternative strategy that I should consider for this
+> > validation ? I have a number of other validations which follow the
+> > same strategy but don't have the IO. My final goal is to be able to
+> > compose all these validations applicatively to prepare a final ADT in
+> > a smart constructor.
+>
+> You should be able "compose" the validations in the context of an
+> environment.  Either Monadically, or Applicatively.
+>
+> --
+>     Viktor.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+
+
+-- 
+Debasish Ghosh
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200105/11e231ca/attachment.html>
+
+From lexi.lambda at gmail.com  Sat Jan  4 19:30:45 2020
+From: lexi.lambda at gmail.com (Alexis King)
+Date: Sat, 4 Jan 2020 13:30:45 -0600
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+Message-ID: <E4DE323F-3753-4DFD-BC58-CD1BDA7AA0F2@gmail.com>
+
+You might want to check out https://hackage.haskell.org/package/monad-validate <https://hackage.haskell.org/package/monad-validate>, which provides a monad transformer version of a Validation-like type. You can stack it on top of IO and do whatever you want there. Errors are collected from multiple branches as long as you use applicative operations where possible, so you probably want to use ApplicativeDo. The monad laws are satisfied via a relaxed notion of equality; see the documentation for more info.
+
+Disclaimer: I am the author of monad-validate.
+
+Alexis
+
+> On Jan 4, 2020, at 08:58, Debasish Ghosh <ghosh.debasish at gmail.com> wrote:
+> 
+> Hi -
+> 
+> I am not an experienced Haskell programmer and would like to have some help with the following problem ..
+> 
+> I am trying to validate a bunch of inputs and found the package Data.Validation. I am also using Data.Time for date and time. I have a function like this ..
+> 
+> validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+> 
+> It's supposed to validate a date for which I need to fetch the current date and time. I can do that with getZonedTime :: IO ZonedTime. I want to check if the current time is less than the date time I pass to the function and return an appropriate Validation.
+> 
+> The question is how do I lift the result from IO into the Validation ? Or is there any alternative strategy that I should consider for this validation ? I have a number of other validations which follow the same strategy but don't have the IO. My final goal is to be able to compose all these validations applicatively to prepare a final ADT in a smart constructor.
+> 
+> Any help will be appreciated ..
+> 
+> regards.
+> 
+> -- 
+> Debasish Ghosh
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200104/91362495/attachment.html>
+
+From ghosh.debasish at gmail.com  Sat Jan  4 20:26:55 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Sun, 5 Jan 2020 01:56:55 +0530
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <E4DE323F-3753-4DFD-BC58-CD1BDA7AA0F2@gmail.com>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+ <E4DE323F-3753-4DFD-BC58-CD1BDA7AA0F2@gmail.com>
+Message-ID: <CAE7GCT5az2LA_Curup_9KetPFWrGGUKM_eaAu651-e_9e6tE1w@mail.gmail.com>
+
+Thanks for the pointer .. the documentation
+https://hackage.haskell.org/package/monad-validate-1.2.0.0/docs/Control-Monad-Validate.html
+looks
+awesome.
+
+regards.
+
+On Sun, Jan 5, 2020 at 1:00 AM Alexis King <lexi.lambda at gmail.com> wrote:
+
+> You might want to check out
+> https://hackage.haskell.org/package/monad-validate, which provides a
+> monad transformer version of a Validation-like type. You can stack it on
+> top of IO and do whatever you want there. Errors are collected from
+> multiple branches as long as you use applicative operations where possible,
+> so you probably want to use ApplicativeDo. The monad laws are satisfied via
+> a relaxed notion of equality; see the documentation for more info.
+>
+> Disclaimer: I am the author of monad-validate.
+>
+> Alexis
+>
+> On Jan 4, 2020, at 08:58, Debasish Ghosh <ghosh.debasish at gmail.com> wrote:
+>
+> Hi -
+>
+> I am not an experienced Haskell programmer and would like to have some
+> help with the following problem ..
+>
+> I am trying to validate a bunch of inputs and found the package
+> Data.Validation. I am also using Data.Time for date and time. I have a
+> function like this ..
+>
+> validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+>
+> It's supposed to validate a date for which I need to fetch the current
+> date and time. I can do that with getZonedTime :: IO ZonedTime. I want to
+> check if the current time is less than the date time I pass to the function
+> and return an appropriate Validation.
+>
+> The question is how do I lift the result from IO into the Validation ? Or
+> is there any alternative strategy that I should consider for this
+> validation ? I have a number of other validations which follow the same
+> strategy but don't have the IO. My final goal is to be able to compose all
+> these validations applicatively to prepare a final ADT in a smart
+> constructor.
+>
+> Any help will be appreciated ..
+>
+> regards.
+>
+> --
+> Debasish Ghosh
+>
+>
+>
+
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200105/6a6cb1d9/attachment.html>
+
+From dhelta.diaz at gmail.com  Sat Jan  4 21:43:21 2020
+From: dhelta.diaz at gmail.com (=?UTF-8?Q?Daniel_D=C3=ADaz_Casanueva?=)
+Date: Sat, 4 Jan 2020 22:43:21 +0100
+Subject: [Haskell-cafe] Lift data from IO to Validation
+In-Reply-To: <E4DE323F-3753-4DFD-BC58-CD1BDA7AA0F2@gmail.com>
+References: <CAE7GCT4OiGgbPqtgXHVWseetjwL-uFyS_fiiO9OtpgHK63Tn-g@mail.gmail.com>
+ <E4DE323F-3753-4DFD-BC58-CD1BDA7AA0F2@gmail.com>
+Message-ID: <CAJFXAQjZ2p3kDhfxNKMuwt3eYKjhMy36geVgXbb2sotwetATJA@mail.gmail.com>
+
+The documentation of monad-validate is indeed great. I didn't know about
+this package before. I will add it to my list of nice Haskell libraries.
+
+Cheers,
+Daniel
+
+Am Sa., 4. Jan. 2020 um 20:31 Uhr schrieb Alexis King <lexi.lambda at gmail.com
+>:
+
+> You might want to check out
+> https://hackage.haskell.org/package/monad-validate, which provides a
+> monad transformer version of a Validation-like type. You can stack it on
+> top of IO and do whatever you want there. Errors are collected from
+> multiple branches as long as you use applicative operations where possible,
+> so you probably want to use ApplicativeDo. The monad laws are satisfied via
+> a relaxed notion of equality; see the documentation for more info.
+>
+> Disclaimer: I am the author of monad-validate.
+>
+> Alexis
+>
+> On Jan 4, 2020, at 08:58, Debasish Ghosh <ghosh.debasish at gmail.com> wrote:
+>
+> Hi -
+>
+> I am not an experienced Haskell programmer and would like to have some
+> help with the following problem ..
+>
+> I am trying to validate a bunch of inputs and found the package
+> Data.Validation. I am also using Data.Time for date and time. I have a
+> function like this ..
+>
+> validateOpenDate :: ZonedTime -> Validation [String] ZonedTime
+>
+> It's supposed to validate a date for which I need to fetch the current
+> date and time. I can do that with getZonedTime :: IO ZonedTime. I want to
+> check if the current time is less than the date time I pass to the function
+> and return an appropriate Validation.
+>
+> The question is how do I lift the result from IO into the Validation ? Or
+> is there any alternative strategy that I should consider for this
+> validation ? I have a number of other validations which follow the same
+> strategy but don't have the IO. My final goal is to be able to compose all
+> these validations applicatively to prepare a final ADT in a smart
+> constructor.
+>
+> Any help will be appreciated ..
+>
+> regards.
+>
+> --
+> Debasish Ghosh
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200104/74ec4bff/attachment.html>
+
+From lemming at henning-thielemann.de  Sun Jan  5 10:52:32 2020
+From: lemming at henning-thielemann.de (Henning Thielemann)
+Date: Sun, 5 Jan 2020 11:52:32 +0100 (CET)
+Subject: [Haskell-cafe] separate compilation for library profiling
+Message-ID: <alpine.DEB.2.20.2001051139300.3907@sputnik>
+
+
+Why does GHC start a separate compilation when I build with cabal 
+--enable-library-profiling? At least parsing and type-checking should be 
+the same as in the non-profiling compilation. Why aren't these steps 
+shared between profiling and non-profiling compilation?
+
+I remember that in the past GHC also started a separate compilation for 
+shared object generation. However, starting with GHC-7.8 dyn-files are 
+just generated along with static compilation.
+
+From tanuki at gmail.com  Mon Jan  6 12:28:27 2020
+From: tanuki at gmail.com (Akhra Gannon)
+Date: Mon, 6 Jan 2020 04:28:27 -0800
+Subject: [Haskell-cafe] Supporting Haskell.org
+In-Reply-To: <CAJN5CV+_Cqi5Ue7Ev2XtZma3tRvucxsjjvNE-URX-vA7gkhtqw@mail.gmail.com>
+References: <CAJN5CV+_Cqi5Ue7Ev2XtZma3tRvucxsjjvNE-URX-vA7gkhtqw@mail.gmail.com>
+Message-ID: <CAJoPsuCHYNY0jLwAW9YWdnVhMEVzYXgK8JXFG5ZOkNJBR2pthg@mail.gmail.com>
+
+haskell.org is also an available charity for smile.amazon.com purchases!
+
+On Tue, Dec 24, 2019, 4:21 PM Tikhon Jelvis <tikhon at jelv.is> wrote:
+
+> A significant part of the Haskell community infrastructure—including the
+> haskell.org website, Hackage, Hoogle and the build infrastructure for
+> GHC—runs on donations from the Haskell community administered
+> by Haskell.org.
+>
+> Haskell.org also organizes Haskell's participation in the Google Summer of
+> Code program. We had 18 projects this year, 15 of which were completed
+> successfully, a solid completion ratio.
+>
+> If you would like to support Haskell.org, you can donate via several
+> methods including PayPal and check:
+>
+> https://wiki.haskell.org/Donate_to_Haskell.org
+>
+> Haskell.org can also accept donations through employers via Benevity
+> using the unique ID 475236502.
+>
+> Haskell.org is a 501(c)(3) non-profit, so donations may be tax-deductible
+> in your jurisdiction.
+>
+> We look forward to continuing this work with your support in 2020 as well
+> as exploring new projects to improve the Haskell community infrastructure.
+>
+> Best wishes, Tikhon Jelvis on behalf of the haskell.org committee.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200106/5e07795d/attachment.html>
+
+From P.Achten at cs.ru.nl  Tue Jan  7 08:29:59 2020
+From: P.Achten at cs.ru.nl (Peter Achten)
+Date: Tue, 7 Jan 2020 09:29:59 +0100
+Subject: [Haskell-cafe] [TFP'20] draft paper deadline open (January 10 2020)
+ Trends in Functional Programming 2020, 13-14 February, Krakow, Poland
+Message-ID: <c5b4ffbb-23ca-c2b9-bd68-dd92405617ab@cs.ru.nl>
+
+-------------------------------------------------------------------------
+                      Final call for papers
+         21st Symposium on Trends in Functional Programming
+                           tfp2020.org
+-------------------------------------------------------------------------
+
+Did you miss the deadline to submit a paper to Trends in Functional 
+Programming
+http://www.cse.chalmers.se/~rjmh/tfp/? No worries -- it's not too late!
+Submission is open until January 10th 2020, for a presentation slot at 
+the event
+and post-symposium reviewing.
+
+The symposium on Trends in Functional Programming (TFP) is an international
+forum for researchers with interests in all aspects of functional 
+programming,
+taking a broad view of current and future trends in the area. It aspires 
+to be
+a lively environment for presenting the latest research results, and other
+contributions.
+
+* TFP is moving to new winter dates, to provide an FP forum in between the
+   annual ICFP events.
+
+* TFP offers a supportive reviewing process designed to help less 
+experienced
+   authors succeed, with two rounds of review, both before and after the
+   symposium itself. Authors have an opportunity to address reviewers' 
+concerns
+   before final decisions on publication in the proceedings.
+
+* TFP offers two "best paper" awards, the John McCarthy award for best 
+paper,
+   and the David Turner award for best student paper.
+
+* This year we are particularly excited to co-locate with Lambda Days in
+   beautiful Krakow. Lambda Days is a vibrant developer conference with 
+hundreds
+   of attendees and a lively programme of talks on functional programming in
+   practice. TFP will be held in the same venue, and participants will 
+be able
+   to session-hop between the two events.
+
+
+Important Dates
+---------------
+
+Submission deadline for pre-symposium review:   15th November, 2019  -- 
+passed --
+Submission deadline for draft papers:           10th January, 2020
+Symposium dates:                                13-14th February, 2020
+
+Visit tfp2020.org for more information.
+
+
+From capn.freako at gmail.com  Sun Jan 12 00:38:00 2020
+From: capn.freako at gmail.com (David Banas)
+Date: Sat, 11 Jan 2020 16:38:00 -0800
+Subject: [Haskell-cafe] Road map for moving to new Haskell Platform?
+Message-ID: <5D34A899-C8CD-40C0-8736-BE0656CA838E@gmail.com>
+
+It looks like the method of installing the Haskell Platform (at least, on MacOS) changed majorly, since the last time I updated. Is there any kind of “road map” to help us make the switch.
+
+Some questions that occurred to me, while I was doing the new install (via `curl … | sh`, as opposed to downloading a binary installer):
+It looks like there’s a new default install root: `~/.ghcup/`; does that mean I should rip out `/Library/Haskell/` and `~/Library/Haskell/`?
+Is `new-…` now the default (cabal v3.0.0.0), as previously threatened, or does the `new-` still need to be given explicitly? I’m getting different results using: `cabal install …` and `cabal new-install …`, and the `cabal install …` is complaining about a missing configuration variable: `installdir`, which I can’t find in my existing `~/.cabal/config` file. (Are the old `install_dirs` sections, with their several sub-variables, being ignored now?)
+Is `~/.cabal/config` still the default location for the config. file?
+How does one generate a new-format config. file? (Should one do this?)
+It looks like things are being sym-linked into `/usr/local/bin/` now; should I give that directory higher priority in my PATH variable?
+Any needed updates to Emacs config., to keep everything running smoothly?
+
+Thanks,
+-db
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200111/560db092/attachment.html>
+
+From komendantskaya at gmail.com  Sun Jan 12 17:22:34 2020
+From: komendantskaya at gmail.com (Ekaterina Komendantskaya)
+Date: Sun, 12 Jan 2020 17:22:34 +0000
+Subject: [Haskell-cafe] ETAPS Workshop on Trends, Extensions,
+ Applications and Semantics of Logic Programming (TEASE-LP 2020)
+Message-ID: <CAEQEJxJpi6NAmp_YoPMjSNJCH_fzMrvWvEMDq10DnmmrqmdtCQ@mail.gmail.com>
+
+                  Call for Contributions
+
+           Workshop on Trends, Extensions, Applications and
+            Semantics of Logic Programming (TEASE-LP 2020)
+                  Dublin, Ireland, 25 April 2020
+                   (co-located with ETAPS 2020)
+                      www.coalg.org/tease-lp
+
+Logic programming is a framework for expressing programs, propositions
+and relations as Horn clause theories, with the purpose of performing
+automatic inference in these theories. Horn clause theories are famous
+for their well-understood declarative semantics, in which models of
+logic programs are given inductively or coinductively. At the same time,
+Horn clauses give rise to efficient inference procedures, usually involving
+resolution. Logic programming found applications in type inference,
+verification, and AI. While logic programming was originally conceived
+for describing simple facts, it was extended to account for much more
+complex theories. This includes higher-order theories, inductive and
+coinductive data, and stochastic/probabilistic theories.
+
+The aim of this workshop is to bring together researchers that work on
+extensions of logic programming and inference methods, and to foster an
+exchange of methods and applications that have emerged in different
+communities.
+
+Topics
+---------------------------
+The central idea of this workshop is to discuss the theory of logic
+programming and associated topics that have as well the goal to
+automatically infer knowledge and proofs. Our intention is to bring
+together researchers that work on the numerous topics that contribute to
+automatic proof inference and foster an exchange that may lead to  advances
+in the theory of logic programming.
+
+Topics of interest include, but are not limited to, the following:
+
+    * Proof theory (e.g. focalised and uniform proofs),
+    * Logic programming beyond the classical Horn clause theories
+      (e.g. coinduction, higher-order Horn clauses, probabilities,
+      categorical logic, inductive LP),
+    * Extensions of logic programming (e.g. DataLog, description logic,
+      relational programming),
+    * Advanced implementations (e.g. λProlog, ELPI, miniKanren),
+    * Type theory (e.g. polarised λ-calculus, proofs-as-programs,
+       types for logic programming),
+    * Semantics (e.g. classical, categorical, algebraic, coalgebraic) , and
+    * Applications.
+
+Venue and Event
+---------------------------
+TEASE-LP 2020 will be held in Dublin, Ireland, co-located with
+ETAPS 2020 on 25 April 2020.
+
+Important Dates
+---------------------------
+Abstract submission    Wednesday, 26 February 2020 AoE
+Notification           Wednesday, 25 March 2020 AoE
+Camera-ready copy      Wednesday, 1 April 2020 AoE
+Workshop               Saturday, 25 April 2020
+
+Programme Committee
+---------------------------
+Henning Basold (chair), Leiden University, NLD
+William Byrd, University of Alabama at Birmingham, USA
+Gopal Gupta, The University of Texas at Dallas, USA
+Ekaterina Komendantskaya (chair), Heriot-Watt University, GBR
+Dale Miller, INRIA and LIX/Ecole Polytechnique, FRA
+Gopalan Nadathur, University of Minnesota, USA
+Frank Pfenning, Carnegie Mellon University, USA
+Hiroshi Unno, University of Tsukuba, JPN
+Noam Zeilberger, University of Birmingham, GBR
+
+Submission Instructions
+---------------------------
+Since the aim of the workshop is to foster exchange and discussions
+on trends, extensions, applications and semantics of logic programming,
+we invite presentations of possibly already published as well as ongoing
+work. Submissions should be abstracts of at most two pages in
+EPTCS style (http://style.eptcs.org/) and will be only be published in
+the informal pre-proceedings and on the website of the workshop.
+Post-proceedings volume may be solicited by the PC, based on the quality
+of contributions. Contributions should be submitted via the Easychair
+system:
+
+  https://easychair.org/my/conference?conf=teaselp2020
+
+All contributions will be refereed by the programme committee and it is
+expected that at least one of the authors will be present during the
+workshop.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200112/e34d9450/attachment.html>
+
+From m at jaspervdj.be  Sun Jan 12 19:15:46 2020
+From: m at jaspervdj.be (Jasper Van der Jeugt)
+Date: Sun, 12 Jan 2020 14:15:46 -0500
+Subject: [Haskell-cafe] [GSoC 2020] Call for Ideas
+Message-ID: <20200112191546.GB1077@kakigori>
+
+Google Summer of Code [1] will take place again in 2020!
+
+Haskell.org has been able to take part in this program in the past
+two years, and we'd like to keep this momentum up since it greatly
+benefits the community.
+
+Google is not extremely open about what factors it considers for
+applications from organizations, but they have stated multiple times
+that a well-organized ideas list is crucial.  For that, we would like
+to count on all of you again.
+
+If you are the maintainer or a user of a Haskell project, and you
+have an improvement in mind which a student could work on during the
+summer, please submit an idea here:
+
+    https://summer.haskell.org/ideas.html
+
+For context, Google Summer of Code is a program where Google
+sponsors students to work on open-source projects during the summer.
+Haskell.org has taken part in this program in 2006-2015, and 2018-2019.
+Many important improvements to the ecosystem have been the direct or
+indirect result of Google Summer of Code projects, and it has also
+connected new people with the existing community.
+
+Projects should benefit as many people as possible – e.g. an
+improvement to GHC will benefit more people than an update to a
+specific library or tool, but both are definitely valid.  New libraries
+and applications written in Haskell, rather than improvements to
+existing ones, are also accepted.  Projects should be concrete and
+small enough in scope such that they can be finished by a student
+in three months.  Past experience has shown that keeping projects
+"small" is almost always a good idea.
+
+[1]: https://summerofcode.withgoogle.com/
+
+Warm regards
+Jasper
+
+From kindaro at gmail.com  Mon Jan 13 06:21:13 2020
+From: kindaro at gmail.com (Ignat Insarov)
+Date: Mon, 13 Jan 2020 09:21:13 +0300
+Subject: [Haskell-cafe] Possibly an error in Tutorial?
+Message-ID: <CAB-2Q0_FjO4ZgKTCecp0xO+LyGpTHwP+brAyz5NgQfSsPJ8emw@mail.gmail.com>
+
+In this line:
+
+> For example, the principal type of `head` is `[a]->a`; `[b]->a`, `a->a`, or even `a` are correct types, but too general, whereas something like `[Integer]->Integer` is too specific.
+
+— It is not clear how `a → a` can be a correct type for `head`,
+insofar as all occurrences of a type variable must be instantiated to
+the same concrete type. If this sentence is actually correct, perhaps
+it could be clarified to address the issue?
+
+This concern was raised on Reddit:
+https://www.reddit.com/r/haskellquestions/comments/enqhu0/how_does_head_have_type_a_a/
+
+Link to tutorial:
+https://www.haskell.org/tutorial/goodies.html
+
+From a.pelenitsyn at gmail.com  Mon Jan 13 18:07:25 2020
+From: a.pelenitsyn at gmail.com (Artem Pelenitsyn)
+Date: Mon, 13 Jan 2020 13:07:25 -0500
+Subject: [Haskell-cafe] Fwd: State of BNFC-meta and friends
+In-Reply-To: <CAPKAvQWn6ht=Wp-GMT3ijRykrOubXBi14LEsu=yMnxjBsC_abA@mail.gmail.com>
+References: <CAPKAvQVnaqqUEPeea9DZ-z0aBOwwMbney1JFfRGTYmrqy9dxiw@mail.gmail.com>
+ <CAPKAvQWn6ht=Wp-GMT3ijRykrOubXBi14LEsu=yMnxjBsC_abA@mail.gmail.com>
+Message-ID: <CAPKAvQXYvoX6mFNcFPuSAKmwRhd5eLazLAnx1AK8Hm-gDEbRhg@mail.gmail.com>
+
+Dear cafe,
+
+I tried to contact Jonas, the maintainer of BNFC-meta[1], twice
+(a week ago and 1.5 months ago, see below the copies of emails)
+with regards to updating the package to recent GHC, but with no luck.
+
+I'm interested in taking over the package if nobody minds...
+
+[1]: http://hackage.haskell.org/package/BNFC-meta
+
+--
+Kind regards, Artem
+
+---------- Forwarded message ---------
+From: Artem Pelenitsyn <a.pelenitsyn at gmail.com>
+Date: Sun, 5 Jan 2020 at 15:06
+Subject: Re: State of BNFC-meta and friends
+To: <jonas.duregard at gmail.com>
+
+
+Hey Jonas,
+
+Just wanted to check if you saw my mail…
+
+--
+Best, Artem
+
+On Thu, 21 Nov 2019 at 20:44, Artem Pelenitsyn <a.pelenitsyn at gmail.com>
+wrote:
+
+> Hello Jonas,
+>
+> I'm writing to let you know that your Hackage packages
+>
+> * BNFS-meta,
+> * happy-meta,
+> * alex-meta
+>
+> fail to build with current versions of GHC (8.6, 8.8). I wonder if you
+> intend to update them?
+>
+> All of them require bumping the template-haskell upper bound to <2.16.
+>
+> happy-meta seems to have weird interactions with newer Cabal because of
+> "Build-type: Custom" along the lines
+> https://github.com/haskell/cabal/issues/5278 Given that your Setup.hs
+> uses Distribution.Simple, I don't really see the point of having Custom.
+> Switching to "Build-type: Simple" seems to work just fine.
+>
+> alex-meta has one broken Monoid instance as per SMP proposal. Easily
+> upgraded.
+>
+> With these changes, I was able to build BNFC-meta successfully with GHC
+> 8.6.5, cabal 2.4. I'd be happy to supply pull requests but I don't see
+> {alex,happy}-meta repositories anywhere, and I noticed BNFC-meta repo on
+> GitHub has the version of the package different from what is on Hackage.
+>
+> There is a bunch of deprecation and tabs warnings also.
+>
+> Kind regards,
+> Artem Pelenitsyn
+> PhD student at Northeastern U.
+> http://www.ccs.neu.edu/~artem/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200113/12434d08/attachment.html>
+
+From a.pelenitsyn at gmail.com  Mon Jan 13 18:08:14 2020
+From: a.pelenitsyn at gmail.com (Artem Pelenitsyn)
+Date: Mon, 13 Jan 2020 13:08:14 -0500
+Subject: [Haskell-cafe] Fwd: State of BNFC-meta and friends
+In-Reply-To: <CAPKAvQXYvoX6mFNcFPuSAKmwRhd5eLazLAnx1AK8Hm-gDEbRhg@mail.gmail.com>
+References: <CAPKAvQVnaqqUEPeea9DZ-z0aBOwwMbney1JFfRGTYmrqy9dxiw@mail.gmail.com>
+ <CAPKAvQWn6ht=Wp-GMT3ijRykrOubXBi14LEsu=yMnxjBsC_abA@mail.gmail.com>
+ <CAPKAvQXYvoX6mFNcFPuSAKmwRhd5eLazLAnx1AK8Hm-gDEbRhg@mail.gmail.com>
+Message-ID: <CAPKAvQXeQHpa0CkDKCy83D3L3DeVYbY8nCuzzenhx1jyT735OA@mail.gmail.com>
+
+CCinf Jonas
+
+---------- Forwarded message ---------
+From: Artem Pelenitsyn <a.pelenitsyn at gmail.com>
+Date: Mon, 13 Jan 2020 at 13:07
+Subject: Fwd: State of BNFC-meta and friends
+To: Haskell Cafe <haskell-cafe at haskell.org>
+
+
+Dear cafe,
+
+I tried to contact Jonas, the maintainer of BNFC-meta[1], twice
+(a week ago and 1.5 months ago, see below the copies of emails)
+with regards to updating the package to recent GHC, but with no luck.
+
+I'm interested in taking over the package if nobody minds...
+
+[1]: http://hackage.haskell.org/package/BNFC-meta
+
+--
+Kind regards, Artem
+
+---------- Forwarded message ---------
+From: Artem Pelenitsyn <a.pelenitsyn at gmail.com>
+Date: Sun, 5 Jan 2020 at 15:06
+Subject: Re: State of BNFC-meta and friends
+To: <jonas.duregard at gmail.com>
+
+
+Hey Jonas,
+
+Just wanted to check if you saw my mail…
+
+--
+Best, Artem
+
+On Thu, 21 Nov 2019 at 20:44, Artem Pelenitsyn <a.pelenitsyn at gmail.com>
+wrote:
+
+> Hello Jonas,
+>
+> I'm writing to let you know that your Hackage packages
+>
+> * BNFS-meta,
+> * happy-meta,
+> * alex-meta
+>
+> fail to build with current versions of GHC (8.6, 8.8). I wonder if you
+> intend to update them?
+>
+> All of them require bumping the template-haskell upper bound to <2.16.
+>
+> happy-meta seems to have weird interactions with newer Cabal because of
+> "Build-type: Custom" along the lines
+> https://github.com/haskell/cabal/issues/5278 Given that your Setup.hs
+> uses Distribution.Simple, I don't really see the point of having Custom.
+> Switching to "Build-type: Simple" seems to work just fine.
+>
+> alex-meta has one broken Monoid instance as per SMP proposal. Easily
+> upgraded.
+>
+> With these changes, I was able to build BNFC-meta successfully with GHC
+> 8.6.5, cabal 2.4. I'd be happy to supply pull requests but I don't see
+> {alex,happy}-meta repositories anywhere, and I noticed BNFC-meta repo on
+> GitHub has the version of the package different from what is on Hackage.
+>
+> There is a bunch of deprecation and tabs warnings also.
+>
+> Kind regards,
+> Artem Pelenitsyn
+> PhD student at Northeastern U.
+> http://www.ccs.neu.edu/~artem/
+>
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200113/199ee9e8/attachment.html>
+
+From P.Achten at cs.ru.nl  Tue Jan 14 15:46:10 2020
+From: P.Achten at cs.ru.nl (Peter Achten)
+Date: Tue, 14 Jan 2020 16:46:10 +0100
+Subject: [Haskell-cafe] [TFP'20] call for participation: Trends in
+ Functional Programming 2020, 13-14 February, Krakow, Poland
+Message-ID: <77903442-923a-5d15-0521-bc91bbc1c853@cs.ru.nl>
+
+-------------------------------------------------------------------------
+                     Call for participation
+         21st Symposium on Trends in Functional Programming
+                           tfp2020.org
+-------------------------------------------------------------------------
+
+The list of accepted papers is available at 
+http://www.cse.chalmers.se/~rjmh/tfp/
+
+The symposium on Trends in Functional Programming (TFP) is an international
+forum for researchers with interests in all aspects of functional 
+programming,
+taking a broad view of current and future trends in the area. It aspires 
+to be
+a lively environment for presenting the latest research results, and other
+contributions.
+
+* TFP is moving to new winter dates, to provide an FP forum in between the
+   annual ICFP events.
+
+* TFP offers a supportive reviewing process designed to help less 
+experienced
+   authors succeed, with two rounds of review, both before and after the
+   symposium itself. Authors have an opportunity to address reviewers' 
+concerns
+   before final decisions on publication in the proceedings.
+
+* TFP offers two "best paper" awards, the John McCarthy award for best 
+paper,
+   and the David Turner award for best student paper.
+
+* This year we are particularly excited to co-locate with Lambda Days in
+   beautiful Krakow. Lambda Days is a vibrant developer conference with 
+hundreds
+   of attendees and a lively programme of talks on functional 
+programming in
+   practice. TFP will be held in the same venue, and participants will 
+be able
+   to session-hop between the two events.
+
+
+Important Dates
+---------------
+
+Submission deadline for pre-symposium review:   15th November,    2019  
+-- passed --
+Submission deadline for draft papers:           10th January,     2020  
+-- passed --
+Registration (regular):                         2nd February,    2020
+Registration (late):                            13th February,    2020
+Symposium dates:                                13-14th February, 2020
+
+Visit tfp2020.org for more information.
+
+From ghosh.debasish at gmail.com  Tue Jan 14 17:59:50 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Tue, 14 Jan 2020 23:29:50 +0530
+Subject: [Haskell-cafe] database programming with Haskell
+Message-ID: <CAE7GCT4htkEO=baJz8ekwH8mnt8OvD1n1GbrmWgqF2HyedPhNQ@mail.gmail.com>
+
+Hello -
+
+I am looking for some good practices on how to design database access APIs
+in applications using Haskell. I have been going through various
+libraries like persistent, Esqueleto etc. All of them have nice APIs.
+However I am looking for practices around designing APIs that also offer
+testability without plugging in a concrete database engine. Like the one we
+can design using tagless final approaches where we can switch out the
+Database monad with some mocked one (maybe that uses some hashmap instead
+of a real database) for unit tests.
+
+Is there any recommended practice on this or may be some sample application
+that's designed around these practices ? Or is this at all a recommended
+practice in Haskell ?
+
+regards.
+
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200114/ddcfedf0/attachment.html>
+
+From travis at anduril.com  Tue Jan 14 21:59:53 2020
+From: travis at anduril.com (Travis Whitaker)
+Date: Tue, 14 Jan 2020 13:59:53 -0800
+Subject: [Haskell-cafe] [Job] Hiring Numerical Programmers at Anduril
+	Industries
+Message-ID: <CAJ0zmqfb7VX0-8ZzjFRvfbGS7OMBwYyU_YYE-akvd_QRwyKKBw@mail.gmail.com>
+
+Greetings Fellow Haskellers,
+
+Anduril Industries is hiring Haskellers for numerical programming work.
+Quick Details:
+
+- Seeking Haskellers familiar with numerical programming techniques.
+- Familiarity with LLVM, FORTRAN, Linux, and compiler engineering is
+advantageous.
+- Positions for internships and new graduates are available.
+- Regrettably, no remote opportunities are available at this time. We are
+located in southern California, USA.
+
+Anduril is looking for engineers to rapidly develop high-reliability
+solutions to numerical problems by leveraging lightweight formal methods.
+We are working on problems from a wide range of disciplines, including
+robotics, flight control, guidance & navigation, and radar signal
+processing. If you're interested in numerical programming, physics, and
+lightweight formal verification techniques, then you'd likely enjoy working
+on our team! With respect to internships, our program is extremely flexible
+and we can adapt to whatever structure your university might require.
+
+If this sounds interesting, please drop me a line at travis at anduril.com.
+
+Thanks for your time,
+
+Travis Whitaker
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200114/dc9e195e/attachment.html>
+
+From stefan.wehr at gmail.com  Wed Jan 15 11:45:29 2020
+From: stefan.wehr at gmail.com (Stefan Wehr)
+Date: Wed, 15 Jan 2020 12:45:29 +0100
+Subject: [Haskell-cafe] [ANN] 2nd Call for Participation: BOB 2020 (February
+ 28, Berlin, early-bird until Jan 20)
+Message-ID: <CAJAdMdHb5DngYP5x3hT-zL=5ugorBdHzBahcVv-g0HQhgUgG=g@mail.gmail.com>
+
+================================================================================
+			       BOB 2020
+			      Conference
+	     “What happens if we simply use what’s best?”
+		      February 28, 2020, Berlin
+		       http://bobkonf.de/2020/
+	   Program: http://bobkonf.de/2020/en/program.html
+      Registration: http://bobkonf.de/2020/en/registration.html
+================================================================================
+				
+BOB is the conference for developers, architects and decision-makers
+to explore technologies beyond the mainstream in software development,
+and to find the best tools available to software developers today. Our
+goal is for all participants of BOB to return home with new insights
+that enable them to improve their own software development
+experiences.
+
+The program features 14 talks and 8 tutorials on current topics:
+http://bobkonf.de/2020/en/program.html
+
+The subject range of talks includes functional programming,
+formal methods, architecture documentation, functional-reactive
+programming, and language design.
+
+The tutorials feature introductions to Idris, Haskell, F#, TLA+,
+ReasonML, and probabilistic programming.
+
+Heather Miller will give the keynote talk.
+
+Registration is open online:
+http://bobkonf.de/2020/en/registration.html
+
+NOTE: The early-bird rates expire on January 20, 2020!
+
+BOB cooperates with the Racketfest conference on the day before BOB:
+https://racketfest.com/
+
+BOB cooperates with the :clojureD conference on the day after BOB:
+https://clojured.de/
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200115/12d7fc40/attachment.html>
+
+From ben at well-typed.com  Thu Jan 16 17:35:05 2020
+From: ben at well-typed.com (Ben Gamari)
+Date: Thu, 16 Jan 2020 12:35:05 -0500
+Subject: [Haskell-cafe] [ANNOUNCE] GHC 8.8.2 is now available
+Message-ID: <87r1zz1f09.fsf@smart-cactus.org>
+
+
+Hello everyone,
+
+The GHC team is proud to announce the release of GHC 8.8.2. The source
+distribution, binary distributions, and documentation are available at
+
+    https://downloads.haskell.org/~ghc/8.8.2
+
+Release notes are also available [1].
+
+This release fixes a handful of issues affecting 8.8.1:
+
+ - A bug (#17088) in the compacting garbage collector resulting in
+   segmentations faults under specific circumstances. Note that this may
+   affect user programs even if they did not explicitly request the
+   compacting GC (using the -c RTS flag) since GHC may fallback to
+   compacting collection during times of high memory pressure.
+
+ - A code generation bug (#17334) resulting in GHC panics has been
+   fixed.
+
+ - A bug in the `process` library causing builds using `hsc2hs` to fail
+   non-deterministically on Windows has been fixed (Trac #17480)
+
+ - A typechecker bug (#12088) resulting in programs being unexpectedly
+   rejected has been fixed.
+
+ - A bug in the implementation of compact normal forms resulting in
+   segmentation faults in some uses (#17044) has been fixed.
+
+ - A bug causing GHC to incorrectly complain about incompatible LLVM
+   versions when using LLVM 7.0.1 has been fixed (#16990).
+
+As always, if anything looks amiss do let us know.
+
+Happy compiling!
+
+Cheers,
+
+- Ben
+
+
+[1] https://downloads.haskell.org/ghc/8.8.2/docs/html/users_guide/8.8.2-notes.html
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 487 bytes
+Desc: not available
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200116/ceb8b97a/attachment.sig>
+
+From ghosh.debasish at gmail.com  Thu Jan 16 20:10:28 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Fri, 17 Jan 2020 01:40:28 +0530
+Subject: [Haskell-cafe] persistent and safe-money packages
+Message-ID: <CAE7GCT5YUqUrZMAL1Y0dvv5xFYV7ONPcMHa844rOouRjHjpvEg@mail.gmail.com>
+
+Hi -
+
+I am using "persistent" for database access in Haskell. However in my
+domain model I have used the Dense data type from safe-money (
+https://hackage.haskell.org/package/safe-money) as the money datatype. It
+looks like this data type is not supported by default in persistent. Is
+there a way around ?
+
+Thanks in advance.
+
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200117/086829ff/attachment.html>
+
+From cma at bitemyapp.com  Thu Jan 16 20:44:22 2020
+From: cma at bitemyapp.com (Christopher Allen)
+Date: Thu, 16 Jan 2020 14:44:22 -0600
+Subject: [Haskell-cafe] persistent and safe-money packages
+In-Reply-To: <CAE7GCT5YUqUrZMAL1Y0dvv5xFYV7ONPcMHa844rOouRjHjpvEg@mail.gmail.com>
+References: <CAE7GCT5YUqUrZMAL1Y0dvv5xFYV7ONPcMHa844rOouRjHjpvEg@mail.gmail.com>
+Message-ID: <CADnndOoCxHSjq7VZCfyWCBP7MP6Ye9M8yrX8NHEU7gr=5euhMg@mail.gmail.com>
+
+Implement the PersistField typeclass for the type.
+
+You can find examples of how to do so in the Persistent library
+source: https://hackage.haskell.org/package/persistent-2.10.4/docs/Database-Persist-Class.html#g:6
+
+On Thu, Jan 16, 2020 at 2:11 PM Debasish Ghosh <ghosh.debasish at gmail.com> wrote:
+>
+> Hi -
+>
+> I am using "persistent" for database access in Haskell. However in my domain model I have used the Dense data type from safe-money (https://hackage.haskell.org/package/safe-money) as the money datatype. It looks like this data type is not supported by default in persistent. Is there a way around ?
+>
+> Thanks in advance.
+>
+> --
+> Debasish Ghosh
+> http://manning.com/ghosh2
+> http://manning.com/ghosh
+>
+> Twttr: @debasishg
+> Blog: http://debasishg.blogspot.com
+> Code: http://github.com/debasishg
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+
+
+-- 
+Chris Allen
+Currently working on http://haskellbook.com
+
+From ghosh.debasish at gmail.com  Thu Jan 16 21:16:55 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Fri, 17 Jan 2020 02:46:55 +0530
+Subject: [Haskell-cafe] persistent and safe-money packages
+In-Reply-To: <CADnndOoCxHSjq7VZCfyWCBP7MP6Ye9M8yrX8NHEU7gr=5euhMg@mail.gmail.com>
+References: <CAE7GCT5YUqUrZMAL1Y0dvv5xFYV7ONPcMHa844rOouRjHjpvEg@mail.gmail.com>
+ <CADnndOoCxHSjq7VZCfyWCBP7MP6Ye9M8yrX8NHEU7gr=5euhMg@mail.gmail.com>
+Message-ID: <CAE7GCT653h-uZNDLXiGhbh1QTbzxpDcahiMWwsweMnfJWamAVw@mail.gmail.com>
+
+Hi Chris -
+
+Yes, that's exactly what I did after going through your blog post
+https://bitemyapp.com/blog/uuids-with-persistent-yesod/ :-)
+
+regards.
+
+On Fri, Jan 17, 2020 at 2:14 AM Christopher Allen <cma at bitemyapp.com> wrote:
+
+> Implement the PersistField typeclass for the type.
+>
+> You can find examples of how to do so in the Persistent library
+> source:
+> https://hackage.haskell.org/package/persistent-2.10.4/docs/Database-Persist-Class.html#g:6
+>
+> On Thu, Jan 16, 2020 at 2:11 PM Debasish Ghosh <ghosh.debasish at gmail.com>
+> wrote:
+> >
+> > Hi -
+> >
+> > I am using "persistent" for database access in Haskell. However in my
+> domain model I have used the Dense data type from safe-money (
+> https://hackage.haskell.org/package/safe-money) as the money datatype. It
+> looks like this data type is not supported by default in persistent. Is
+> there a way around ?
+> >
+> > Thanks in advance.
+> >
+> > --
+> > Debasish Ghosh
+> > http://manning.com/ghosh2
+> > http://manning.com/ghosh
+> >
+> > Twttr: @debasishg
+> > Blog: http://debasishg.blogspot.com
+> > Code: http://github.com/debasishg
+> > _______________________________________________
+> > Haskell-Cafe mailing list
+> > To (un)subscribe, modify options or view archives go to:
+> > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> > Only members subscribed via the mailman list are allowed to post.
+>
+>
+>
+> --
+> Chris Allen
+> Currently working on http://haskellbook.com
+>
+
+
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200117/8ba00c69/attachment.html>
+
+From frederic-emmanuel.picca at synchrotron-soleil.fr  Fri Jan 17 10:10:23 2020
+From: frederic-emmanuel.picca at synchrotron-soleil.fr (PICCA Frederic-Emmanuel)
+Date: Fri, 17 Jan 2020 10:10:23 +0000
+Subject: [Haskell-cafe] a sort of chunk
+Message-ID: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+
+Hello,
+
+I need to write some code in order to do some computations with stack of images coming from hdf5 files.
+Each computation done per images is quite intensive, so I want to do this on multiple cores of my computer (24 in my case)
+
+A stack of images  is composed of  a list of files. each file contain n images.
+So I decided to proceed like this: 
+
+create a data type which represent a chunk of this stack.
+
+data Chunk = Chunk { filename :: FilePath
+                               , from :: Int
+                               , to :: Int
+                               }
+
+
+And indeed the full stack is [Chunk]
+
+Now  since I have n core, I need to split the full stack in equivalent chunk of images.
+
+Just for example. at the begining I have this image stack
+
+30476 images
+[Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00077.nxs" 0 698,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00078.nxs" 0 1104,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00079.nxs" 0 1510,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00080.nxs" 0 1914,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00081.nxs" 0 2318,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00082.nxs" 0 2720,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00083.nxs" 0 2169,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00084.nxs" 0 2445,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00085.nxs" 0 2720,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00086.nxs" 0 490,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00087.nxs" 0 812,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00088.nxs" 0 1133,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00089.nxs" 0 1454,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00090.nxs" 0 1773,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00091.nxs" 0 2090,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00092.nxs" 0 2406,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00093.nxs" 0 2720]
+
+so i need to write a function which do something like chunksOf
+
+chunksOf :: Int -> [Chunk] -> [[Chunk]]
+
+In this case I need to create chunk of 1325 images, so the finla result should be
+
+[ [Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00077.nxs" 0 698,Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00078.nxs" 0 627]
+, [Chunk "/nfs/ruche-sixs/sixs-soleil/com-sixs/2019/Run3/FeSCO_Cu111/sample2_ascan_omega_00078.nxs" 627 1104, ...]
+...
+]
+
+I would like your help in order to give me advices or help me find information whcih can help me implement this chunksOf method.
+
+thanks for your help.
+
+Frederic
+
+From frederic-emmanuel.picca at synchrotron-soleil.fr  Fri Jan 17 15:57:18 2020
+From: frederic-emmanuel.picca at synchrotron-soleil.fr (PICCA Frederic-Emmanuel)
+Date: Fri, 17 Jan 2020 15:57:18 +0000
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+Message-ID: <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+
+Hello
+
+i end up with this 
+
+data Chunk = Chunk FilePath Int Int
+  deriving Show
+
+chunkLen :: Chunk -> Int
+chunkLen (Chunk _ f t) = t - f
+
+chunks :: Int -> [Chunk] -> [[Chunk]]
+chunks n cs = reverse $ map reverse $ go cs [[]] 0
+  where
+    go :: [Chunk] -> [[Chunk]] -> Int -> [[Chunk]]
+    go [] _ _ = []
+    go [x@(Chunk fn f t)] (c:cs') acc =
+      if acc + chunkLen x < n
+      then (x : c) : cs'
+      else go [(Chunk fn (f + n - acc) t)] ([] : ((Chunk fn f (f + n - acc)) : c) : cs') 0
+    go (x@(Chunk fn f t):xs) (c:cs') acc =
+        if acc + chunkLen x < n
+        then go xs ((x : c) : cs') (acc + chunkLen x)
+        else go ((Chunk fn (f + n - acc) t) : xs) ([] : ((Chunk fn f (f + n - acc)) : c) : cs') 0
+
+
+But i do not find this that elegant...
+
+From ghosh.debasish at gmail.com  Fri Jan 17 17:29:19 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Fri, 17 Jan 2020 22:59:19 +0530
+Subject: [Haskell-cafe] Problem using Persistent
+Message-ID: <CAE7GCT5YQALceEXR3Qwe9K177mgTPiHvpKAz1L8itL9NisaT-g@mail.gmail.com>
+
+Hi -
+
+I have an entity declaration in persistent as follows:
+
+share [mkPersist sqlSettings { mpsGenerateLenses = True, mpsPrefixFields =
+False }, mkMigrate "migrateAll"] [persistLowerCase|
+    Account
+        accountNo           Text
+        accountType         AccountType
+        accountHolderName   Text
+        accountOpenDate     UTCTime default=CURRENT_TIME
+        accountCloseDate    UTCTime Maybe default=NULL
+        currentBalance      MoneyUSD
+        rateOfInterest      Double
+        Primary             accountNo
+        deriving Show
+|]
+
+I am getting this compilation error ..
+
+• No instance for (Generic (Key Account))
+        arising from the 'deriving' clause of a data type declaration
+      Possible fix:
+        use a standalone 'deriving instance' declaration,
+          so you can specify the instance context yourself
+    • When deriving the instance for
+(aeson-1.4.6.0:Data.Aeson.Types.ToJSON.ToJSON
+                                        (Key Account))
+   |
+40 | share [mkPersist sqlSettings { mpsGenerateLenses = True,
+mpsPrefixFields = False }, mkMigrate "migrateAll"] [persistLowerCase|
+   |
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...
+
+and another exactly similar for FromJSON
+
+What exactly is going wrong here ? I am not using json in the above
+definition.
+
+regards.
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200117/85f49635/attachment.html>
+
+From ietf-dane at dukhovni.org  Fri Jan 17 22:41:12 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Fri, 17 Jan 2020 17:41:12 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+Message-ID: <20200117224112.GW73491@straasha.imrryr.org>
+
+On Fri, Jan 17, 2020 at 03:57:18PM +0000, PICCA Frederic-Emmanuel wrote:
+
+> chunkLen :: Chunk -> Int
+> chunkLen (Chunk _ f t) = t - f
+> 
+> chunks :: Int -> [Chunk] -> [[Chunk]]
+> chunks n cs = reverse $ map reverse $ go cs [[]] 0
+>   where
+>     go :: [Chunk] -> [[Chunk]] -> Int -> [[Chunk]]
+>     go [] _ _ = []
+>     go [x@(Chunk fn f t)] (c:cs') acc =
+>       if acc + chunkLen x < n
+>       then (x : c) : cs'
+>       else go [(Chunk fn (f + n - acc) t)] ([] : ((Chunk fn f (f + n - acc)) : c) : cs') 0
+>     go (x@(Chunk fn f t):xs) (c:cs') acc =
+>         if acc + chunkLen x < n
+>         then go xs ((x : c) : cs') (acc + chunkLen x)
+>         else go ((Chunk fn (f + n - acc) t) : xs) ([] : ((Chunk fn f (f + n - acc)) : c) : cs') 0
+
+To your specific question I would refactor this a bit:
+
+    -- | Split a list after the first element that reaches a target cumulative weight
+    --
+    splitWeight :: Int -> (a -> Int) -> [a] -> ([a], [a])
+    splitWeight target weight xs =
+        (,) <$> reverse . fst <*> snd $ go 0 xs []
+      where 
+        go _ [] acc = (acc, [])
+        go n (h:ts) acc
+            | let w = n + weight h
+            , w < target    = go w ts $ h : acc
+            | otherwise     = (h : acc, ts)
+
+    -- | Partition a list into chunks, with each non-final chunk having
+    -- a weight at least equal to the target.
+    --
+    chunks :: Int -> (a -> Int) -> [a] -> [[a]]
+    chunks target weight = unfoldr gen
+        gen [] = Nothing
+        gen xs = Just $ splitWeight target weight xs
+
+  Example:
+    λ> chunks 42 id [1..25]
+    [[1,2,3,4,5,6,7,8,9],[10,11,12,13],[14,15,16],[17,18,19],[20,21,22],[23,24],[25]]
+
+  Your weight function would be:
+
+>   chunkLen :: Chunk -> Int
+>   chunkLen (Chunk _ f t) = t - f
+
+That said, it feels like perhaps you're asking the wrong question.  If
+you want parallelize monadic list reduction over multiple cores, perhaps
+something out of https://hackage.haskell.org/package/monad-par would
+meet your needs?
+
+You might find
+
+    https://www.oreilly.com/library/view/parallel-and-concurrent/9781449335939/
+
+a good resource.
+
+-- 
+    Viktor.
+
+From ietf-dane at dukhovni.org  Sat Jan 18 00:08:37 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Fri, 17 Jan 2020 19:08:37 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <20200117224112.GW73491@straasha.imrryr.org>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+Message-ID: <20200118000837.GX73491@straasha.imrryr.org>
+
+On Fri, Jan 17, 2020 at 05:41:12PM -0500, Viktor Dukhovni wrote:
+
+> To your specific question I would refactor this a bit:
+> 
+>     -- | Split a list after the first element that reaches a target cumulative weight
+>     --
+>     splitWeight :: Int -> (a -> Int) -> [a] -> ([a], [a])
+>     splitWeight target weight xs =
+>         (,) <$> reverse . fst <*> snd $ go 0 xs []
+>       where 
+>         go _ [] acc = (acc, [])
+>         go n (h:ts) acc
+>             | let w = n + weight h
+>             , w < target    = go w ts $ h : acc
+>             | otherwise     = (h : acc, ts)
+
+An alternative implementation of splitWeight is lazier, and produces the
+first element of the initial chunk in constant time even when the target
+weight is large and requires billions of elements (on a 64bit system):
+
+    -- import Data.Bifunctor
+
+    splitWeight' :: Int -> (a -> Int) -> [a] -> ([a], [a])
+    splitWeight' target weight xs = go 0 xs
+      where
+        go _ [] = ([], [])
+        go n (h:ts)
+            | let w = n + weight h
+            , w < target    = first (h:) $ go w ts
+            | otherwise     = ([h], ts)
+
+        -- Define directly, or import from Data.Bifunctor
+        first f ~(a, b) = (f a, b)
+
+λ> take 5  $ fst $ splitWeight' (maxBound :: Int) id [1..]
+[1,2,3,4,5]
+
+-- 
+    Viktor.
+
+From ietf-dane at dukhovni.org  Sat Jan 18 12:12:27 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Sat, 18 Jan 2020 07:12:27 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <20200118000837.GX73491@straasha.imrryr.org>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>
+Message-ID: <20200118121227.GZ73491@straasha.imrryr.org>
+
+On Fri, Jan 17, 2020 at 07:08:37PM -0500, Viktor Dukhovni wrote:
+
+> An alternative implementation of splitWeight is lazier, and produces the
+> first element of the initial chunk in constant time even when the target
+> weight is large and requires billions of elements (on a 64bit system):
+> 
+>     -- import Data.Bifunctor
+> 
+>     splitWeight' :: Int -> (a -> Int) -> [a] -> ([a], [a])
+>     splitWeight' target weight xs = go 0 xs
+>       where
+>         go _ [] = ([], [])
+>         go n (h:ts)
+>             | let w = n + weight h
+>             , w < target    = first (h:) $ go w ts
+>             | otherwise     = ([h], ts)
+> 
+>         -- Define directly, or import from Data.Bifunctor
+>         first f ~(a, b) = (f a, b)
+
+And with the below all-in-one version:
+
+    chunks :: Int -> (a -> Int) -> [a] -> [[a]]
+    chunks target weight xs = go 0 xs
+      where
+        go _ [] = []
+        go n (h:ts)
+            | null ts       = [h] : []
+            | let w = n + weight h
+            , w < target    = cons1 h $ go w ts
+            | otherwise     = [h] : go 0 ts
+        cons1 h ~(a:b) = (h : a) : b
+
+a strict fold of the generated list of chunks compiled with optimization
+runs in:
+
+    * constant space regardless of the input list length
+    * ~constant space as the chunk size varies over 7 orders of magnitude.
+    * ~constant time as the chunk size varies over 7 orders of magnitude.
+
+The folds I'm testing look like:
+
+    foldl' (\a l -> a + foldl' (+) 0 l) 0 $ chunks 1_000_000 (const 1) [1..100_000_000]
+
+(with -XNumericUnderscores for readable large decimals).
+
+For substantially smaller chunks (size 1 or 100 instead of 1_000_000),
+this runs less than a factor of 2 slower than the version using my first
+splitWeight, which benefits from tail call optimization and does not
+significantly suffer for having to reverse the constructed chunks.
+
+The lazier splitWeight' would be mostly useful in other contexts where
+one might not consume most of the constructed chunk.  It is slower when
+the result is consumed strictly.  Of course if one bothers with weighted
+chunking, it seems likely that the subsequent processing will be strict.
+
+-- 
+    Viktor.
+
+From frederic-emmanuel.picca at synchrotron-soleil.fr  Sun Jan 19 11:17:54 2020
+From: frederic-emmanuel.picca at synchrotron-soleil.fr (PICCA Frederic-Emmanuel)
+Date: Sun, 19 Jan 2020 11:17:54 +0000
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <20200118121227.GZ73491@straasha.imrryr.org>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>,
+ <20200118121227.GZ73491@straasha.imrryr.org>
+Message-ID: <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>
+
+Hello viktor
+
+import           Data.List
+
+data T = T String Int Int
+  deriving Show
+
+l :: [T]
+l = [ T "1" 0 30
+    , T "2" 0 40
+    ]
+
+tweight :: T -> Int
+tweight (T n f t) = t - f
+
+chunks :: Int -> (a -> Int) -> [a] -> [[a]]
+chunks target weight xs = go 0 xs
+  where
+    go _ [] = []
+    go n (h:ts)
+      | null ts                          = [h] : []
+      | let w = n + weight h, w < target = cons1 h $ go w ts
+      | otherwise                        = [h] : go 0 ts
+    cons1 h ~(a:b) = (h : a) : b
+
+
+main :: IO ()
+main = do
+  let cs = chunks 10 tweight l
+  print cs
+
+seems to work, but this is not what I want :))
+
+picca at cush:~$ runhaskell test.hs
+[[T "1" 0 30],[T "2" 0 40]]
+
+I want at the end to split each of my T into  chunk of length target.
+
+like this
+
+[[T "1" 0 10], [T "1" 10 20], [T "1" 20 30], [T "2" 0 10], ...]
+
+So a split function like this should be used
+
+split :: Int -> a -> (a, a)
+split s (T n f t) = (T n f s, T n s t)
+
+
+Cheers
+
+Frederic
+
+From emilypi at cohomolo.gy  Mon Jan 20 05:22:00 2020
+From: emilypi at cohomolo.gy (Emily Pillmore)
+Date: Mon, 20 Jan 2020 05:22:00 +0000
+Subject: [Haskell-cafe] Haskell.org Committee Nomination Results
+Message-ID: <k5lzlovy.1ede8603-7be8-40ac-9409-13263ed9cc01@we.are.superhuman.com>
+
+Hello Everyone, 
+
+I'm pleased to announce that the results for the Haskell.org ( http://haskell.org/ ) committee nominations are in, and voting has completed. The following tally is the final result: 
+
+Jaspe Van der Jeugt: 6
+
+Alexandre Garcia de Oliveira: 5
+
+April Gonçalves: 2
+
+Rebecca Skinner: 5
+
+With no votes for anyone else. This means that Jasper's renomination was successful, and we get to welcome 2 new faces to the Haskell.org ( http://haskell.org/ ) ; congratulations Rebecca and Alexandre! 
+
+Thanks,
+
+Emily
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200120/a103cc58/attachment.html>
+
+From ietf-dane at dukhovni.org  Mon Jan 20 08:29:17 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Mon, 20 Jan 2020 03:29:17 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>
+ <20200118121227.GZ73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>
+Message-ID: <20200120082917.GF73491@straasha.imrryr.org>
+
+On Sun, Jan 19, 2020 at 11:17:54AM +0000, PICCA Frederic-Emmanuel wrote:
+
+> ..., but this is not what I want :))
+> 
+> I want at the end to split each of my T into  chunk of length target.
+> 
+> like this
+> 
+> [[T "1" 0 10], [T "1" 10 20], [T "1" 20 30], [T "2" 0 10], ...]
+> 
+> So a split function like this should be used
+> 
+> split :: Int -> a -> (a, a)
+> split s (T n f t) = (T n f s, T n s t)
+
+    {-# LANGUAGE BangPatterns #-}
+    {-# LANGUAGE MultiWayIf #-}
+    {-# LANGUAGE StandaloneDeriving #-}
+
+    data W n a = W !a !n !n
+    deriving instance (Show n, Show a) => Show (W n a)
+
+    wget :: W n a -> a
+    wget (W a _ _) = a
+
+    weight :: Num n => W n a -> n
+    weight (W _ l h) = h - l
+
+    wsplit :: Num n => W n a -> n -> (W n a, W n a)
+    wsplit (W a l h) n = ( (W a l (l + n)), (W a (l+n) h) )
+
+    chunk :: (Num n, Ord n) => n -> [W n a] -> [[W n a]]
+    chunk target = go target target
+      where
+        go tgt _ []     = []
+        go tgt gap [x] = golast tgt gap x
+        go tgt gap ~(x:xs) =
+            let gap' = gap - weight x
+             in if | gap' > 0  -> cons1 x $ go tgt gap' xs
+                   | gap' == 0 ->     [x] : go tgt tgt  xs
+                   | (x1, x2)  <- wsplit x gap
+                               -> [x1] : go tgt tgt (x2 : xs)
+        cons1 !x ~(c:cs)    = (x : c) : cs
+        golast tgt gap x =
+            if | weight x <= gap -> [x] : []
+               | (x1, x2) <- wsplit x gap -> [x1] : golast tgt tgt x2
+
+    {-# SPECIALIZE chunk :: Int -> [W Int a] -> [[W Int a]]  #-}
+
+-- 
+    Viktor.
+
+From frederic-emmanuel.picca at synchrotron-soleil.fr  Mon Jan 20 10:03:16 2020
+From: frederic-emmanuel.picca at synchrotron-soleil.fr (PICCA Frederic-Emmanuel)
+Date: Mon, 20 Jan 2020 10:03:16 +0000
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <20200120082917.GF73491@straasha.imrryr.org>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>
+ <20200118121227.GZ73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>,
+ <20200120082917.GF73491@straasha.imrryr.org>
+Message-ID: <A2A20EC3B8560D408356CAC2FC148E53018BDCD5CA@SUN-DAG3.synchrotron-soleil.fr>
+
+Hello victor
+
+I decided to use your solution, since I find it more elegant than mine :))
+
+
+data Chunk n a = Chunk !a !n !n
+deriving instance (Show n, Show a) => Show (Chunk n a)
+
+cweight :: Num n => Chunk n a -> n
+cweight (Chunk _ l h) = h - l
+
+csplit :: Num n => Chunk n a -> n -> (Chunk n a, Chunk n a)
+csplit (Chunk a l h) n = ( (Chunk a l (l + n)), (Chunk a (l+n) h) )
+
+chunk :: (Num n, Ord n) => n -> [Chunk n a] -> [[Chunk n a]]
+chunk target = go target target
+  where
+    go _ _ []          = []
+    go tgt gap [x]     = golast tgt gap x
+    go tgt gap ~(x:xs) =
+      let gap' = gap - cweight x
+      in if | gap' > 0                -> cons1 x $ go tgt gap' xs
+            | gap' == 0                -> [x] : go tgt tgt xs
+            | (x1, x2) <- csplit x gap -> [x1] : go tgt tgt (x2 : xs)
+
+    cons1 !x ~(c:cs) = (x : c) : cs
+
+    golast tgt gap x =
+      if | cweight x <= gap         -> [x] : []
+         | (x1, x2) <- csplit x gap -> [x1] : golast tgt tgt x2
+
+{-# SPECIALIZE chunk :: Int -> [Chunk Int FilePath] -> [[Chunk Int FilePath]]  #-}
+
+
+
+But when compiling I have these warning 
+
+> src/Hkl/Projects/Sixs.hs:(59,5)-(65,69): warning: [-Wincomplete-uni-patterns]
+>     Pattern match(es) are non-exhaustive
+>     In a pattern binding: Patterns not matched: []
+>    |
+> 59 |     go _ _ []          = []
+>    |     ^^^^^^^^^^^^^^^^^^^^^^^...
+
+I do not understand this one
+
+> src/Hkl/Projects/Sixs.hs:67:5-35: warning: [-Wincomplete-uni-patterns]
+>     Pattern match(es) are non-exhaustive
+>     In a pattern binding: Patterns not matched: []
+>    |
+> 67 |     cons1 !x ~(c:cs) = (x : c) : cs
+>    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If this is something which can not be reach, is it possible to explain to ghc how to avoid these warning ?
+
+cheers
+
+Fred
+
+
+
+From ietf-dane at dukhovni.org  Mon Jan 20 10:39:16 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Mon, 20 Jan 2020 05:39:16 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <A2A20EC3B8560D408356CAC2FC148E53018BDCD5CA@SUN-DAG3.synchrotron-soleil.fr>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>
+ <20200118121227.GZ73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>
+ <20200120082917.GF73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD5CA@SUN-DAG3.synchrotron-soleil.fr>
+Message-ID: <20200120103916.GH73491@straasha.imrryr.org>
+
+On Mon, Jan 20, 2020 at 10:03:16AM +0000, PICCA Frederic-Emmanuel wrote:
+
+> chunk :: (Num n, Ord n) => n -> [Chunk n a] -> [[Chunk n a]]
+> chunk target = go target target
+>   where
+>     go _ _ []          = []
+>     go tgt gap [x]     = golast tgt gap x
+>     go tgt gap ~(x:xs) =
+>       let gap' = gap - cweight x
+>       in if | gap' > 0                 -> cons1 x $ go tgt gap' xs
+>             | gap' == 0                -> [x] : go tgt tgt xs
+>             | (x1, x2) <- csplit x gap -> [x1] : go tgt tgt (x2 : xs)
+> 
+>     cons1 !x ~(c:cs) = (x : c) : cs
+> 
+>     golast tgt gap x =
+>       if | cweight x <= gap         -> [x] : []
+>          | (x1, x2) <- csplit x gap -> [x1] : golast tgt tgt x2
+
+I've tried both GHC 8.6.5 and GHC 8.8.1, and get no warnings with either
+"-O -Wall" or "-O2 -Wall" and the below (my original names, which look
+equivalent).
+
+    chunk :: (Num n, Ord n) => n -> [W n a] -> [[W n a]]
+    chunk target = go target target
+      where
+        go _ _ []     = []
+        go tgt gap [x] = golast tgt gap x
+        -- XXX: Try dropping the "~" on the next line it should be redundant
+        go tgt gap ~(x:xs) =
+            let gap' = gap - weight x
+             in if | gap' > 0  -> cons1 x $ go tgt gap' xs                                                                                           | gap' == 0 ->     [x] : go tgt tgt  xs
+                   | (x1, x2)  <- wsplit x gap
+                               -> [x1] : go tgt tgt (x2 : xs)
+        cons1 !x ~(c:cs)    = (x : c) : cs
+        golast tgt gap x =
+            if | weight x <= gap -> [x] : []                                                                                                     | (x1, x2) <- wsplit x gap -> [x1] : golast tgt tgt x2
+
+> But when compiling I have these warning 
+> 
+> > src/Hkl/Projects/Sixs.hs:(59,5)-(65,69): warning: [-Wincomplete-uni-patterns]
+> >     Pattern match(es) are non-exhaustive
+> >     In a pattern binding: Patterns not matched: []
+> >    |
+> > 59 |     go _ _ []          = []
+> >    |     ^^^^^^^^^^^^^^^^^^^^^^^...
+> 
+> I do not understand this one
+
+See the XXX comment I added above, with that and also
+"-Wincomplete-uni-patterns" in addition to "-Wall", I no longer get that
+warning.
+
+> > src/Hkl/Projects/Sixs.hs:67:5-35: warning: [-Wincomplete-uni-patterns]
+> >     Pattern match(es) are non-exhaustive
+> >     In a pattern binding: Patterns not matched: []
+> >    |
+> > 67 |     cons1 !x ~(c:cs) = (x : c) : cs
+> >    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 
+> If this is something which can not be reach, is it possible to explain to ghc how to avoid these warning ?
+
+However, with "-Wincomplete-uni-patterns" I still get this one, but the
+irrefutable binding is there for a reason, stricness in the second
+argument has undesirable performance implications, we know that the list
+won't be empty.  So perhaps compile this code in a module that does not
+have that warning turned on.
+
+It is not too difficult to rewrite "chunk" so that it operates on
+(type-level) non-empty lists, but perhaps easier to just ignore or
+disable the warning.
+
+-- 
+    Viktor.
+
+From Graham.Hutton at nottingham.ac.uk  Mon Jan 20 15:08:58 2020
+From: Graham.Hutton at nottingham.ac.uk (Graham Hutton)
+Date: Mon, 20 Jan 2020 15:08:58 +0000
+Subject: [Haskell-cafe] 10 PhD studentships in Nottingham for Home/EU
+	applicants
+Message-ID: <91033EC1-5636-4CF1-9728-828A79A1A4BF@nottingham.ac.uk>
+
+Dear all,
+
+The School of Computer Science at the University of Nottingham 
+is seeking applications for 10 fully-funded PhD studentships
+for Home/EU students: https://tinyurl.com/ten-phds-2020
+
+Applicants in the area of the Functional Programming Laboratory
+(https://tinyurl.com/fp-notts) are strongly encouraged!  If you
+are interested in applying, please contact a potential supervisor
+as soon as possible (the application deadline is 6th March):
+
+  Thorsten Altenkirch - constructive logic, proof assistants,
+  homotopy type theory, category theory, lambda calculus.
+ 
+  Venanzio Capretta - type theory, mathematical logic, corecursive
+  structures, proof assistants, category theory, epistemic logic.
+ 
+  Graham Hutton - not taking on any new students this year, but
+  you may find these notes useful: https://tinyurl.com/scbkxkr
+
+  Henrik Nilsson - functional reactive programming, domain-
+  specific languages, generalised notions of computation.
+
+These positions are only open to Home/EU applicants.  An advert
+for international students was posted earlier and is now closed.
+
+Best wishes,
+
+Graham
+
++-----------------------------------------------------------+
+
+        10 Fully-Funded International PhD Studentships
+
+                 School of Computer Science
+                University of Nottingham, UK
+
+              https://tinyurl.com/ten-phds-2020
+
+Applications are invited for 10 fully-funded PhD studentships
+for Home/EU students in the School of Computer Science at the
+University of Nottingham, starting on 1st October 2020.
+
+The topics for the studentships are open, but should relate to
+the interests of one of the School’s research groups: Agents
+Lab; Computational Optimisation and Learning Lab; Computer
+Vision Lab; Functional Programming; Intelligent Modelling and
+Analysis; Mixed Reality Lab; Data Driven Algorithms, Systems
+and Design and Uncertainty in Data and Decision Making 
+
+The studentships are for three and a half years and include
+a stipend of £15,009 per year and tuition fees.  Applicants
+are normally expected to have a first-class Masters or
+Bachelors degree in Computer Science or a related discipline,
+and must obtain the support of a potential supervisor in
+the School prior to submitting their application.  Initial
+contact with supervisors should be made at least two weeks
+prior to the closing date for applications. 
+
+Eligible successful applicants are expected to apply for a
+EU VC Scholarship.  Informal enquiries may be addressed to
+Kathleen.Fennemore at nottingham.ac.uk. To apply, please submit
+the following items by email to: Marc.Williams at nottingham.ac.uk: 
+
+(1) a copy of your CV, including your actual or expected degree
+class(es), and results of all University examinations; 
+
+(2) an example of your technical writing, such as a project
+report or dissertation; 
+
+(3) contact details for two academic referees.
+
+(4) a research proposal – max 2 x sides A4
+
+You may also include a covering letter but this is optional.
+
+Closing date for applications: Friday 6 March 2020.
+
++-----------------------------------------------------------+
+
+
+
+
+This message and any attachment are intended solely for the addressee
+and may contain confidential information. If you have received this
+message in error, please contact the sender and delete the email and
+attachment. 
+
+Any views or opinions expressed by the author of this email do not
+necessarily reflect the views of the University of Nottingham. Email
+communications with the University of Nottingham may be monitored 
+where permitted by law.
+
+
+
+
+
+From ietf-dane at dukhovni.org  Mon Jan 20 23:47:47 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Mon, 20 Jan 2020 18:47:47 -0500
+Subject: [Haskell-cafe] a sort of chunk
+In-Reply-To: <20200120103916.GH73491@straasha.imrryr.org>
+References: <A2A20EC3B8560D408356CAC2FC148E53018BDCCD36@SUN-DAG3.synchrotron-soleil.fr>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCCE2E@SUN-DAG3.synchrotron-soleil.fr>
+ <20200117224112.GW73491@straasha.imrryr.org>
+ <20200118000837.GX73491@straasha.imrryr.org>
+ <20200118121227.GZ73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD31B@SUN-DAG3.synchrotron-soleil.fr>
+ <20200120082917.GF73491@straasha.imrryr.org>
+ <A2A20EC3B8560D408356CAC2FC148E53018BDCD5CA@SUN-DAG3.synchrotron-soleil.fr>
+ <20200120103916.GH73491@straasha.imrryr.org>
+Message-ID: <20200120234747.GI73491@straasha.imrryr.org>
+
+On Mon, Jan 20, 2020 at 05:39:16AM -0500, Viktor Dukhovni wrote:
+
+> > > src/Hkl/Projects/Sixs.hs:67:5-35: warning: [-Wincomplete-uni-patterns]
+> > >     Pattern match(es) are non-exhaustive
+> > >     In a pattern binding: Patterns not matched: []
+> > >    |
+> > > 67 |     cons1 !x ~(c:cs) = (x : c) : cs
+> > >    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> > 
+> > If this is something which can not be reach, is it possible to explain to ghc how to avoid these warning ?
+> 
+> However, with "-Wincomplete-uni-patterns" I still get this one, but the
+> irrefutable binding is there for a reason, stricness in the second
+> argument has undesirable performance implications, we know that the list
+> won't be empty.  So perhaps compile this code in a module that does not
+> have that warning turned on.
+
+Actually, the warning can be eliminated by writing:
+
+    cons1 x cs = (x : head cs) : tail cs
+
+which just as "unsafe" (we know that `cs` won't be empty, but the
+compiler does not), but use of the partial functions 'head' and 'tail'
+does not elicit a warning.  The `!x` is also redundant, we've already
+evaluated the weight of `x`'.
+
+-- 
+    Viktor.
+
+From lazybonesxp at gmail.com  Tue Jan 21 14:24:34 2020
+From: lazybonesxp at gmail.com (Rinat Stryungis)
+Date: Tue, 21 Jan 2020 17:24:34 +0300
+Subject: [Haskell-cafe] Taking over double-conversion on Hackage
+Message-ID: <CAM89rCUrCS++JkaOQbg3_=NCAS=XcfiZ20CnxJmwOdPU3EtBFw@mail.gmail.com>
+
+Hi everyone,
+The double-conversion package seems unmaintained. I'd like to take
+over as maintainer.
+
+I have actually forked the repository, added new functionality, tests,
+and updated the original Google library:
+
+https://github.com/haskell-mouse/double-conversion
+
+I was advised to consider taking over the maintenance of
+double-conversion. I tried to contact Bryan O'Sullivan (the
+maintainer) a few times during the 2 years (!) using all available
+communication methods (e-mail, LinkedIn). He answered only once and
+asked me to send an e-mail. I did it but without any effect.
+
+I would still prefer not to have this responsibility, but I would also
+like people to be able to use the new functionality without creating
+redundant forks.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200121/0220af74/attachment.html>
+
+From mail at joachim-breitner.de  Fri Jan 24 15:31:51 2020
+From: mail at joachim-breitner.de (Joachim Breitner)
+Date: Fri, 24 Jan 2020 16:31:51 +0100
+Subject: [Haskell-cafe] [ghc-steering-committee] The GHC Committee welcomes
+	its new members
+Message-ID: <ca1d78d9858037afb63b20ef539e1d4411bec8c3.camel@joachim-breitner.de>
+
+Dear Haskell community,
+
+the GHC Steering committee welcomes three new members, 
+
+Alejandro Serrano Mena, Cale Gibbard and Tom Harding.
+
+We are happy to see that there is continued interest in our work, and
+are looking forward to having fresh insights and energy on the
+committee.
+
+They take the seat of Sandy Maguire, who we thank for this productive
+work during his tenure.
+
+As you might notice, we picked more candidates than we filled slots.
+This is not because Sandy’s productivity need three people to fill. The
+idea is that there is no reason to turn away a motivated contributor
+just to stick to the arbitrary 10 members. Instead, we will aim at
+“roughly 10”, and probably not call for new members until we have
+dropped below that number again.
+
+
+On behalf of the committee,
+Joachim Breitner
+
+PS: Alejandro, Cale and Tom, please send me your github handles and 
+subscribe to the mailing list at
+https://mail.haskell.org/cgi-bin/mailman/listinfo/ghc-steering-committee
+
+-- 
+Joachim “nomeata” Breitner
+  mail at joachim-breitner.de
+  https://www.joachim-breitner.de/
+
+
+
+From jack at jackkelly.name  Sat Jan 25 04:39:05 2020
+From: jack at jackkelly.name (Jack Kelly)
+Date: Sat, 25 Jan 2020 14:39:05 +1000
+Subject: [Haskell-cafe] [ANN] nix-freeze-tree-0.1.0.0 - Freeze a tree using
+	fixed-output derivations
+Message-ID: <87wo9g880m.fsf@jackkelly.name>
+
+I have just pushed an initial release of nix-freeze-tree[1] to Hackage.
+
+`nix-freeze-tree` is a utility that walks a directory tree, and writes
+out Nix expressions which rebuild that tree. The generated expressions
+have two important properties:
+
+1. Each file in the tree is built by a separate fixed-output
+   derivation, and
+
+2. Directories are built by derivations that symlink their contents
+   recursively.
+
+If you are using `nix copy` to ship a derivation between nix stores,
+copying the derivation built by evaluating the output of
+`nix-freeze-tree` can reuse existing files in the destination store,
+as fixed-output derivations can be checked against a hash before
+copying.
+
+I use this to speed up deploys to my personal website. Running
+`nix-freeze-tree` on the output from my site generator and importing the
+result means that `nix copy` only uploads new files, instead of copying
+a single giant derivation containing every image on the site.
+
+The code is on Sourcehut[2]; bug reports[3] and patches[4] are
+welcome. The repository also has a Nix helper function for running the
+tool on your own derivations.
+
+Best,
+
+-- Jack
+
+[1]: https://hackage.haskell.org/package/nix-freeze-tree-0.1.0.0
+[2]: https://git.sr.ht/~jack/nix-freeze-tree/
+[3]: https://todo.sr.ht/~jack/nix-freeze-tree
+[4]: https://lists.sr.ht/~jack/nix-freeze-tree-discuss
+
+From vamchale at gmail.com  Sat Jan 25 11:47:40 2020
+From: vamchale at gmail.com (Vanessa McHale)
+Date: Sat, 25 Jan 2020 05:47:40 -0600
+Subject: [Haskell-cafe] [ANN] bz2 library
+Message-ID: <0cc538bb-5c99-25cc-c60e-84cdad6070ae@gmail.com>
+
+Hi all,
+
+I wrote another high-level wrapper around libbz2,
+https://matrix.hackage.haskell.org/#/package/bz2.
+
+It includes low-level bindings (via c2hs) and a bundled copy of bzlib
+1.0.8 as well.
+
+Cheers,
+Vanessa McHale
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 659 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200125/3edc5ae0/attachment.sig>
+
+From vados+haskell-cafe at vadosware.io  Sun Jan 26 07:49:14 2020
+From: vados+haskell-cafe at vadosware.io (Victor Adossi)
+Date: Sun, 26 Jan 2020 16:49:14 +0900
+Subject: [Haskell-cafe] Issues requesting permission to publish packages
+Message-ID: <ca8616a6-77ab-75d2-99fe-28c1d63ec680@vadosware.io>
+
+Hi Haskell-Cafe,
+
+I recently tried to upload a package to hackage and sent an email to
+hackage-trustees at haskell.org to request to be added to the uploaders
+group. Unfortunately my email was undelivered due to an SPF Failure --
+here's what the error emailed to me looks like:
+
+> <one-of-the-maintainers at personal-email.com> (expanded from
+> <hackage-trustees at haskell.org>): host
+>     host.personal-email.com[xxx.xxx.xxx.xxx] said: 550 5.7.23
+>     <one-of-the-maintainers at personal-email.com>: Recipient address
+> rejected: Message rejected due to:
+>     SPF fail - not authorized. Please see
+>     http://www.openspf.net/Why?s=mfrom;id=vados at vadosware.io;ip=<IP of
+> haskell.org server>;r=<UNKNOWN>
+>     (in reply to RCPT TO command)
+
+It looks like the SPF settings on my domain forbid the bounce off of
+hackage-trustees to the individual trustee that was picked. Two points:
+
+- This seems like an unintended leaking of information (I have one of
+the emails of the trustees, via the error message)
+
+- How else can I request the ability to become a package uploader?
+
+Thanks,
+Victor
+
+
+
+From vandijk.roel at gmail.com  Sun Jan 26 09:59:26 2020
+From: vandijk.roel at gmail.com (Roel van Dijk)
+Date: Sun, 26 Jan 2020 10:59:26 +0100
+Subject: [Haskell-cafe] Problem using Persistent
+In-Reply-To: <CAE7GCT5YQALceEXR3Qwe9K177mgTPiHvpKAz1L8itL9NisaT-g@mail.gmail.com>
+References: <CAE7GCT5YQALceEXR3Qwe9K177mgTPiHvpKAz1L8itL9NisaT-g@mail.gmail.com>
+Message-ID: <CABw4ky6=M=RSxx_wBxSRMUN1Mp0Hw8i0FzdexMTzh5BYf8xYWQ@mail.gmail.com>
+
+I'm not familiar with persistent, but I might have some ideas.
+You are using template haskell. So while you are not directly using json,
+you are using it indirectly, via the code generated by mkPersist [1].
+Presumably mkPersist must create an PersistEntity Account instance. Looking
+at the superclass constraints of PersistEntity [2] we see ToJSON (Key
+record) and FromJSON (Key record) where the record type variable is you
+Account type.
+You can easily create instances of FromJSON and ToJSON by using Generics
+[3]. But this only works if you type is an instance of the Generic type
+class. I think that the code generated by mkPersist depends on the Key
+Account type having an instance for Generic. Notice that Key is a data
+family (type level function) and thus Key Account equals some other type.
+
+I can really recommend the -ddump-splices GHC option [4] when debugging
+code involving template haskell. It is a lot easier to understand a problem
+when you can just read the generated Haskell code.
+
+1 -
+https://hackage.haskell.org/package/persistent-template-2.8.0.1/docs/Database-Persist-TH.html#v:mkPersist
+2 -
+https://hackage.haskell.org/package/persistent-2.10.4/docs/Database-Persist-Class.html#t:Persistently
+3 -
+https://hackage.haskell.org/package/aeson-1.4.6.0/docs/Data-Aeson.html#v:parseJSON
+4 -
+https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/debugging.html#ghc-flag--ddump-splices
+
+Op vr 17 jan. 2020 om 18:29 schreef Debasish Ghosh <ghosh.debasish at gmail.com
+>:
+
+> Hi -
+>
+> I have an entity declaration in persistent as follows:
+>
+> share [mkPersist sqlSettings { mpsGenerateLenses = True, mpsPrefixFields =
+> False }, mkMigrate "migrateAll"] [persistLowerCase|
+>     Account
+>         accountNo           Text
+>         accountType         AccountType
+>         accountHolderName   Text
+>         accountOpenDate     UTCTime default=CURRENT_TIME
+>         accountCloseDate    UTCTime Maybe default=NULL
+>         currentBalance      MoneyUSD
+>         rateOfInterest      Double
+>         Primary             accountNo
+>         deriving Show
+> |]
+>
+> I am getting this compilation error ..
+>
+> • No instance for (Generic (Key Account))
+>         arising from the 'deriving' clause of a data type declaration
+>       Possible fix:
+>         use a standalone 'deriving instance' declaration,
+>           so you can specify the instance context yourself
+>     • When deriving the instance for
+> (aeson-1.4.6.0:Data.Aeson.Types.ToJSON.ToJSON
+>                                         (Key Account))
+>    |
+> 40 | share [mkPersist sqlSettings { mpsGenerateLenses = True,
+> mpsPrefixFields = False }, mkMigrate "migrateAll"] [persistLowerCase|
+>    |
+> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...
+>
+> and another exactly similar for FromJSON
+>
+> What exactly is going wrong here ? I am not using json in the above
+> definition.
+>
+> regards.
+> --
+> Debasish Ghosh
+>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200126/c9c9c873/attachment.html>
+
+From leah at vuxu.org  Sun Jan 26 12:39:35 2020
+From: leah at vuxu.org (Leah Neukirchen)
+Date: Sun, 26 Jan 2020 13:39:35 +0100
+Subject: [Haskell-cafe] Munich Haskell Meeting, 2020-01-27 @ 19:30
+Message-ID: <87imkybddk.fsf@vuxu.org>
+
+Dear all,
+
+Next week, our monthly Munich Haskell Meeting will take place again on
+Monday, January 27 at Augustiner-Gaststätte Rumpler at 19h30.
+For details see here:
+
+http://muenchen.haskell.bayern/dates.html
+
+If you plan to join, please add yourself to this dudle so we can
+reserve enough seats!  It is OK to add yourself to the dudle
+anonymously or pseudonymously.
+
+https://dudle.inf.tu-dresden.de/haskell-munich-jan-2020/
+
+Everybody is welcome!
+
+cu,
+-- 
+Leah Neukirchen  <leah at vuxu.org>  https://leahneukirchen.org/
+
+From ghosh.debasish at gmail.com  Mon Jan 27 18:17:06 2020
+From: ghosh.debasish at gmail.com (Debasish Ghosh)
+Date: Mon, 27 Jan 2020 23:47:06 +0530
+Subject: [Haskell-cafe] Need help using a typeclass within an existing API
+Message-ID: <CAE7GCT4WEAEC=hwrYH3veaXpmJxMhuPDYckvoRcPLGP59a9T-Q@mail.gmail.com>
+
+Hi -
+
+(Apologies for the long post)
+
+I need some help integrating a typeclass based functionality within an
+existing API. I am using Control.Monad.Validate for my validation of
+objects. Here's a simple function based on this ..
+
+debit :: forall m. (MonadReader Env m,
+                    MonadValidate [Error] m) => Y.Dense "USD" -> Account ->
+m Account
+debit amount = updateBalance ((-1) * amount)
+
+Now I want to make a change in the API where I would like to fetch the
+account from some database based on account number. For this I have a
+typeclass as below ..
+
+class (Monad m) => AccountDB m where
+    query :: Text -> m (Maybe Account)
+.. elided details
+
+and I am using persistent - so I have an instance of this class as follows
+..
+
+-- | Instance of AccountDB for `SqlPersistT` (which is `ReaderT SqlBackend`)
+instance (MonadIO m) => AccountDB (SqlPersistT m) where
+  query ano = get (AccountKey ano)
+.. other details elided
+
+My question is how can I integrate this typeclass within the above API ? I
+tried as yet another constraint in the function ..
+
+debit :: forall m. (MonadReader Env m,
+                    MonadValidate [Error] m,
+                    AccountDB m) => Y.Dense "USD" -> Text -> m Account
+debit amount accNo = do
+  maybeAccount <- query accNo
+  maybe (refuteErr $ InvalidAccountNumber accNo) (updateBalance ((-1) *
+amount)) maybeAccount
+
+This compiles but I don't get the proper instance of the typeclass when I
+run it - possibly due to the reason that the "m" cannot be the same for
+AccountDB as the other constraints. And I don't want to hardcode
+SqlPersistT in the function debit as I would like to be able to run it with
+other instances of the typeclass as well (example for testing I may like to
+test against a HashMap).
+
+What would be an idiomatic approach to this kind of composition ?
+
+Any help will be appreciated.
+
+regards.
+
+
+-- 
+Debasish Ghosh
+http://manning.com/ghosh2
+http://manning.com/ghosh
+
+Twttr: @debasishg
+Blog: http://debasishg.blogspot.com
+Code: http://github.com/debasishg
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200127/da1a3b72/attachment.html>
+
+From mle+hs at mega-nerd.com  Mon Jan 27 22:48:02 2020
+From: mle+hs at mega-nerd.com (Erik de Castro Lopo)
+Date: Tue, 28 Jan 2020 09:48:02 +1100
+Subject: [Haskell-cafe] Issues requesting permission to publish packages
+In-Reply-To: <ca8616a6-77ab-75d2-99fe-28c1d63ec680@vadosware.io>
+References: <ca8616a6-77ab-75d2-99fe-28c1d63ec680@vadosware.io>
+Message-ID: <20200128094802.e4f79b87ea0cf8fc04053ead@mega-nerd.com>
+
+Victor Adossi via Haskell-Cafe wrote:
+
+> It looks like the SPF settings on my domain forbid the bounce off of
+> hackage-trustees to the individual trustee that was picked.
+
+I am investigating this issue.
+
+>  Two points:
+> 
+> - This seems like an unintended leaking of information (I have one of
+> the emails of the trustees, via the error message)
+> 
+> - How else can I request the ability to become a package uploader?
+
+Feare not. If it only bounced off my mail server it would still have arrived
+at the mail server of all the other trustees.
+
+Cheers,
+Erik
+-- 
+----------------------------------------------------------------------
+Erik de Castro Lopo
+http://www.mega-nerd.com/
+
+From vados+haskell-cafe at vadosware.io  Tue Jan 28 01:50:11 2020
+From: vados+haskell-cafe at vadosware.io (Victor Adossi)
+Date: Tue, 28 Jan 2020 10:50:11 +0900
+Subject: [Haskell-cafe] Issues requesting permission to publish packages
+In-Reply-To: <20200128094802.e4f79b87ea0cf8fc04053ead@mega-nerd.com>
+References: <ca8616a6-77ab-75d2-99fe-28c1d63ec680@vadosware.io>
+ <20200128094802.e4f79b87ea0cf8fc04053ead@mega-nerd.com>
+Message-ID: <7f9507a9-a3a6-394a-6b73-0307e8f490af@vadosware.io>
+
+Hi Erik,
+
+> I am investigating this issue.
+Thanks!
+
+> Feare not. If it only bounced off my mail server it would still have arrived
+> at the mail server of all the other trustees.
+Ahh, I didn't expect that it would go to *all* the trustees -- I was
+alerted to the existence of the trustees repo
+(https://github.com/haskell-infra/hackage-trustees), in the future I
+will use that.
+
+Thanks,
+Victor
+
+On 1/28/20 7:48 AM, Erik de Castro Lopo wrote:
+> Victor Adossi via Haskell-Cafe wrote:
+>
+>> It looks like the SPF settings on my domain forbid the bounce off of
+>> hackage-trustees to the individual trustee that was picked.
+> I am investigating this issue.
+>
+>>  Two points:
+>>
+>> - This seems like an unintended leaking of information (I have one of
+>> the emails of the trustees, via the error message)
+>>
+>> - How else can I request the ability to become a package uploader?
+> Feare not. If it only bounced off my mail server it would still have arrived
+> at the mail server of all the other trustees.
+>
+> Cheers,
+> Erik
+
+
+From capn.freako at gmail.com  Tue Jan 28 01:55:20 2020
+From: capn.freako at gmail.com (David Banas)
+Date: Mon, 27 Jan 2020 17:55:20 -0800
+Subject: [Haskell-cafe] Compilers written in Haskell?
+Message-ID: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+
+Can anyone provide a list of compilers written in Haskell?
+
+Sent from my iPhone
+
+From vamchale at gmail.com  Tue Jan 28 02:34:09 2020
+From: vamchale at gmail.com (Vanessa McHale)
+Date: Mon, 27 Jan 2020 20:34:09 -0600
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+Message-ID: <870b240b-bbbe-8dca-c7e5-4ff00b908647@gmail.com>
+
+Off the top of my head:
+
+    - Elm
+    - PureScript
+    - Clash (https://clash-lang.org/)
+    - Futhark
+    - accelerate (sort of)
+    - GHC (Haskell)
+    - Dhall (interpreter)
+    - Egison (interpreter)
+    - Perl6 at one point
+    - Agda
+    - Idris 1
+    - Curry (frontend)
+
+Cheers,
+Vanessa McHale
+
+On 1/27/20 7:55 PM, David Banas wrote:
+> Can anyone provide a list of compilers written in Haskell?
+>
+> Sent from my iPhone
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 659 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200127/23c90a4b/attachment.sig>
+
+From ben.franksen at online.de  Tue Jan 28 02:35:33 2020
+From: ben.franksen at online.de (Ben Franksen)
+Date: Tue, 28 Jan 2020 03:35:33 +0100
+Subject: [Haskell-cafe] Need help using a typeclass within an existing
+	API
+In-Reply-To: <CAE7GCT4WEAEC=hwrYH3veaXpmJxMhuPDYckvoRcPLGP59a9T-Q@mail.gmail.com>
+References: <CAE7GCT4WEAEC=hwrYH3veaXpmJxMhuPDYckvoRcPLGP59a9T-Q@mail.gmail.com>
+Message-ID: <r0o6lm$30fr$1@ciao.gmane.io>
+
+> This compiles but I don't get the proper instance of the typeclass
+> when I run it
+
+You did not tell us to which concrete type M you instantiate the type
+variable m when you run your code. Your wording suggests that you may
+misunderstand how instantiation of type variables works: it is the
+caller of the debit function who chooses the M; in fact it can choose
+/any/ M, as long as it satisfies the listed constraints.
+
+If your code compiles but doesn't work, then the M your caller has
+chosen has a wrong instance that doesn't do what it should do. If it is
+not obvious from the calling code what the M is, try to use local type
+annotations with type holes, so the compiler tells you what the type is.
+
+Cheers
+Ben
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: pEpkey.asc
+Type: application/pgp-keys
+Size: 4211 bytes
+Desc: not available
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/1f709433/attachment.key>
+
+From mukeshtiwari.iiitm at gmail.com  Tue Jan 28 02:41:30 2020
+From: mukeshtiwari.iiitm at gmail.com (mukesh tiwari)
+Date: Tue, 28 Jan 2020 13:41:30 +1100
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+Message-ID: <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+
+Hi David,
+
+I just did a quick github search with the tag "compiler" and language
+"haskell" which shows 1480 repository. Of course, not all are serious
+project, but first page looks very promising [1].
+
+-Mukesh
+
+[1] https://github.com/search?l=Haskell&q=compiler&type=Repositories
+
+On Tue, Jan 28, 2020 at 12:55 PM David Banas <capn.freako at gmail.com> wrote:
+>
+> Can anyone provide a list of compilers written in Haskell?
+>
+> Sent from my iPhone
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+From steven at steshaw.org  Tue Jan 28 06:10:16 2020
+From: steven at steshaw.org (Steven Shaw)
+Date: Tue, 28 Jan 2020 16:10:16 +1000
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+Message-ID: <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+
+Another that doesn't come up in the above search is
+https://github.com/granule-project/granule/.
+
+On Tue, 28 Jan 2020 at 12:42, mukesh tiwari <mukeshtiwari.iiitm at gmail.com>
+wrote:
+
+> Hi David,
+>
+> I just did a quick github search with the tag "compiler" and language
+> "haskell" which shows 1480 repository. Of course, not all are serious
+> project, but first page looks very promising [1].
+>
+> -Mukesh
+>
+> [1] https://github.com/search?l=Haskell&q=compiler&type=Repositories
+>
+> On Tue, Jan 28, 2020 at 12:55 PM David Banas <capn.freako at gmail.com>
+> wrote:
+> >
+> > Can anyone provide a list of compilers written in Haskell?
+> >
+> > Sent from my iPhone
+> > _______________________________________________
+> > Haskell-Cafe mailing list
+> > To (un)subscribe, modify options or view archives go to:
+> > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> > Only members subscribed via the mailman list are allowed to post.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/ea4926b8/attachment.html>
+
+From david at broodax.net  Tue Jan 28 06:22:26 2020
+From: david at broodax.net (David Turnbull)
+Date: Tue, 28 Jan 2020 17:22:26 +1100
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+ <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+Message-ID: <23C78E7C-41E7-4D2C-A8EA-580556FD8BE9@broodax.net>
+
+If an assembler is a ‘compiler’, then this 6502 assembler: https://github.com/dsturnbull/h <https://github.com/dsturnbull/h>
+
+> On 28 Jan 2020, at 5:10 pm, Steven Shaw <steven at steshaw.org> wrote:
+> 
+> Another that doesn't come up in the above search is https://github.com/granule-project/granule/ <https://github.com/granule-project/granule/>.
+> 
+> On Tue, 28 Jan 2020 at 12:42, mukesh tiwari <mukeshtiwari.iiitm at gmail.com <mailto:mukeshtiwari.iiitm at gmail.com>> wrote:
+> Hi David,
+> 
+> I just did a quick github search with the tag "compiler" and language
+> "haskell" which shows 1480 repository. Of course, not all are serious
+> project, but first page looks very promising [1].
+> 
+> -Mukesh
+> 
+> [1] https://github.com/search?l=Haskell&q=compiler&type=Repositories <https://github.com/search?l=Haskell&q=compiler&type=Repositories>
+> 
+> On Tue, Jan 28, 2020 at 12:55 PM David Banas <capn.freako at gmail.com <mailto:capn.freako at gmail.com>> wrote:
+> >
+> > Can anyone provide a list of compilers written in Haskell?
+> >
+> > Sent from my iPhone
+> > _______________________________________________
+> > Haskell-Cafe mailing list
+> > To (un)subscribe, modify options or view archives go to:
+> > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe <http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe>
+> > Only members subscribed via the mailman list are allowed to post.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe <http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe>
+> Only members subscribed via the mailman list are allowed to post.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/96128658/attachment.html>
+
+From tonyzorman at mailbox.org  Tue Jan 28 07:50:48 2020
+From: tonyzorman at mailbox.org (Tony Zorman)
+Date: Tue, 28 Jan 2020 08:50:48 +0100
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <23C78E7C-41E7-4D2C-A8EA-580556FD8BE9@broodax.net>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+ <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+ <23C78E7C-41E7-4D2C-A8EA-580556FD8BE9@broodax.net>
+Message-ID: <20200128075048.7dipefsaxb7qcbmx@pbox>
+
+Hi,
+
+another one that I couldn't find via those searches would be the 
+wonderful carp [1].  Indeed, this one is interesting because it's *not* 
+a haskell-like language.
+
+I would be interested in more of these kinds of e get the idea that 
+haskell is only good for implementing compilers for haskell-like 
+languages :)
+
+[1]: https://github.com/carp-lang/Carp
+
+Cheers,
+-- 
+Tony Zorman | PGP: 0xc927de8c7dfd57b8
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 866 bytes
+Desc: not available
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/1dc67c0e/attachment.sig>
+
+From vamchale at gmail.com  Tue Jan 28 13:18:21 2020
+From: vamchale at gmail.com (Vanessa McHale)
+Date: Tue, 28 Jan 2020 07:18:21 -0600
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+ <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+Message-ID: <8f920d92-ecd2-6c7c-0767-a504ff2abf75@gmail.com>
+
+Oh, also
+
+   - Kitten
+   - Sixten
+   - koka
+
+On 1/28/20 12:10 AM, Steven Shaw wrote:
+> Another that doesn't come up in the above search is
+> https://github.com/granule-project/granule/.
+>
+> On Tue, 28 Jan 2020 at 12:42, mukesh tiwari
+> <mukeshtiwari.iiitm at gmail.com <mailto:mukeshtiwari.iiitm at gmail.com>>
+> wrote:
+>
+>     Hi David,
+>
+>     I just did a quick github search with the tag "compiler" and language
+>     "haskell" which shows 1480 repository. Of course, not all are serious
+>     project, but first page looks very promising [1].
+>
+>     -Mukesh
+>
+>     [1] https://github.com/search?l=Haskell&q=compiler&type=Repositories
+>
+>     On Tue, Jan 28, 2020 at 12:55 PM David Banas
+>     <capn.freako at gmail.com <mailto:capn.freako at gmail.com>> wrote:
+>     >
+>     > Can anyone provide a list of compilers written in Haskell?
+>     >
+>     > Sent from my iPhone
+>     > _______________________________________________
+>     > Haskell-Cafe mailing list
+>     > To (un)subscribe, modify options or view archives go to:
+>     > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>     > Only members subscribed via the mailman list are allowed to post.
+>     _______________________________________________
+>     Haskell-Cafe mailing list
+>     To (un)subscribe, modify options or view archives go to:
+>     http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>     Only members subscribed via the mailman list are allowed to post.
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/8ae0002f/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 659 bytes
+Desc: OpenPGP digital signature
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/8ae0002f/attachment.sig>
+
+From athas at sigkill.dk  Tue Jan 28 14:53:55 2020
+From: athas at sigkill.dk (Troels Henriksen)
+Date: Tue, 28 Jan 2020 15:53:55 +0100
+Subject: [Haskell-cafe] Do new versions of GHC work on older versions of
+	macOS?
+Message-ID: <m2tv4feinw.fsf@sigkill.dk>
+
+When new versions of GHC come out, I suppose they work on the newest
+macOS.  But what is the oldest macOS they will support?  Is there a
+policy in place?  If not, do they tend to work in practice?  I am
+particularly concerned with the binary distributions.
+
+-- 
+\  Troels
+/\ Henriksen
+
+From piotr.paradzinski at gmail.com  Tue Jan 28 19:30:48 2020
+From: piotr.paradzinski at gmail.com (=?UTF-8?Q?Piotr_Paradzi=C5=84ski?=)
+Date: Tue, 28 Jan 2020 20:30:48 +0100
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <8f920d92-ecd2-6c7c-0767-a504ff2abf75@gmail.com>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+ <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+ <8f920d92-ecd2-6c7c-0767-a504ff2abf75@gmail.com>
+Message-ID: <CABHF0j-p72nNNkOAawSuL2Vr6dSx8mTO3V+K1XHREDt-smZU1g@mail.gmail.com>
+
+- UnisonWeb https://github.com/unisonweb/unison
+
+wt., 28 sty 2020 o 14:18 Vanessa McHale <vamchale at gmail.com> napisał(a):
+
+> Oh, also
+>
+>    - Kitten
+>    - Sixten
+>    - koka
+> On 1/28/20 12:10 AM, Steven Shaw wrote:
+>
+> Another that doesn't come up in the above search is
+> https://github.com/granule-project/granule/.
+>
+> On Tue, 28 Jan 2020 at 12:42, mukesh tiwari <mukeshtiwari.iiitm at gmail.com>
+> wrote:
+>
+>> Hi David,
+>>
+>> I just did a quick github search with the tag "compiler" and language
+>> "haskell" which shows 1480 repository. Of course, not all are serious
+>> project, but first page looks very promising [1].
+>>
+>> -Mukesh
+>>
+>> [1] https://github.com/search?l=Haskell&q=compiler&type=Repositories
+>>
+>> On Tue, Jan 28, 2020 at 12:55 PM David Banas <capn.freako at gmail.com>
+>> wrote:
+>> >
+>> > Can anyone provide a list of compilers written in Haskell?
+>> >
+>> > Sent from my iPhone
+>> > _______________________________________________
+>> > Haskell-Cafe mailing list
+>> > To (un)subscribe, modify options or view archives go to:
+>> > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>> > Only members subscribed via the mailman list are allowed to post.
+>> _______________________________________________
+>> Haskell-Cafe mailing list
+>> To (un)subscribe, modify options or view archives go to:
+>> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>> Only members subscribed via the mailman list are allowed to post.
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/7c2ae556/attachment.html>
+
+From jasonsychau at gmail.com  Tue Jan 28 20:00:44 2020
+From: jasonsychau at gmail.com (Jason Chau)
+Date: Tue, 28 Jan 2020 12:00:44 -0800
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <CABHF0j-p72nNNkOAawSuL2Vr6dSx8mTO3V+K1XHREDt-smZU1g@mail.gmail.com>
+References: <CABHF0j-p72nNNkOAawSuL2Vr6dSx8mTO3V+K1XHREDt-smZU1g@mail.gmail.com>
+Message-ID: <2F907EFE-6019-4854-B039-4F10A567E969@gmail.com>
+
+I have a GraphQL interface for SQL databases.
+
+
+> On Jan 28, 2020, at 11:31 AM, Piotr Paradziński <piotr.paradzinski at gmail.com> wrote:
+> 
+> ﻿
+> - UnisonWeb https://github.com/unisonweb/unison
+> 
+> wt., 28 sty 2020 o 14:18 Vanessa McHale <vamchale at gmail.com> napisał(a):
+>> Oh, also
+>> 
+>>    - Kitten
+>>    - Sixten
+>>    - koka
+>> 
+>>> On 1/28/20 12:10 AM, Steven Shaw wrote:
+>>> Another that doesn't come up in the above search is https://github.com/granule-project/granule/.
+>>> 
+>>> On Tue, 28 Jan 2020 at 12:42, mukesh tiwari <mukeshtiwari.iiitm at gmail.com> wrote:
+>>>> Hi David,
+>>>> 
+>>>> I just did a quick github search with the tag "compiler" and language
+>>>> "haskell" which shows 1480 repository. Of course, not all are serious
+>>>> project, but first page looks very promising [1].
+>>>> 
+>>>> -Mukesh
+>>>> 
+>>>> [1] https://github.com/search?l=Haskell&q=compiler&type=Repositories
+>>>> 
+>>>> On Tue, Jan 28, 2020 at 12:55 PM David Banas <capn.freako at gmail.com> wrote:
+>>>> >
+>>>> > Can anyone provide a list of compilers written in Haskell?
+>>>> >
+>>>> > Sent from my iPhone
+>>>> > _______________________________________________
+>>>> > Haskell-Cafe mailing list
+>>>> > To (un)subscribe, modify options or view archives go to:
+>>>> > http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>>>> > Only members subscribed via the mailman list are allowed to post.
+>>>> _______________________________________________
+>>>> Haskell-Cafe mailing list
+>>>> To (un)subscribe, modify options or view archives go to:
+>>>> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>>>> Only members subscribed via the mailman list are allowed to post.
+>>> 
+>>> 
+>>> _______________________________________________
+>>> Haskell-Cafe mailing list
+>>> To (un)subscribe, modify options or view archives go to:
+>>> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>>> Only members subscribed via the mailman list are allowed to post.
+>> _______________________________________________
+>> Haskell-Cafe mailing list
+>> To (un)subscribe, modify options or view archives go to:
+>> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+>> Only members subscribed via the mailman list are allowed to post.
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200128/c90d1476/attachment.html>
+
+From ietf-dane at dukhovni.org  Tue Jan 28 22:38:28 2020
+From: ietf-dane at dukhovni.org (Viktor Dukhovni)
+Date: Tue, 28 Jan 2020 17:38:28 -0500
+Subject: [Haskell-cafe] Compilers written in Haskell?
+In-Reply-To: <20200128075048.7dipefsaxb7qcbmx@pbox>
+References: <F75CD625-80D5-48DC-B8AA-440B3DD4E41D@gmail.com>
+ <CAFHZvE_3s5HVMSViJJeGUU=hgNEpEcGHDFPuaNZFQaLrdAgZBA@mail.gmail.com>
+ <CAMP6nJwkAbznsdQoXNHLF5dL_CEZBDjHEGKz8hpNLQjiRJaOoA@mail.gmail.com>
+ <23C78E7C-41E7-4D2C-A8EA-580556FD8BE9@broodax.net>
+ <20200128075048.7dipefsaxb7qcbmx@pbox>
+Message-ID: <20200128223828.GB73491@straasha.imrryr.org>
+
+On Tue, Jan 28, 2020 at 08:50:48AM +0100, Tony Zorman wrote:
+
+> Indeed, this one is interesting because it's *not* a haskell-like
+> language.
+> 
+> I would be interested in more of these kinds of e get the idea that
+> haskell is only good for implementing compilers for haskell-like
+> languages :)
+
+It is perhaps worth keeping in mind that there are strong incentives for
+mainstream compilers for mainstream languages to be self-hosting.  Thus
+C compilers (mostly) in C, Haskell compilers (mostly) in Haskell, JDK
+morstly in Java, etc., and e.g.
+
+    https://stackoverflow.com/questions/34729930/what-language-was-used-to-write-rust-compiler
+
+    (originally it seems O'Caml, now Rust)
+
+This is especially true when the language both provides and uses a core
+library built along with the compiler.
+
+Thus compilers that are written in some other language are more likely
+be for a niche DSL.
+
+-- 
+    Viktor.
+
+From hawu.bnu at gmail.com  Wed Jan 29 14:12:55 2020
+From: hawu.bnu at gmail.com (Jean Lopes)
+Date: Wed, 29 Jan 2020 11:12:55 -0300
+Subject: [Haskell-cafe] Domain modeling
+Message-ID: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+
+Hi!
+
+I'm trying to encode a domain which is full of simple records, and a lot of
+field name clashes.
+
+Here is a simple example, a.k.a. 1:1 with the domain-spec:
+
+data C001 {
+>   -- other stuff
+>   indMov :: Bool
+> }
+> data C170 {
+>   -- other stuff
+>  indMov :: Bool
+> }
+
+
+There is ~148 records with this field (indMov), all with the same meaning.
+What are my options to encode this in Haskell?
+
+- Prefix all record fields to avoid name clashes?
+- Use *DuplicateRecordFields*?
+- Typeclasses???
+- other options I am not aware of?
+
+which would you prefer? and why of course :)
+
+Thanks,
+Jean Lopes
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200129/ca247ba4/attachment.html>
+
+From andrew.thaddeus at gmail.com  Wed Jan 29 14:20:38 2020
+From: andrew.thaddeus at gmail.com (Andrew Martin)
+Date: Wed, 29 Jan 2020 09:20:38 -0500
+Subject: [Haskell-cafe] Domain modeling
+In-Reply-To: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+References: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+Message-ID: <CABNC7eOcfLCS_1HQnNVr50WN=ioUvcB5V439DeJrkGb_24NDwQ@mail.gmail.com>
+
+I've been getting a lot of mileage from DuplicateRecordFields lately. You
+just have to commit to not using labels as accessors. That is, no writing
+`indMov x`. Instead, you have to write something like `myFunc C170{indMov}
+= ...` (with NamedFieldPuns) or `myFunc C170{indMov=someBinder} = ...`.
+
+On Wed, Jan 29, 2020 at 9:13 AM Jean Lopes <hawu.bnu at gmail.com> wrote:
+
+> Hi!
+>
+> I'm trying to encode a domain which is full of simple records, and a lot
+> of field name clashes.
+>
+> Here is a simple example, a.k.a. 1:1 with the domain-spec:
+>
+> data C001 {
+>>   -- other stuff
+>>   indMov :: Bool
+>> }
+>> data C170 {
+>>   -- other stuff
+>>  indMov :: Bool
+>> }
+>
+>
+> There is ~148 records with this field (indMov), all with the same meaning.
+> What are my options to encode this in Haskell?
+>
+> - Prefix all record fields to avoid name clashes?
+> - Use *DuplicateRecordFields*?
+> - Typeclasses???
+> - other options I am not aware of?
+>
+> which would you prefer? and why of course :)
+>
+> Thanks,
+> Jean Lopes
+>
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+
+
+
+-- 
+-Andrew Thaddeus Martin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200129/99c03efa/attachment.html>
+
+From hesselink at gmail.com  Wed Jan 29 14:41:47 2020
+From: hesselink at gmail.com (Erik Hesselink)
+Date: Wed, 29 Jan 2020 15:41:47 +0100
+Subject: [Haskell-cafe] Domain modeling
+In-Reply-To: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+References: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+Message-ID: <CAPeieQFzcg721tFuffVRGU7uhwjo=91cnR3bE+8aa+ChC0ZgSA@mail.gmail.com>
+
+I've always been happy with the simplicity of using modules as namespaces
+for this. Give each data type its own module, and import qualified to avoid
+name clashes. If you're doing something specific to a single type, you can
+import unqualified and not use the prefix. The only downside is that you
+can't make a singe module re-exporting all the types, since you can't
+re-export prefixed.
+
+If this field has the same meaning in each data type, and you need to write
+functions that are generic over all of them, go with a type class.
+
+Cheers,
+
+Erik
+
+On Wed, 29 Jan 2020 at 15:13, Jean Lopes <hawu.bnu at gmail.com> wrote:
+
+> Hi!
+>
+> I'm trying to encode a domain which is full of simple records, and a lot
+> of field name clashes.
+>
+> Here is a simple example, a.k.a. 1:1 with the domain-spec:
+>
+> data C001 {
+>>   -- other stuff
+>>   indMov :: Bool
+>> }
+>> data C170 {
+>>   -- other stuff
+>>  indMov :: Bool
+>> }
+>
+>
+> There is ~148 records with this field (indMov), all with the same meaning.
+> What are my options to encode this in Haskell?
+>
+> - Prefix all record fields to avoid name clashes?
+> - Use *DuplicateRecordFields*?
+> - Typeclasses???
+> - other options I am not aware of?
+>
+> which would you prefer? and why of course :)
+>
+> Thanks,
+> Jean Lopes
+>
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200129/e1352506/attachment.html>
+
+From tikhon at jelv.is  Wed Jan 29 20:27:10 2020
+From: tikhon at jelv.is (Tikhon Jelvis)
+Date: Wed, 29 Jan 2020 12:27:10 -0800
+Subject: [Haskell-cafe] Domain modeling
+In-Reply-To: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+References: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+Message-ID: <CAJN5CV+rKiFPU0N7jqfTg5cKuByHXyxWd_T_6ttOaxmw_WOjfg@mail.gmail.com>
+
+On my projects at Target, I've had a good experience using
+DuplicateRecordFields coupled with a library like overloaded-records or
+generic-lens. This lets us define records that share field names without
+needing to use prefixes or multiple modules, while still being able to
+access and modify those fields easily thanks to the OverloadedLabels
+extension.
+
+With this approach, you get a lens for every single record field without
+name conflicts. If you have a bunch of records with a field called id,
+you'll be able to access them using #id as a lens without running into name
+conflicts with other records *or* with normal identifiers (like the id
+function). You can then access fields with `record ^. #fieldName`, set them
+with the .~ operator and compose them with other lenses and traversals.
+
+When we first out together a system like this I was worried that it would
+break type inference and cause weird error messages, but it had not caused
+*any* problems in practice. Haskell's records went from being a royal pain
+to being at least as convenient as any other language I've used, and
+sometimes more (eg when combined with traversals).
+
+On Wed, Jan 29, 2020, 06:13 Jean Lopes <hawu.bnu at gmail.com> wrote:
+
+> Hi!
+>
+> I'm trying to encode a domain which is full of simple records, and a lot
+> of field name clashes.
+>
+> Here is a simple example, a.k.a. 1:1 with the domain-spec:
+>
+> data C001 {
+>>   -- other stuff
+>>   indMov :: Bool
+>> }
+>> data C170 {
+>>   -- other stuff
+>>  indMov :: Bool
+>> }
+>
+>
+> There is ~148 records with this field (indMov), all with the same meaning.
+> What are my options to encode this in Haskell?
+>
+> - Prefix all record fields to avoid name clashes?
+> - Use *DuplicateRecordFields*?
+> - Typeclasses???
+> - other options I am not aware of?
+>
+> which would you prefer? and why of course :)
+>
+> Thanks,
+> Jean Lopes
+>
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200129/5696b506/attachment.html>
+
+From jon.fairbairn at cl.cam.ac.uk  Thu Jan 30 09:56:21 2020
+From: jon.fairbairn at cl.cam.ac.uk (Jon Fairbairn)
+Date: Thu, 30 Jan 2020 09:56:21 +0000
+Subject: [Haskell-cafe] Domain modeling
+References: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+Message-ID: <yplrsgjx469m.fsf@calligramme.charmers>
+
+Jean Lopes <hawu.bnu at gmail.com> writes:
+
+> Hi!
+>
+> I'm trying to encode a domain which is full of simple records, and a lot of
+> field name clashes.
+>
+> Here is a simple example, a.k.a. 1:1 with the domain-spec:
+>
+> data C001 {
+>>   -- other stuff
+>>   indMov :: Bool
+>> }
+>> data C170 {
+>>   -- other stuff
+>>  indMov :: Bool
+>> }
+>
+>
+> There is ~148 records with this field (indMov), all with the same meaning.
+> What are my options to encode this in Haskell?
+
+Is there some reason why they must be different types?
+
+data C = C001 {other_stuff:: Real, indMov:: Bool } |
+         C170 {other_stuff…, indMov:: Bool }
+
+is the first thing that comes to mind.
+-- 
+Jón Fairbairn                                 Jon.Fairbairn at cl.cam.ac.uk
+
+
+
+From hawu.bnu at gmail.com  Thu Jan 30 14:58:59 2020
+From: hawu.bnu at gmail.com (Jean Lopes)
+Date: Thu, 30 Jan 2020 11:58:59 -0300
+Subject: [Haskell-cafe] Domain modeling
+In-Reply-To: <yplrsgjx469m.fsf@calligramme.charmers>
+References: <CAKeoKshgWRUdw0oL+CmPrd7npGp30oJJDvvm6ygydv7oqoUD6Q@mail.gmail.com>
+ <yplrsgjx469m.fsf@calligramme.charmers>
+Message-ID: <CAKeoKsiWrz5h-Y9xOY0fFbAGWZBh6fb3O38+JX+JHPkEoX6EVg@mail.gmail.com>
+
+The main reason to have distinct types is the "natural" hierarchy of the
+records (it's a big tree), for example, the 'C' block is roughly as follows:
+
+C001
+- C100
+  - C101
+  - C105
+  - C110
+    - C111
+    - C112
+    - C113
+    - C114
+    - C115
+    - C116
+  - C120
+  - C130
+  - C140
+    - C141
+  - C160
+  - C165
+  - C170
+    - C171
+    - C172
+    - C173
+    - C174
+    - C175
+    - C176
+    - C177
+    - C178
+    - C179
+  - C180
+    - C185
+  - C190
+    - C191
+    - C195
+    - C197
+- C300
+  - C310
+  - C320
+    - C321
+  - C330
+  - C350
+  - C370
+  - C380
+  - C390
+- C400
+  - C405
+  - C410
+  - C420
+    - C425
+  - C430
+  - C460
+    - C465
+  - C470
+  - C480
+  - C490
+- C495
+- C500
+  - C510
+  - C590
+    - C591
+    - C595
+    - C597
+- C600
+  - C601
+  - C610
+  - C690
+- C700
+  - C790
+    - C791
+- C800
+  - C810
+    - C815
+  - C850
+- C860
+  - C870
+    - C880
+  - C890
+C990
+
+There is more blocks that form the whole document (or tree), Blocks: 0, B,
+C, D, E, G, H, K, I, 9
+
+The idea is to parse the document and implement manipulation functions to
+edit the content and later export in other formats
+
+On Thu, Jan 30, 2020 at 6:56 AM Jon Fairbairn <jon.fairbairn at cl.cam.ac.uk>
+wrote:
+
+> Jean Lopes <hawu.bnu at gmail.com> writes:
+>
+> > Hi!
+> >
+> > I'm trying to encode a domain which is full of simple records, and a lot
+> of
+> > field name clashes.
+> >
+> > Here is a simple example, a.k.a. 1:1 with the domain-spec:
+> >
+> > data C001 {
+> >>   -- other stuff
+> >>   indMov :: Bool
+> >> }
+> >> data C170 {
+> >>   -- other stuff
+> >>  indMov :: Bool
+> >> }
+> >
+> >
+> > There is ~148 records with this field (indMov), all with the same
+> meaning.
+> > What are my options to encode this in Haskell?
+>
+> Is there some reason why they must be different types?
+>
+> data C = C001 {other_stuff:: Real, indMov:: Bool } |
+>          C170 {other_stuff…, indMov:: Bool }
+>
+> is the first thing that comes to mind.
+> --
+> Jón Fairbairn                                 Jon.Fairbairn at cl.cam.ac.uk
+>
+>
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200130/80f8f41a/attachment.html>
+
+From carter.schonwald at gmail.com  Thu Jan 30 19:41:35 2020
+From: carter.schonwald at gmail.com (Carter Schonwald)
+Date: Thu, 30 Jan 2020 14:41:35 -0500
+Subject: [Haskell-cafe] Do new versions of GHC work on older versions of
+	macOS?
+In-Reply-To: <m2tv4feinw.fsf@sigkill.dk>
+References: <m2tv4feinw.fsf@sigkill.dk>
+Message-ID: <CAHYVw0wZrM=4t=iRe1DraVXN1LNL7NZ4fNLyO--hwMJ_KVhm8w@mail.gmail.com>
+
+They should work with a large range of amd64 compatible Mac OS X releases.
+For example every recent release is configured to be able to use the older
+/ mach flavored time system calls.
+
+That’s said, please test them in your environment.  It’s super safe to
+install multiple ghc flavors and versions in the same computer the. Just
+change your path variables.  If you find issues please report them on the
+ghc issues tracker and we can try to help you.
+
+On Tue, Jan 28, 2020 at 9:54 AM Troels Henriksen <athas at sigkill.dk> wrote:
+
+> When new versions of GHC come out, I suppose they work on the newest
+> macOS.  But what is the oldest macOS they will support?  Is there a
+> policy in place?  If not, do they tend to work in practice?  I am
+> particularly concerned with the binary distributions.
+>
+> --
+> \  Troels
+> /\ Henriksen
+> _______________________________________________
+> Haskell-Cafe mailing list
+> To (un)subscribe, modify options or view archives go to:
+> http://mail.haskell.org/cgi-bin/mailman/listinfo/haskell-cafe
+> Only members subscribed via the mailman list are allowed to post.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200130/1d27b27a/attachment.html>
+
+From icfp.publicity at googlemail.com  Thu Jan 30 21:11:01 2020
+From: icfp.publicity at googlemail.com (Sam Tobin-Hochstadt)
+Date: Thu, 30 Jan 2020 16:11:01 -0500
+Subject: [Haskell-cafe] Call for Papers: PACMPL issue ICFP 2020
+Message-ID: <5e3346653ed26_7e7b2afcc21785b099848@homer.mail>
+
+                PACMPL Volume 4, Issue ICFP 2020
+                            Call for Papers
+
+            accepted papers to be invited for presentation at
+ The 25th ACM SIGPLAN International Conference on Functional Programming
+                             Jersey City, USA
+                       http://icfp20.sigplan.org/
+
+### Important dates
+
+Submissions due:    3 March 2020 (Tuesday) Anywhere on Earth
+                    https://icfp20.hotcrp.com
+Author response:    21 April (Tuesday) - 24 Apri (Friday) 14:00 UTC
+Notification:       8 May (Friday)
+Final copy due:     1 July (Wednesday)
+Conference:         18 August (Sunday) - 23 August (Friday)
+
+### About PACMPL
+
+Proceedings of the ACM on Programming Languages (PACMPL
+<https://pacmpl.acm.org/>) is a Gold Open Access journal publishing
+research on all aspects of programming languages, from design to
+implementation and from mathematical formalisms to empirical
+studies. Each issue of the journal is devoted to a particular subject
+area within programming languages and will be announced through
+publicized Calls for Papers, like this one.
+
+### Scope
+
+[PACMPL](https://pacmpl.acm.org/) issue ICFP 2020 seeks original
+papers on the art and science of functional programming. Submissions
+are invited on all topics from principles to practice, from
+foundations to features, and from abstraction to application. The
+scope includes all languages that encourage functional programming,
+including both purely applicative and imperative languages, as well as
+languages with objects, concurrency, or parallelism. Topics of
+interest include (but are not limited to):
+
+* Language Design: concurrency, parallelism, and distribution;
+    modules; components and composition; metaprogramming; macros;
+    pattern matching; type systems; type inference; dependent types;
+    session types; gradual typing; refinement types; interoperability;
+    domain-specific languages; imperative programming; object-oriented
+    programming; logic programming; probabilistic programming;
+    reactive programming; generic programming; bidirectional
+    programming.
+    
+* Implementation: abstract machines; virtual machines;
+    interpretation; compilation; compile-time and run-time
+    optimization; garbage collection and memory management; runtime
+    systems; multi-threading; exploiting parallel hardware; interfaces
+    to foreign functions, services, components, or low-level machine
+    resources.
+    
+* Software-Development Techniques: algorithms and data structures;
+    design patterns; specification; verification; validation; proof
+    assistants; debugging; testing; tracing; profiling; build systems;
+    program synthesis.
+    
+* Foundations: formal semantics; lambda calculus; program
+    equivalence; rewriting; type theory; logic; category theory;
+    monads; continuations; control; state; effects; names and binding;
+    program verification.
+    
+* Analysis and Transformation: control flow; data flow; abstract
+    interpretation; partial evaluation; program calculation.
+    
+* Applications: symbolic computing; formal-methods tools; artificial
+    intelligence; systems programming; distributed systems and web
+    programming; hardware design; databases; XML processing;
+    scientific and numerical computing; graphical user interfaces;
+    graphics and multimedia; GPU programming; scripting; system
+    administration; security.
+    
+* Education: teaching introductory programming; parallel
+    programming; mathematical proof; algebra.
+
+Submissions will be evaluated according to their relevance,
+correctness, significance, originality, and clarity. Each submission
+should explain its contributions in both general and technical terms,
+clearly identifying what has been accomplished, explaining why it is
+significant, and comparing it with previous work. The technical
+content should be accessible to a broad audience.
+
+PACMPL issue ICFP 2020 also welcomes submissions in two separate
+categories — Functional Pearls and Experience Reports — that must be
+marked as such when submitted and that need not report original
+research results. Detailed guidelines on both categories are given at
+the end of this call.
+
+Please contact the principal editor if you have questions or are
+concerned about the appropriateness of a topic.
+
+
+### Preparation of submissions
+
+**Deadline**: The deadline for submissions is **Tuesday, March 3, 2020**,
+Anywhere on Earth (<https://en.wikipedia.org/wiki/Anywhere_on_Earth>).
+This deadline will be strictly enforced.
+
+**Formatting**: Submissions must be in PDF format, printable in black
+and white on US Letter sized paper, and interpretable by common PDF
+tools. All submissions must adhere to the "ACM Small" template that is
+available (in both LaTeX and Word formats) from
+<https://www.acm.org/publications/authors/submissions>.  For authors
+using LaTeX, a lighter-weight package, including only the essential
+files, is available from
+<http://sigplan.org/Resources/Author/#acmart-format>.
+
+There is a limit of **25 pages for a full paper or Functional Pearl**
+and **12 pages for an Experience Report**; in either case, the
+bibliography will not be counted against these limits. Submissions
+that exceed the page limits or, for other reasons, do not meet the
+requirements for formatting, will be summarily rejected. Supplementary
+material can and should be **separately** submitted (see below).
+
+See also PACMPL's Information and Guidelines for Authors at
+<https://pacmpl.acm.org/authors.cfm>.
+
+**Submission**: Submissions will be accepted at <https://icfp20.hotcrp.com/>
+
+Improved versions of a paper may be submitted at any point before the
+submission deadline using the same web interface.
+
+**Author Response Period**: Authors will have a 72-hour period,
+starting at 14:00 UTC on **Tuesday, April 21, 2020**, to read reviews
+and respond to them.
+
+**Supplementary Material**: Authors have the option to attach
+supplementary material to a submission, on the understanding that
+reviewers may choose not to look at it. This supplementary material
+should **not** be submitted as part of the main document; instead, it
+should be uploaded as a **separate** PDF document or tarball.
+
+Supplementary material should be uploaded **at submission time**, not
+by providing a URL in the paper that points to an external repository.
+
+Authors are free to upload both anonymized and non-anonymized
+supplementary material. Anonymized supplementary material will be
+visible to reviewers immediately; non-anonymized supplementary
+material will be revealed to reviewers only after they have submitted
+their review of the paper and learned the identity of the author(s).
+
+**Authorship Policies**: All submissions are expected to comply with
+the ACM Policies for Authorship that are detailed at
+<https://www.acm.org/publications/authors/information-for-authors>.
+
+**Republication Policies**: Each submission must adhere to SIGPLAN's
+republication policy, as explained on the web at
+<http://www.sigplan.org/Resources/Policies/Republication>.
+
+### Review Process
+
+This section outlines the two-stage process with lightweight
+double-blind reviewing that will be used to select papers for PACMPL
+issue ICFP 2020.  We anticipate that there will be a need to clarify
+and expand on this process, and we will maintain a list of frequently
+asked questions and answers on the conference website to address
+common concerns.
+
+**PACMPL issue ICFP 2020 will employ a two-stage review process.** The
+  first stage in the review process will assess submitted papers using
+  the criteria stated above and will allow for feedback and input on
+  initial reviews through the author response period mentioned
+  previously. At the review meeting, a set of papers will be
+  conditionally accepted and all other papers will be rejected.
+  Authors will be notified of these decisions on **May 8, 2020**.
+
+Authors of conditionally accepted papers will be provided with
+committee reviews (just as in previous conferences) along with a set
+of mandatory revisions. After four weeks (June 5, 2020), the authors
+will provide a second submission. The second and final reviewing phase
+assesses whether the mandatory revisions have been adequately
+addressed by the authors and thereby determines the final
+accept/reject status of the paper. The intent and expectation is that
+the mandatory revisions can be addressed within four weeks and hence
+that conditionally accepted papers will in general be accepted in the
+second phase.
+
+The second submission should clearly identify how the mandatory
+revisions were addressed. To that end, the second submission must be
+accompanied by a cover letter mapping each mandatory revision request
+to specific parts of the paper. The cover letter will facilitate a
+quick second review, allowing for confirmation of final acceptance
+within two weeks. Conversely, the absence of a cover letter will be
+grounds for the paper’s rejection.
+
+**PACMPL issue ICFP 2020 will employ a lightweight double-blind
+  reviewing process.** To facilitate this, submitted papers must
+  adhere to two rules:
+
+  1. **author names and institutions must be omitted**, and
+  2. **references to authors' own related work should be in the third
+  person** (e.g., not "We build on our previous work ..." but rather
+  "We build on the work of ...").
+
+The purpose of this process is to help the reviewers come to an
+initial judgement about the paper without bias, not to make it
+impossible for them to discover the authors if they were to
+try. Nothing should be done in the name of anonymity that weakens the
+submission or makes the job of reviewing the paper more difficult
+(e.g., important background references should not be omitted or
+anonymized). In addition, authors should feel free to disseminate
+their ideas or draft versions of their paper as they normally
+would. For instance, authors may post drafts of their papers on the
+web or give talks on their research ideas.
+
+### Information for Authors of Accepted Papers
+
+* As a condition of acceptance, final versions of all papers must
+  adhere to the new ACM Small format. The page limit for the final
+  versions of papers will be increased by two pages to help authors
+  respond to reviewer comments and mandatory revisions: **27 pages
+  plus bibliography for a regular paper or Functional Pearl, 14 pages
+  plus bibliography for an Experience Report**.
+
+* Authors of accepted submissions will be required to agree to one of
+  the three ACM licensing options: open access on payment of a fee
+  (**recommended**, and SIGPLAN can cover the cost as described next);
+  copyright transfer to ACM; or retaining copyright but granting ACM
+  exclusive publication rights.  Further information about ACM author
+  rights is available from <http://authors.acm.org>.
+
+* PACMPL is a Gold Open Access journal. It will be archived in ACM’s
+  Digital Library, but no membership or fee is required for
+  access. Gold Open Access has been made possible by generous funding
+  through ACM SIGPLAN, which will cover all open access costs in the
+  event authors cannot. Authors who can cover the costs may do so by
+  paying an Article Processing Charge (APC). PACMPL, SIGPLAN, and ACM
+  Headquarters are committed to exploring routes to making Gold Open
+  Access publication both affordable and sustainable.
+
+* ACM offers authors a range of copyright options, one of which is
+  Creative Commons CC-BY publication; this is the option recommended
+  by the PACMPL editorial board. A reasoned argument in favour of this
+  option can be found in the article [Why
+  CC-BY?](https://oaspa.org/why-cc-by/) published by OASPA, the Open
+  Access Scholarly Publishers Association.
+
+* We intend that the papers will be freely available for download from
+  the ACM Digital Library in perpetuity via the OpenTOC mechanism.
+
+* ACM Author-Izer is a unique service that enables ACM authors to
+  generate and post links on either their home page or institutional
+  repository for visitors to download the definitive version of their
+  articles from the ACM Digital Library at no charge. Downloads
+  through Author-Izer links are captured in official ACM statistics,
+  improving the accuracy of usage and impact
+  measurements. Consistently linking to the definitive version of an
+  ACM article should reduce user confusion over article
+  versioning. After an article has been published and assigned to the
+  appropriate ACM Author Profile pages, authors should visit
+  <http://www.acm.org/publications/acm-author-izer-service> to learn
+  how to create links for free downloads from the ACM DL.
+
+* The official publication date is the date the papers are made
+  available in the ACM Digital Library. This date may be up to *two
+  weeks prior* to the first day of the conference. The official
+  publication date affects the deadline for any patent filings related
+  to published work.
+
+* At least one author of each accepted submission will be expected to
+  attend and present that paper at the conference. The schedule for
+  presentations will be determined and shared with authors after the
+  full program has been selected. Presentations will be videotaped and
+  released online if the presenter consents.
+
+  In extraordinary circumstances, at the discretion of the principal
+  editor, alternative presentation methods may be approved for
+  specific papers. The canonical example is where all authors are
+  denied visas to the ICFP host country, in which case a nonauthor may
+  be deputized to present, or various electronic substitutes may be
+  considered. We list these options in the interest of transparency,
+  but please keep in mind that, most years, no exceptions are
+  granted. This option is not meant, e.g., to excuse cases where
+  authors find themselves double-booked with other meetings (so, at
+  the time of submitting a paper, please do keep the days of the
+  conference reserved on at least one author’s calendar).
+
+
+
+### Artifact Evaluation
+
+Authors of papers that are conditionally accepted in the first phase
+of the review process will be encouraged (but not required) to submit
+supporting materials for Artifact Evaluation. These items will then be
+reviewed by an Artifact Evaluation Committee, separate from the paper
+Review Committee, whose task is to assess how the artifacts support
+the work described in the associated paper. Papers that go through the
+Artifact Evaluation process successfully will receive a seal of
+approval printed on the papers themselves. Authors of accepted papers
+will be encouraged to make the supporting materials publicly available
+upon publication of the papers, for example, by including them as
+"source materials" in the ACM Digital Library.  An additional seal
+will mark papers whose artifacts are made available, as outlined in
+the ACM guidelines for artifact badging.
+
+Participation in Artifact Evaluation is voluntary and will not
+influence the final decision regarding paper acceptance.
+
+### Special categories of papers
+
+In addition to research papers, PACMPL issue ICFP solicits two kinds
+of papers that do not require original research contributions:
+Functional Pearls, which are full papers, and Experience Reports,
+which are limited to half the length of a full paper. Authors
+submitting such papers should consider the following guidelines.
+
+#### Functional Pearls
+
+A Functional Pearl is an elegant essay about something related to
+functional programming. Examples include, but are not limited to:
+
+  * a new and thought-provoking way of looking at an old idea
+
+  * an instructive example of program calculation or proof
+
+  * a nifty presentation of an old or new data structure
+
+  * an interesting application of functional programming techniques
+
+  * a novel use or exposition of functional programming in the classroom
+
+While pearls often demonstrate an idea through the development of a
+short program, there is no requirement or expectation that they do
+so. Thus, they encompass the notions of theoretical and educational
+pearls.
+
+Functional Pearls are valued as highly and judged as rigorously as
+ordinary papers, but using somewhat different criteria. In particular,
+a pearl is not required to report original research, but, it should be
+concise, instructive, and entertaining. A pearl is likely to be
+rejected if its readers get bored, if the material gets too
+complicated, if too much specialized knowledge is needed, or if the
+writing is inelegant. The key to writing a good pearl is polishing.
+
+A submission that is intended to be treated as a pearl must be marked
+as such on the submission web page, and should contain the words
+"Functional Pearl" somewhere in its title or subtitle. These steps
+will alert reviewers to use the appropriate evaluation
+criteria. Pearls will be combined with ordinary papers, however, for
+the purpose of computing the conference's acceptance rate.
+
+#### Experience Reports
+
+The purpose of an Experience Report is to help create a body of
+published, refereed, citable evidence that functional programming
+really works -- or to describe what obstacles prevent it from
+working.
+
+Possible topics for an Experience Report include, but are not limited to:
+
+  * insights gained from real-world projects using functional programming
+
+  * comparison of functional programming with conventional programming
+    in the context of an industrial project or a university curriculum
+
+  * project-management, business, or legal issues encountered when
+    using functional programming in a real-world project
+
+  * curricular issues encountered when using functional programming in
+    education
+
+  * real-world constraints that created special challenges for an
+    implementation of a functional language or for functional
+    programming in general
+
+An Experience Report is distinguished from a normal PACMPL issue ICFP
+paper by its title, by its length, and by the criteria used to
+evaluate it.
+
+  * Both in the papers and in any citations, the title of each
+    accepted Experience Report must end with the words "(Experience
+    Report)" in parentheses. The acceptance rate for Experience
+    Reports will be computed and reported separately from the rate for
+    ordinary papers.
+
+  * Experience Report submissions can be at most 12 pages long,
+    excluding bibliography.
+
+  * Each accepted Experience Report will be presented at the
+    conference, but depending on the number of Experience Reports and
+    regular papers accepted, authors of Experience reports may be
+    asked to give shorter talks.
+
+  * Because the purpose of Experience Reports is to enable our
+    community to accumulate a body of evidence about the efficacy of
+    functional programming, an acceptable Experience Report need not
+    add to the body of knowledge of the functional-programming
+    community by presenting novel results or conclusions. It is
+    sufficient if the Report states a clear thesis and provides
+    supporting evidence. The thesis must be relevant to ICFP, but it
+    need not be novel.
+
+The review committee will accept or reject Experience Reports based on
+whether they judge the evidence to be convincing. Anecdotal evidence
+will be acceptable provided it is well argued and the author explains
+what efforts were made to gather as much evidence as
+possible. Typically, more convincing evidence is obtained from papers
+which show how functional programming was used than from papers which
+only say that functional programming was used. The most convincing
+evidence often includes comparisons of situations before and after the
+introduction or discontinuation of functional programming. Evidence
+drawn from a single person's experience may be sufficient, but more
+weight will be given to evidence drawn from the experience of groups
+of people.
+
+An Experience Report should be short and to the point: it should make
+a claim about how well functional programming worked on a particular
+project and why, and produce evidence to substantiate this claim. If
+functional programming worked in this case in the same ways it has
+worked for others, the paper need only summarize the results &mdash;
+the main part of the paper should discuss how well it worked and in
+what context. Most readers will not want to know all the details of
+the project and its implementation, but the paper should characterize
+the project and its context well enough so that readers can judge to
+what degree this experience is relevant to their own projects. The
+paper should take care to highlight any unusual aspects of the
+project. Specifics about the project are more valuable than
+generalities about functional programming; for example, it is more
+valuable to say that the team delivered its software a month ahead of
+schedule than it is to say that functional programming made the team
+more productive.
+
+If the paper not only describes experience but also presents new
+technical results, or if the experience refutes cherished beliefs of
+the functional-programming community, it may be better to submit it as
+a full paper, which will be judged by the usual criteria of novelty,
+originality, and relevance. The principal editor will be happy to
+advise on any concerns about which category to submit to.
+
+
+
+### ICFP Organizers
+
+General Chair: Stephanie Weirich (University of Pennsylvania, USA)
+
+Artifact Evaluation Co-Chairs: Ben Lippmeier (UNSW, Australia)
+                               Brent Yorgey (Hendrix College, USA)
+Industrial Relations Chair: Alan Jeffrey (Mozilla Research, USA)
+Programming Contest Organiser: Igor Lukanin (Kontur, Russia)
+Publicity and Web Chair: Sam Tobin-Hochstadt (Indiana University, USA)
+Student Research Competition Chair: Youyou Cong (Tokyo Institute of Technology, Japan)
+Workshops Co-Chair: Leonidas Lampropoulos (University of Maryland, USA)
+                    Jennifer Hackett (University of Nottingham, UK)
+Conference Manager: Annabel Satin (P.C.K.)                    
+
+
+### PACMPL Volume 4, Issue ICFP 2020
+
+Principal Editor: Adam Chlipala (MIT, USA)
+
+Review Committee:
+
+Andreas Abel (Gothenburg University, Sweden)
+Nada Amin (Harvard University, USA)
+Edwin Brady (University of St. Andrews, UK)
+William E. Byrd (University of Alabama at Birmingham, USA)
+David Darais (University of Vermont)
+Richard A. Eisenberg (Bryn Mawr College, USA)
+Matthew Fluet (Rochester Institute of Technology, USA)
+Makoto Hamana (Gunma University, Japan)
+Fritz Henglein (Department of Computer Science, University of Copenhagen (DIKU) and Deon Digital, Denmark)
+Jan Hoffmann (Carnegie Mellon University, USA)
+Robbert Krebbers (Delft University of Technology, Netherlands)
+Neel Krishnaswami (Computer Laboratory, University of Cambridge, UK)
+Geoffrey Mainland (Drexel University, USA)
+Magnus O. Myreen (Chalmers University of Technology, Sweden)
+Atsushi Ohori (Tohoku University, Japan)
+Frank Piessens (KU Leuven, Belgium)
+Nadia Polikarpova (University of California San Diego, USA)
+Jonathan Protzenko (Microsoft Research, USA)
+Jerome Simeon (Clause, France)
+KC Sivaramakrishnan (IIT Madras, India)
+
+External Review Committee:
+
+Danel Ahman (University of Ljubljana, Slovenia)
+Aws Albarghouthi (University of Wisconsin-Madison, USA)
+Kenichi Asai (Ochanomizu University, Japan)
+Patrick Bahr (IT University of Copenhagen, Denmark)
+Stephanie Balzer (Carnegie Mellon University, USA)
+Jean-Philippe Bernardy (University of Gothenburg, Sweden)
+Sandrine Blazy (Univ Rennes-IRISA, France)
+Benjamin Canou (OCamlPro, France)
+Giuseppe Castagna (CNRS - Université de Paris, France)
+Jesper Cockx (TU Delft, Netherlands)
+Youyou Cong (Tokyo Institute of Technology, Japan)
+Leonardo De Moura (Microsoft Research, USA)
+Sebastian Erdweg (JGU Mainz, Germany)
+Ronald Garcia (University of British Columbia, Canada)
+Jennifer Hackett (University of Nottingham, UK)
+Troels Henriksen (University of Copenhagen, Denmark)
+Gabriele Keller (Utrecht University, Netherlands)
+Delia Kesner (IRIF, France / University of Paris Diderot, France)
+Shriram Krishnamurthi (Brown University, United States)
+Jan Midtgaard (University of Southern Denmark, Denmark)
+Andrey Mokhov (Jane Street, USA)
+J. Garrett Morris (University of Kansas, USA)
+Stefan Muller (Carnegie Mellon University, USA)
+Rasmus Ejlers Møgelberg (IT University of Copenhagen, Denmark)
+Cyrus Omar (University of Chicago, USA)
+Dominic Orchard (University of Kent, UK)
+Ivan Perez (NIA / NASA Formal Methods)
+Brigitte Pientka (McGill University, Canada)
+Juan Pedro Bolívar Puente (Independent Consultant, Sinusoidal Engineering)
+Norman Ramsey (Tufts University, USA)
+Christine Rizkallah (UNSW Sydney, Australia)
+Tiark Rompf (Purdue University, USA)
+Guido Salvaneschi (Technische Universität Darmstadt, Germany)
+Tom Schrijvers (KU Leuven, Belgium)
+Chung-chieh Shan (Indiana University, USA)
+Vincent St-Amour (Northwestern University, USA)
+Aaron Stump (The University of Iowa, USA)
+Nicolas Tabareau (Inria, France)
+Ross Tate (Cornell University, USA)
+Dimitrios Vytiniotis (DeepMind, UK)
+John Wiegley (DFINITY, USA)
+Beta Ziliani (FAMAF, UNC and CONICET, Argentina)
+
+From capn.freako at gmail.com  Fri Jan 31 00:19:55 2020
+From: capn.freako at gmail.com (David Banas)
+Date: Thu, 30 Jan 2020 16:19:55 -0800
+Subject: [Haskell-cafe] Haskell positions available at Luminous Computing.
+Message-ID: <44E5E9D0-8A26-4CA9-8A93-643FB3B3E76A@gmail.com>
+
+Hi all,
+
+I have 3 Haskell openings on my team at Luminous Computing, Inc.
+https://www.luminouscomputing.com/ <https://www.luminouscomputing.com/>
+
+We are using Haskell to build our tools (chip design, architecture explorer, and customer design compiler). And I’m looking for a different individual to own each tool. Of course, in a start-up flexibility is key, but that’s the official notion of how things would be arranged.
+
+Please, take a brief look at our web site. And, if you think you might be interested, let me know, so we can chat and explore a potential fit.
+
+Thanks,
+David Banas
+Chief Architect
+Luminous Computing, Inc.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <http://mail.haskell.org/pipermail/haskell-cafe/attachments/20200130/d3eacc8a/attachment.html>
+

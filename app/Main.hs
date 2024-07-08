@@ -63,27 +63,23 @@ main = do
 
   runScrape thisOne
 
-  -- runScrape utf8
-  runCheck latest thisOne
+-- runScrape utf8
+-- runCheck latest thisOne
 
 -- runSampleContents latin1 [991, 820, 443, 554, 3839, 394, 2394, 239, 959, 2000, 1900, 1950]
 
 runScrape :: FilePath -> IO ()
 runScrape fileName = do
   certificateStore <- X509.getSystemCertificateStore
-  let tlsSettings =
-        TLSSettings
-          ( Network.TLS.defaultParamsClient "https://mail.haskell.org" "443"
-          )
-            { Network.TLS.clientSupported =
-                Default.def
-                  { Network.TLS.supportedExtendedMainSecret = Network.TLS.AllowEMS
-                  },
-              Network.TLS.clientShared =
-                Default.def
-                  { Network.TLS.sharedCAStore = certificateStore
-                  }
-            }
+  let clientParams =
+        (Network.TLS.defaultParamsClient "https://mail.haskell.org" "443")
+          { Network.TLS.clientSupported =
+              Default.def {Network.TLS.supportedExtendedMainSecret = Network.TLS.AllowEMS},
+            Network.TLS.clientShared =
+              Default.def {Network.TLS.sharedCAStore = certificateStore}
+          }
+      tlsSettings = TLSSettings clientParams
+
   manager <- HTTP.Client.newManager (HTTP.Client.TLS.mkManagerSettings tlsSettings Nothing)
 
   System.IO.writeFile fileName ""
@@ -163,23 +159,29 @@ runCheck f1 f2 = do
           Debug.Trace.traceM (show ln)
           error (e)
       <&> Map.fromList
-  Foldable.for_ (Map.toList l) \(k, v) -> do
-    case Map.lookup k u of
-      Just v' -> do
-        -- putStrLn (show k)
-        if v /= v'
-          then do
-            putStrLn "Different"
-            putStrLn "--------------------------------------------||"
+  if Map.size l /= Map.size u
+    then do
+      putStrLn "Different sizes"
+      putStrLn (show (Map.size l))
+      putStrLn (show (Map.size u))
+    else do
+      Foldable.for_ (Map.toList l) \(k, v) -> do
+        case Map.lookup k u of
+          Just v' -> do
+            -- putStrLn (show k)
+            if v /= v'
+              then do
+                putStrLn "Different"
+                putStrLn "--------------------------------------------||"
+                Text.Lazy.IO.putStrLn v
+                putStrLn "||------------------------------------------||"
+                Text.Lazy.IO.putStrLn v'
+                putStrLn "||--------------------------------------------"
+              else
+                pure ()
+          Nothing -> do
+            putStrLn "Missing"
             Text.Lazy.IO.putStrLn v
-            putStrLn "||------------------------------------------||"
-            Text.Lazy.IO.putStrLn v'
-            putStrLn "||--------------------------------------------"
-          else
-            pure ()
-      Nothing -> do
-        putStrLn "Missing"
-        Text.Lazy.IO.putStrLn v
 
 runSampleContents :: FilePath -> IO ()
 runSampleContents fileName = do
@@ -197,7 +199,7 @@ runSampleContents fileName = do
     --   then do
     -- Text.Lazy.IO.putStrLn ("## " <> m.subject)
     -- Text.Lazy.IO.putStrLn (m.content)
-    Text.Lazy.IO.putStrLn (m.date)
+    putStrLn (ISO8601.iso8601Show m.date)
 
 --
 -- case Megaparsec.runParser (Applicative.many Parser.messageP) "input" text of

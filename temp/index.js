@@ -18,7 +18,6 @@ function appendLi(json) {
 
   const inReplyTo = _inReplyTo?.split(" ").at(0);
 
-  console.log("inReplyTo", inReplyTo, "messageID", messageID);
   allReplyTo.add(inReplyTo);
   allMessageIds.add(messageID);
 
@@ -30,29 +29,37 @@ function appendLi(json) {
   h2.innerText = subject;
 
   const address = document.createElement("address");
-  address.innerHTML = `By ${author}`;
+  address.innerHTML = author;
 
   const time = document.createElement("time");
   time.innerHTML = date;
+  time.dateTime = date;
 
   const header = document.createElement("header");
   header.appendChild(h2);
   header.appendChild(address);
   header.appendChild(time);
 
-  // const article = document.createElement("article");
-  // article.innerHTML = content;
+  const article = document.createElement("article");
+  article.innerText = content;
 
   li.appendChild(header);
   // li.appendChild(article);
 
   if (inReplyTo) {
-    const parent = ul.querySelector(`li[data-message-id="${inReplyTo}"]`);
+    const parent = document.querySelector(`li[data-message-id="${inReplyTo}"]`);
+    console.assert(
+      parent,
+      `Parent not found for ${messageID}`,
+      author,
+      subject
+    );
     if (parent) {
       const innerUL = parent.querySelector("ul");
       if (!innerUL) {
         const innerUL = document.createElement("ul");
         parent.appendChild(innerUL);
+        innerUL.appendChild(li);
       } else {
         innerUL.appendChild(li);
       }
@@ -64,7 +71,8 @@ function appendLi(json) {
   }
 }
 
-// Appendix
+// The following code is from:
+// https://stackoverflow.com/questions/76315479/split-a-readablestream-into-lines
 
 function concatArrayBuffers(chunks) {
   const result = new Uint8Array(chunks.reduce((a, c) => a + c.length, 0));
@@ -111,7 +119,7 @@ fetch("data.ndjson").then((res) =>
     .pipeTo(
       new WritableStream({
         async write(chunk) {
-          await new Promise((resolve) => setTimeout(resolve, 800));
+          await new Promise((resolve) => requestAnimationFrame(resolve));
           try {
             appendLi(chunk);
           } catch (error) {

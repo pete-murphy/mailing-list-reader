@@ -1,3 +1,4 @@
+{-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
@@ -10,17 +11,34 @@ module Parser where
 
 import Control.Applicative ((<|>))
 import Control.Applicative qualified as Applicative
+import Control.Arrow ((<<<), (>>>))
 import Control.Monad qualified as Monad
 import Data.Aeson (FromJSON, ToJSON)
 import Data.Function ((&))
+import Data.Generics.Labels ()
+import Data.Maybe qualified as Maybe
 import Data.Text.Lazy (LazyText)
 import Data.Text.Lazy qualified as Text.Lazy
-import Data.Text.Lazy.IO qualified as Text.Lazy.IO
+import Data.Time (ZonedTime)
+import Data.Time qualified as Time
 import Data.Void (Void)
+import Debug.Trace qualified
 import GHC.Generics (Generic)
 import Text.Megaparsec (Parsec)
 import Text.Megaparsec qualified as Megaparsec
 import Text.Megaparsec.Char qualified as Megaparsec.Char
+import Text.Parsec.Rfc2822 qualified as Parsec.Rfc2822
+
+-- Define the format string according to the input format
+timestampFormat :: String
+timestampFormat = "%e %b %Y %H:%M:%S %z"
+
+-- Function to parse a timestamp string into a ZonedTime
+parseTimestamp :: String -> Maybe ZonedTime
+parseTimestamp str = do
+  Debug.Trace.traceM str
+  drop 4 str
+    & Time.parseTimeM True Time.defaultTimeLocale timestampFormat
 
 type Parser a = Parsec Void LazyText a
 
@@ -30,7 +48,7 @@ data Header = Header
     messageID :: LazyText,
     inReplyTo :: Maybe LazyText,
     references :: Maybe LazyText,
-    date :: LazyText
+    date :: ZonedTime
   }
   deriving (Generic, Show, ToJSON, FromJSON)
 
@@ -41,7 +59,7 @@ data Message = Message
     messageID :: LazyText,
     inReplyTo :: Maybe LazyText,
     references :: Maybe LazyText,
-    date :: LazyText
+    date :: ZonedTime
   }
   deriving (Generic, Show, ToJSON, FromJSON)
 
@@ -72,10 +90,13 @@ lineRemainderP = do
     singleLineRemainder =
       Text.Lazy.pack <$> Megaparsec.someTill Megaparsec.anySingle Megaparsec.Char.newline
 
-dateP :: Parser LazyText
+dateP :: Parser ZonedTime
 dateP = do
   Monad.void (Megaparsec.Char.string "Date: ")
-  lineRemainderP
+  remainder <- lineRemainderP
+  case parseTimestamp (Text.Lazy.unpack remainder) of
+    Just date -> pure date
+    Nothing -> fail ("Could not parse date\n" <> show remainder)
 
 subjectP :: Parser LazyText
 subjectP = do
@@ -105,10 +126,20 @@ messageIDP = do
 
 contentP :: Parser LazyText
 contentP = do
-  Text.Lazy.pack
-    <$> Megaparsec.someTill
-      Megaparsec.anySingle
-      (Megaparsec.lookAhead (Monad.void (Megaparsec.try headerP)) <|> Megaparsec.eof)
+  result <-
+    Text.Lazy.pack
+      <$> Megaparsec.someTill
+        Megaparsec.anySingle
+        (Megaparsec.lookAhead (Monad.void nextPartP <|> Monad.void (Megaparsec.try headerP)) <|> Megaparsec.eof)
+  Monad.void (Applicative.optional nextPartP)
+  pure result
+
+nextPartP :: Parser String
+nextPartP = do
+  Monad.void ("-------------- next part --------------")
+  Megaparsec.manyTill
+    Megaparsec.anySingle
+    (Megaparsec.lookAhead (Monad.void (Megaparsec.try headerP)) <|> Megaparsec.eof)
 
 headerP :: Parser Header
 headerP = do
@@ -130,7 +161,6 @@ messageP = do
           & Text.Lazy.strip
           & Text.Lazy.lines
           & reverse
-          -- & dropWhile Text.Lazy.null
           & span (\ln -> Text.Lazy.isPrefixOf "> " ln || Text.Lazy.null ln)
           & \case
             ([], rest) -> rest
@@ -138,10 +168,3 @@ messageP = do
           & reverse
           & Text.Lazy.unlines
   pure Message {..}
-
-testParser :: IO ()
-testParser = do
-  text <- Text.Lazy.IO.readFile "./data/may.txt"
-  case Megaparsec.runParser (Applicative.many messageP) "input" text of
-    Left errBundle -> putStrLn (Megaparsec.errorBundlePretty errBundle)
-    Right result -> print result

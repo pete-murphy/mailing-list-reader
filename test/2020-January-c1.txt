@@ -1,0 +1,23 @@
+Hi,
+
+rdf4h-4.0.0 has been released.
+
+This library [1,2] is for working with semantic web RDF data. It
+includes multiple graph representations, RDF parsers/serialisers, and
+an API for querying and modifying RDF graphs.
+
+Version 4.0.0 is significant because it is the first release of the
+rdf4h library to be 100% compliant [3] with the parser unit tests
+defined by the W3C RDF Test Suite Curation Community Group [4] for
+parsing NTriple, Turtle and XML RDF formats.
+
+[1] https://hackage.haskell.org/package/rdf4h-4.0.0
+[2] https://github.com/robstewart57/rdf4h
+[3] https://travis-ci.org/robstewart57/rdf4h
+[4] https://www.w3.org/community/rdf-tests/
+
+Special thanks to Slava Kravchenko, Pierre Le Marre and Renzo
+Carbonara whose efforts contributed to this milestone.
+
+--
+Rob Stewart
