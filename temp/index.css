@@ -33,6 +33,11 @@ ul {
   position: relative;
 }
 
+body > ul {
+  contain-intrinsic-size: 1px 200px;
+  content-visibility: auto;
+}
+
 address {
   display: inline;
 }
@@ -43,6 +48,7 @@ time {
 }
 
 li {
+  line-height: 1.25;
   position: relative;
   list-style: none;
   padding: 0;

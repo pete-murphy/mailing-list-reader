@@ -10,6 +10,7 @@ common shared
     , aeson
     , ansi-terminal
     , async
+    , attoparsec
     , base
     , blaze-markup
     , bytestring
@@ -28,12 +29,14 @@ common shared
     , lens
     , lens-aeson
     , megaparsec
+    -- , mime
     , mtl
     , myers-diff
     , parser-combinators
     , pipes
     , pipes-concurrency
     , pipes-safe
+    , purebred-email
     , scalpel
     , selective
     , taggy
@@ -42,6 +45,7 @@ common shared
     , time
     , tls
     , unliftio
+    , utf8-string
 
   default-language: Haskell2010
 
@@ -55,7 +59,6 @@ library
   import:          shared
   hs-source-dirs:  src
   exposed-modules:
-    RFC2822.DateTime
     Parser
     Scraper
 

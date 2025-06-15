@@ -1,0 +1,9 @@
+packages: .
+
+constraints:
+  pipes == 4.3.16,
+  pipes-safe == 2.3.5,
+  pipes-concurrency == 2.0.14
+
+allow-newer:
+  pipes-safe:base 

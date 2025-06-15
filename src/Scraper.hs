@@ -10,7 +10,7 @@ import Control.Applicative (Alternative)
 import Control.Applicative qualified as Applicative
 import Control.Lens
 import Control.Monad qualified as Monad
-import Data.Text.Lazy (LazyText)
+import Data.Text.Lazy (Text)
 import Data.Text.Lazy.Encoding qualified as Text.Lazy.Encoding
 import Network.HTTP.Client (Manager)
 import Network.HTTP.Client qualified as HTTP.Client
@@ -41,7 +41,7 @@ mailingListLinks = do
 
 type URL = String
 
-fetchMessages :: Int -> Manager -> URL -> IO LazyText
+fetchMessages :: Int -> Manager -> URL -> IO Text
 fetchMessages i manager url = do
   putStrLn ("[" <> show i <> "] Fetching " <> url)
   request <- HTTP.Client.parseRequest url
@@ -61,7 +61,3 @@ tryAll f (x : xs) =
   Applicative.optional (f x) >>= \case
     Nothing -> pure []
     Just a -> (a :) <$> tryAll f xs
-
--- fetchAllMonths :: Manager -> IO [LazyText]
--- fetchAllMonths manager = do
---   tryAll (fetchMessages manager) mailingListLinks

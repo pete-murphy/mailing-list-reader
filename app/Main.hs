@@ -11,19 +11,34 @@
 
 module Main where
 
+import Control.Applicative ((<|>))
 import Control.Applicative qualified as Applicative
-import Control.Arrow ((<<<))
+import Control.Arrow ((<<<), (>>>))
 import Control.Concurrent (MVar)
 import Control.Concurrent qualified as MVar
 import Control.Concurrent.Async qualified as Async
 import Control.Lens (FunctorWithIndex (imap))
+import Control.Lens qualified
+import Control.Lens.Operators
 import Control.Monad qualified as Monad
 import Data.Aeson qualified as Aeson
+import Data.Attoparsec.ByteString qualified as Attoparsec.ByteString
+import Data.ByteString (StrictByteString)
+import Data.ByteString qualified as ByteString
+import Data.ByteString.Char8 qualified as ByteString.Char8
+import Data.ByteString.Lazy (LazyByteString)
 import Data.ByteString.Lazy.Char8 qualified as ByteString.Lazy.Char8
+import Data.ByteString.Lazy.UTF8 qualified as ByteString.Lazy.UTF8
+import Data.ByteString.UTF8 qualified as ByteString.UTF8
 import Data.Default qualified as Default
 import Data.Foldable qualified as Foldable
 import Data.Functor ((<&>))
+import Data.IMF (BodyHandler (..))
+import Data.IMF qualified as IMF
+import Data.MIME qualified as MIME
 import Data.Map qualified as Map
+import Data.Text.Encoding qualified as Text.Encoding
+import Data.Text.IO qualified as Text.IO
 import Data.Text.Lazy qualified as Text.Lazy
 import Data.Text.Lazy.Encoding qualified as Text.Lazy.Encoding
 import Data.Text.Lazy.IO qualified as Text.Lazy.IO
@@ -56,17 +71,36 @@ latest = "2024-07-06T04:43:30.531982Z-results-latin1.ndjson"
 
 last = "2024-07-06T15:03:22.396222Z-results-latin1.ndjson"
 
+main' = do
+  -- file <- readFile "test/2020-January.txt"
+  file <- readFile "test/small.txt"
+  let bs = ByteString.UTF8.fromString file
+  -- let bs = ByteString.Char8.pack file
+  analyse bs
+
 main = do
   now <- takeWhile (/= '.') . ISO8601.iso8601Show <$> Time.getCurrentTime
 
   let thisOne = (now <> "-" <> latin1)
 
-  runScrape thisOne
+  runScrape "temp/data.ndjson"
 
--- runScrape utf8
--- runCheck latest thisOne
+analyse :: StrictByteString -> IO ()
+analyse input = do
+  putStrLn "Analyse"
+  case IMF.parse (Applicative.some (IMF.message (\_ -> RequiredBody Attoparsec.ByteString.takeByteString))) input of
+    Left err -> do
+      putStrLn "Error"
+      putStrLn err
+      System.IO.hPutStrLn System.IO.stderr err
+    Right msgs -> do
+      putStrLn "Success"
+      putStrLn (show (Foldable.length msgs))
+      Foldable.for_ msgs \msg -> do
+        Text.IO.putStrLn ("\n\nsubject:\n\n" <> Control.Lens.foldOf (IMF.headerSubject MIME.defaultCharsets . Control.Lens._Just) msg)
+        ByteString.Char8.putStrLn ("\n\nbody:\n\n" <> (Control.Lens.view IMF.body msg))
 
--- runSampleContents latin1 [991, 820, 443, 554, 3839, 394, 2394, 239, 959, 2000, 1900, 1950]
+-- putStrLn $ "body length: " <> show (ByteString.length (msg .~ IMF.body))
 
 runScrape :: FilePath -> IO ()
 runScrape fileName = do
@@ -92,13 +126,12 @@ runScrape fileName = do
       Traversable.for [1 .. 20] \i -> Async.async do
         Pipes.runEffect do
           Pipes.Concurrent.fromMailbox mailbox
-            -- >-> Pipes.Prelude.tee
-            --   ( Pipes.Prelude.map
-            --       (\(message :: Message) -> show i <> ": " <> (Text.Lazy.unpack message.subject))
-            --       >-> Pipes.Prelude.stdoutLn
-            --   )
             >-> Pipes.Prelude.wither
               (Applicative.optional <<< (Scraper.fetchMessages i manager))
+            -- >-> Pipes.Prelude.tee
+            --   ( Pipes.Prelude.map (Text.Lazy.Encoding.encodeUtf8 >>> ByteString.Lazy.Char8.toStrict)
+            --       >-> Pipes.Prelude.mapM_ (Pipes.liftIO <<< analyse)
+            --   )
             >-> Pipes.Prelude.mapMaybe
               (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
             >-> Pipes.Prelude.concat
@@ -195,39 +228,4 @@ runSampleContents fileName = do
         (_, _, Left e) ->
           error (e)
   Foldable.for_ xs \(i, m) -> do
-    -- if i `elem` ixs
-    --   then do
-    -- Text.Lazy.IO.putStrLn ("## " <> m.subject)
-    -- Text.Lazy.IO.putStrLn (m.content)
     putStrLn (ISO8601.iso8601Show m.date)
-
---
--- case Megaparsec.runParser (Applicative.many Parser.messageP) "input" text of
---   Left errBundle -> putStrLn (Megaparsec.errorBundlePretty errBundle)
---   Right result -> do
---     Foldable.for_ result \message -> do
---       Text.Lazy.IO.putStrLn (message ^. field @"content")
---       Text.Lazy.IO.putStrLn (message ^. field @"subject")
---       Text.Lazy.IO.putStrLn (message ^. field @"date")
---       Text.Lazy.IO.putStrLn (message ^. field @"messageID")
---       pure result
-
--- messages <-
-
---   Scraper.fetchAllMonths >>= foldMap \text -> do
---     case Megaparsec.runParser (Megaparsec.many Parser.messageP) "input" text of
---       Left errBundle -> do
---         putStrLn (Megaparsec.errorBundlePretty errBundle)
---         fail "An error occurred"
---       Right result -> do
---         Foldable.for_ result \message -> do
---           -- putStrLn "<========>"
---           -- Text.Lazy.IO.putStrLn (Parser.content message)
---           -- Text.Lazy.IO.putStrLn (message ^. field @"author")
---           Text.Lazy.IO.putStrLn (message ^. field @"subject")
---           -- Text.Lazy.IO.putStrLn (message ^. field @"inReplyTo" & maybe "" id)
---           -- Text.Lazy.IO.putStrLn (message ^. field @"references" & maybe "" id)
---           Text.Lazy.IO.putStrLn (message ^. field @"date")
---         -- Text.Lazy.IO.putStrLn (message ^. field @"messageID")
---         pure result
--- Aeson.encodeFile "messages-since-2010.json" messages
