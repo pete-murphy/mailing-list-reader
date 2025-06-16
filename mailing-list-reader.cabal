@@ -55,6 +55,11 @@ executable mailing-list-reader-exe
   main-is:        Main.hs
   hs-source-dirs: app
 
+executable date-extractor
+  import:         shared
+  main-is:        DateExtractor.hs
+  hs-source-dirs: app
+
 library
   import:          shared
   hs-source-dirs:  src
