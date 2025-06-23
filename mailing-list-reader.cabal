@@ -12,6 +12,7 @@ common shared
     , async
     , attoparsec
     , base
+    , blaze-html
     , blaze-markup
     , bytestring
     , containers
@@ -39,6 +40,10 @@ common shared
     , purebred-email
     , scalpel
     , selective
+    , servant
+    , servant-blaze
+    , servant-server
+    , sqlite-simple
     , taggy
     , taggy-lens
     , text
@@ -46,6 +51,7 @@ common shared
     , tls
     , unliftio
     , utf8-string
+    , warp
 
   default-language: Haskell2010
 

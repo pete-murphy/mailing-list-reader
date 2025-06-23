@@ -4,3 +4,4 @@ dist-newstyle/
 messages*.json
 *.ndjson
 NOTES.md
+*.db

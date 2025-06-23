@@ -13,6 +13,7 @@ import Control.Applicative ((<|>))
 import Control.Applicative qualified as Applicative
 import Control.Arrow ((<<<))
 import Control.Monad qualified as Monad
+import Control.Monad.Fail qualified as MonadFail
 import Data.Aeson (FromJSON, ToJSON)
 import Data.ByteString.Char8 qualified as ByteString.Char8
 import Data.Function ((&))
@@ -23,7 +24,11 @@ import Data.Text.Lazy (Text)
 import Data.Text.Lazy qualified as Text.Lazy
 import Data.Time (ZonedTime)
 import Data.Time qualified as Time
+import Data.Time.Format.ISO8601 qualified as ISO8601
 import Data.Void (Void)
+import Database.SQLite.Simple (ToRow (..))
+import Database.SQLite.Simple qualified as SQLite
+import Database.SQLite.Simple.FromRow qualified as SQLite
 import GHC.Generics (Generic)
 import Text.Megaparsec (Parsec)
 import Text.Megaparsec qualified as Megaparsec
@@ -60,6 +65,24 @@ data Message = Message
     date :: ZonedTime
   }
   deriving (Generic, Show, ToJSON, FromJSON)
+
+instance ToRow Message where
+  toRow Message {..} = SQLite.toRow (content, author, subject, messageID, inReplyTo, references, ISO8601.iso8601Show date)
+
+instance SQLite.FromRow Message where
+  fromRow = do
+    content <- SQLite.field
+    author <- SQLite.field
+    subject <- SQLite.field
+    messageID <- SQLite.field
+    inReplyTo <- SQLite.field
+    references <- SQLite.field
+    dateStr <- SQLite.field
+    case ISO8601.iso8601ParseM dateStr of
+      Just date -> return $ Message content author subject messageID inReplyTo references date
+      Nothing -> case Time.parseTimeM True Time.defaultTimeLocale "%Y-%m-%d %H:%M:%S%Q%z" dateStr of
+        Just date -> return $ Message content author subject messageID inReplyTo references date
+        Nothing -> error $ "Could not parse date: " ++ dateStr
 
 preambleP :: Parser ()
 preambleP = do

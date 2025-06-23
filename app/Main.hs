@@ -3,49 +3,32 @@
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedLabels #-}
-{-# LANGUAGE OverloadedRecordDot #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TypeApplications #-}
 
 module Main where
 
-import Control.Applicative ((<|>))
 import Control.Applicative qualified as Applicative
-import Control.Arrow ((<<<), (>>>))
+import Control.Arrow ((<<<))
 import Control.Concurrent (MVar)
 import Control.Concurrent qualified as MVar
 import Control.Concurrent.Async qualified as Async
-import Control.Lens (FunctorWithIndex (imap))
 import Control.Lens qualified
-import Control.Lens.Operators
 import Control.Monad qualified as Monad
-import Data.Aeson qualified as Aeson
 import Data.Attoparsec.ByteString qualified as Attoparsec.ByteString
 import Data.ByteString (StrictByteString)
-import Data.ByteString qualified as ByteString
 import Data.ByteString.Char8 qualified as ByteString.Char8
-import Data.ByteString.Lazy (LazyByteString)
-import Data.ByteString.Lazy.Char8 qualified as ByteString.Lazy.Char8
-import Data.ByteString.Lazy.UTF8 qualified as ByteString.Lazy.UTF8
-import Data.ByteString.UTF8 qualified as ByteString.UTF8
 import Data.Default qualified as Default
 import Data.Foldable qualified as Foldable
-import Data.Functor ((<&>))
 import Data.IMF (BodyHandler (..))
 import Data.IMF qualified as IMF
 import Data.MIME qualified as MIME
-import Data.Map qualified as Map
-import Data.Text.Encoding qualified as Text.Encoding
 import Data.Text.IO qualified as Text.IO
 import Data.Text.Lazy qualified as Text.Lazy
-import Data.Text.Lazy.Encoding qualified as Text.Lazy.Encoding
-import Data.Text.Lazy.IO qualified as Text.Lazy.IO
 import Data.Time qualified as Time
 import Data.Time.Format.ISO8601 qualified as ISO8601
 import Data.Traversable qualified as Traversable
-import Debug.Trace qualified
+import Database.SQLite.Simple qualified as SQLite
 import Network.Connection (TLSSettings (..))
 import Network.HTTP.Client qualified as HTTP.Client
 import Network.HTTP.Client.TLS qualified as HTTP.Client.TLS
@@ -57,33 +40,51 @@ import Pipes qualified
 import Pipes.Concurrent qualified
 import Pipes.Prelude qualified
 import Scraper qualified
-import System.IO (Handle, IOMode (..))
+import Search qualified
+import System.Environment qualified as Environment
 import System.IO qualified
 import System.X509 qualified as X509
 import Text.Megaparsec qualified as Megaparsec
-import UnliftIO qualified
+import WebServer qualified
 
-latin1 = "results-latin1.ndjson"
+-- SQLite database setup
+initializeDatabase :: FilePath -> IO SQLite.Connection
+initializeDatabase dbPath = do
+  conn <- SQLite.open dbPath
+  SQLite.execute_ conn $
+    SQLite.Query $
+      Text.Lazy.toStrict $
+        Text.Lazy.unlines
+          [ "CREATE TABLE IF NOT EXISTS messages (",
+            "  id INTEGER PRIMARY KEY AUTOINCREMENT,",
+            "  content TEXT NOT NULL,",
+            "  author TEXT NOT NULL,",
+            "  subject TEXT NOT NULL,",
+            "  message_id TEXT UNIQUE NOT NULL,",
+            "  in_reply_to TEXT,",
+            "  `references` TEXT,",
+            "  date TEXT NOT NULL",
+            ")"
+          ]
+  pure conn
 
-utf8 = "results.ndjson"
-
-latest = "2024-07-06T04:43:30.531982Z-results-latin1.ndjson"
-
-last = "2024-07-06T15:03:22.396222Z-results-latin1.ndjson"
-
-main' = do
-  -- file <- readFile "test/2020-January.txt"
-  file <- readFile "test/small.txt"
-  let bs = ByteString.UTF8.fromString file
-  -- let bs = ByteString.Char8.pack file
-  analyse bs
-
+main :: IO ()
 main = do
-  now <- takeWhile (/= '.') . ISO8601.iso8601Show <$> Time.getCurrentTime
-
-  let thisOne = (now <> "-" <> latin1)
-
-  runScrape "temp/data.ndjson"
+  args <- Environment.getArgs
+  case args of
+    ["scrape"] -> do
+      now <- takeWhile (/= '.') . ISO8601.iso8601Show <$> Time.getCurrentTime
+      let dbPath = now <> "-messages.db"
+      runScrape dbPath
+    ["search", dbPath] -> runSearch dbPath
+    ["web", dbPath] -> runWebServer dbPath
+    ["index", dbPath] -> runIndexing dbPath
+    _ -> do
+      putStrLn "Usage:"
+      putStrLn "  mailing-list-reader scrape                    # Scrape new messages"
+      putStrLn "  mailing-list-reader search <db-file>          # Interactive search"
+      putStrLn "  mailing-list-reader web <db-file>             # Start web server"
+      putStrLn "  mailing-list-reader index <db-file>           # Build search index"
 
 analyse :: StrictByteString -> IO ()
 analyse input = do
@@ -95,15 +96,13 @@ analyse input = do
       System.IO.hPutStrLn System.IO.stderr err
     Right msgs -> do
       putStrLn "Success"
-      putStrLn (show (Foldable.length msgs))
+      print (Foldable.length msgs)
       Foldable.for_ msgs \msg -> do
         Text.IO.putStrLn ("\n\nsubject:\n\n" <> Control.Lens.foldOf (IMF.headerSubject MIME.defaultCharsets . Control.Lens._Just) msg)
-        ByteString.Char8.putStrLn ("\n\nbody:\n\n" <> (Control.Lens.view IMF.body msg))
-
--- putStrLn $ "body length: " <> show (ByteString.length (msg .~ IMF.body))
+        ByteString.Char8.putStrLn ("\n\nbody:\n\n" <> Control.Lens.view IMF.body msg)
 
 runScrape :: FilePath -> IO ()
-runScrape fileName = do
+runScrape dbPath = do
   certificateStore <- X509.getSystemCertificateStore
   let clientParams =
         (Network.TLS.defaultParamsClient "https://mail.haskell.org" "443")
@@ -116,116 +115,75 @@ runScrape fileName = do
 
   manager <- HTTP.Client.newManager (HTTP.Client.TLS.mkManagerSettings tlsSettings Nothing)
 
-  System.IO.writeFile fileName ""
-  System.IO.withFile fileName WriteMode \fileHandle -> do
-    handleMVar <- MVar.newMVar fileHandle
-    System.IO.hSetBuffering fileHandle System.IO.LineBuffering
-    mailbox <- Pipes.Concurrent.spawn Pipes.Concurrent.unbounded
+  conn <- initializeDatabase dbPath
+  connMVar <- MVar.newMVar conn
+  mailbox <- Pipes.Concurrent.spawn Pipes.Concurrent.unbounded
 
-    consumers <-
-      Traversable.for [1 .. 20] \i -> Async.async do
-        Pipes.runEffect do
-          Pipes.Concurrent.fromMailbox mailbox
-            >-> Pipes.Prelude.wither
-              (Applicative.optional <<< Scraper.fetchMessages i manager)
-            -- >-> Pipes.Prelude.tee
-            --   ( Pipes.Prelude.map (Text.Lazy.Encoding.encodeUtf8 >>> ByteString.Lazy.Char8.toStrict)
-            --       >-> Pipes.Prelude.mapM_ (Pipes.liftIO <<< analyse)
-            --   )
-            >-> Pipes.Prelude.mapMaybe
-              (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
-            >-> Pipes.Prelude.concat
-            >-> writeJSON handleMVar
-        Pipes.Concurrent.performGC
+  consumers <-
+    Traversable.for [1 .. 20] \i -> Async.async do
+      Pipes.runEffect do
+        Pipes.Concurrent.fromMailbox mailbox
+          >-> Pipes.Prelude.wither
+            (Applicative.optional <<< Scraper.fetchMessages i manager)
+          >-> Pipes.Prelude.mapMaybe
+            (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
+          >-> Pipes.Prelude.concat
+          >-> writeDB connMVar
+      Pipes.Concurrent.performGC
 
-    producer <-
-      Async.async do
-        Pipes.runEffect do
-          Pipes.each Scraper.mailingListLinks
-            -- >-> Pipes.Prelude.wither
-            --   (Applicative.optional <<< (Scraper.fetchMessages manager))
-            -- >-> Pipes.Prelude.mapMaybe
-            --   (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
-            -- >-> Pipes.Prelude.concat
-            >-> Pipes.Concurrent.toMailbox mailbox
-        Pipes.Concurrent.performGC
+  producer <-
+    Async.async do
+      Pipes.runEffect do
+        Pipes.each Scraper.mailingListLinks
+          >-> Pipes.Concurrent.toMailbox mailbox
+      Pipes.Concurrent.performGC
 
-    Foldable.for_ (producer : consumers) Async.wait
+  Foldable.for_ (producer : consumers) Async.wait
+  SQLite.close conn
 
-hush :: Either e a -> Maybe a
-hush = \case
-  Left _ -> Nothing
-  Right a -> Just a
+-- Build search index for existing database
+runIndexing :: FilePath -> IO ()
+runIndexing dbPath = do
+  putStrLn $ "Building search index for " <> dbPath
+  conn <- SQLite.open dbPath
+  Search.initializeSearchIndex conn
+  Search.populateSearchIndex conn
+  SQLite.close conn
+  putStrLn "Search index built successfully!"
 
-writeJSON :: MVar Handle -> Consumer Message IO ()
-writeJSON handleMVar = do
-  Monad.forever do
-    json <- Aeson.encode <$> Pipes.await
-    Pipes.liftIO do
-      MVar.withMVar handleMVar \handle -> do
-        Pipes.liftIO (ByteString.Lazy.Char8.hPutStrLn handle json)
-        Pipes.liftIO (System.IO.hFlush handle)
+-- Interactive search mode
+runSearch :: FilePath -> IO ()
+runSearch dbPath = do
+  conn <- SQLite.open dbPath
+  Search.initializeSearchIndex conn -- Ensure FTS tables exist
+  putStrLn "=== Haskell Mailing List Search ==="
+  putStrLn "Enter search queries (or 'quit' to exit):"
+  searchLoop conn
+  SQLite.close conn
+  where
+    searchLoop conn = do
+      putStr "Search> "
+      System.IO.hFlush System.IO.stdout
+      query <- getLine
+      if query == "quit"
+        then putStrLn "Goodbye!"
+        else do
+          results <- Search.searchMessages conn (Text.Lazy.toStrict $ Text.Lazy.pack query) 5 0
+          if null results
+            then putStrLn "No results found."
+            else do
+              putStrLn $ "\nFound " <> show (length results) <> " results:\n"
+              Foldable.for_ (zip [1 ..] results) \(i, result) -> do
+                putStrLn $ show i <> ". " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . subject)
+                putStrLn $ "   By: " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . author)
+                putStrLn $ "   Date: " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 10 result . message . date)
+                putStrLn $ "   " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 100 result . snippet) <> "..."
+                putStrLn ""
+          searchLoop conn
 
-runCheck :: FilePath -> FilePath -> IO ()
-runCheck f1 f2 = do
-  l <-
-    Text.Lazy.IO.readFile f1
-      <&> Text.Lazy.lines
-      <&> imap (\i x -> (i, Text.Lazy.toStrict x))
-      <&> map (\(i, x) -> (i, x, (Aeson.eitherDecodeStrictText @Message x)))
-      <&> map \case
-        (_, _, Right m) -> (m.messageID, m.content)
-        (i, ln, Left e) -> do
-          Debug.Trace.traceM (show i)
-          Debug.Trace.traceM (show ln)
-          error (e)
-      <&> Map.fromList
-  u <-
-    Text.Lazy.IO.readFile f2
-      <&> Text.Lazy.lines
-      <&> imap (\i x -> (i, Text.Lazy.toStrict x))
-      <&> map (\(i, x) -> (i, x, (Aeson.eitherDecodeStrictText @Message x)))
-      <&> map \case
-        (_, _, Right m) -> (m.messageID, m.content)
-        (i, ln, Left e) -> do
-          Debug.Trace.traceM (show i)
-          Debug.Trace.traceM (show ln)
-          error (e)
-      <&> Map.fromList
-  if Map.size l /= Map.size u
-    then do
-      putStrLn "Different sizes"
-      putStrLn (show (Map.size l))
-      putStrLn (show (Map.size u))
-    else do
-      Foldable.for_ (Map.toList l) \(k, v) -> do
-        case Map.lookup k u of
-          Just v' -> do
-            -- putStrLn (show k)
-            if v /= v'
-              then do
-                putStrLn "Different"
-                putStrLn "--------------------------------------------||"
-                Text.Lazy.IO.putStrLn v
-                putStrLn "||------------------------------------------||"
-                Text.Lazy.IO.putStrLn v'
-                putStrLn "||--------------------------------------------"
-              else
-                pure ()
-          Nothing -> do
-            putStrLn "Missing"
-            Text.Lazy.IO.putStrLn v
-
-runSampleContents :: FilePath -> IO ()
-runSampleContents fileName = do
-  xs <-
-    Text.Lazy.IO.readFile fileName
-      <&> Text.Lazy.lines
-      <&> imap (\i x -> (i, Text.Lazy.toStrict x))
-      <&> map (\(i, x) -> (i, x, (Aeson.eitherDecodeStrictText @Message x)))
-      <&> map \case
-        (i, _, Right m) -> (i, m)
-        (_, _, Left e) ->
-          error (e)
-  Foldable.for_ xs \(i, m) -> do
-    putStrLn (ISO8601.iso8601Show m.date)
+-- Web server mode
+runWebServer :: FilePath -> IO ()
+runWebServer dbPath = do
+  conn <- SQLite.open dbPath
+  Search.initializeSearchIndex conn -- Ensure FTS tables exist
+  WebServer.startServer conn 8080
