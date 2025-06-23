@@ -15,6 +15,7 @@ import Data.Text.Lazy.Encoding qualified as Text.Lazy.Encoding
 import Network.HTTP.Client (Manager)
 import Network.HTTP.Client qualified as HTTP.Client
 import Network.HTTP.Types.Status qualified as HTTP.Types.Status
+import Text.HTML.Scalpel qualified as Scalpel
 
 months :: [String]
 months =
@@ -34,7 +35,7 @@ months =
 
 mailingListLinks :: [URL]
 mailingListLinks = do
-  year :: Int <- [2020 .. 2024]
+  year :: Int <- [2000 .. 2025]
   month <- months
   let url = "https://mail.haskell.org/pipermail/haskell-cafe/" <> show year <> "-" <> month <> ".txt"
   pure url
@@ -61,3 +62,13 @@ tryAll f (x : xs) =
   Applicative.optional (f x) >>= \case
     Nothing -> pure []
     Just a -> (a :) <$> tryAll f xs
+
+-- mailingListLinks :: IO [  URL  ]
+-- mailingListLinks = do
+--   Scalpel.scrapeURLWithConfig
+-- let years = [2020 .. 2024]
+-- let links = do
+--       year <- years
+--       month <- months
+--       pure (mailingListLink year month)
+-- pure (tryAll fetchMessages links)

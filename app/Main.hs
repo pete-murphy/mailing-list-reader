@@ -127,7 +127,7 @@ runScrape fileName = do
         Pipes.runEffect do
           Pipes.Concurrent.fromMailbox mailbox
             >-> Pipes.Prelude.wither
-              (Applicative.optional <<< (Scraper.fetchMessages i manager))
+              (Applicative.optional <<< Scraper.fetchMessages i manager)
             -- >-> Pipes.Prelude.tee
             --   ( Pipes.Prelude.map (Text.Lazy.Encoding.encodeUtf8 >>> ByteString.Lazy.Char8.toStrict)
             --       >-> Pipes.Prelude.mapM_ (Pipes.liftIO <<< analyse)
