@@ -60,6 +60,9 @@ executable mailing-list-reader-exe
   build-depends:  mailing-list-reader
   main-is:        Main.hs
   hs-source-dirs: app
+  other-modules:  
+    Search
+    WebServer
 
 executable date-extractor
   import:         shared

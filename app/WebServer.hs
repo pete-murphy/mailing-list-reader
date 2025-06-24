@@ -10,9 +10,9 @@ module WebServer where
 
 import Control.Monad (when)
 import Control.Monad.IO.Class (liftIO)
-import Data.Text qualified as Text.Strict
-import Data.Text.Lazy (Text)
-import Data.Text.Lazy qualified as Text
+import Data.Text (Text)
+import Data.Text qualified as Text
+import Data.Text.Lazy qualified as Text.Lazy
 import Data.Time.Format.ISO8601 qualified as ISO8601
 import Database.SQLite.Simple qualified as SQLite
 import Network.Wai.Handler.Warp (run)
@@ -68,14 +68,14 @@ server conn =
       where
         topicItem (topic, count) = H.li $ do
           H.a ! A.href (H.textValue $ "/search?q=" <> topic) $ H.toHtml topic
-          H.span ! A.class_ "count" $ H.toHtml $ " (" <> Text.Strict.pack (show count) <> " messages)"
+          H.span ! A.class_ "count" $ H.toHtml $ " (" <> Text.pack (show count) <> " messages)"
 
     searchPage :: Maybe Text -> Maybe Int -> Handler H.Html
     searchPage Nothing _ = homePage
     searchPage (Just query) maybePage = liftIO $ do
       let page = maybe 0 Prelude.id maybePage
           offset = page * 20
-      results <- Search.searchMessages conn (Text.toStrict query) 20 offset
+      results <- Search.searchMessages conn query 20 offset
       return $ pageTemplate ("Search: " <> query) $ do
         searchForm (Just query)
 
@@ -87,11 +87,11 @@ server conn =
       where
         resultItem result = H.div ! A.class_ "result" $ do
           H.div ! A.class_ "meta" $ do
-            H.strong $ H.toHtml result.message.author
+            H.strong $ H.toHtml (Text.Lazy.toStrict result.message.author)
             H.span " • "
-            H.span $ H.toHtml (Text.take 19 (Text.fromStrict $ Text.Strict.pack $ ISO8601.iso8601Show result.message.date))
+            H.span $ H.toHtml (Text.take 19 (Text.pack (ISO8601.iso8601Show result.message.date)))
             H.span " • "
-            H.a ! A.href (H.textValue $ "/thread/" <> result.message.messageID) $ "View Thread"
+            H.a ! A.href (H.textValue $ "/thread/" <> Text.Lazy.toStrict result.message.messageID) $ "View Thread"
           H.h3 $ H.toHtml result.message.subject
           H.div ! A.class_ "snippet" $ H.preEscapedToHtml result.snippet
 
@@ -107,11 +107,11 @@ server conn =
       where
         messageItem message = H.div ! A.class_ "message" $ do
           H.div ! A.class_ "meta" $ do
-            H.span $ H.toHtml (Text.take 19 (Text.fromStrict $ Text.Strict.pack $ ISO8601.iso8601Show message.date))
+            H.span $ H.toHtml (Text.take 19 (Text.pack (ISO8601.iso8601Show message.date)))
             H.span " • "
-            H.a ! A.href (H.textValue $ "/thread/" <> message.messageID) $ "View Thread"
+            (H.a ! A.href (H.textValue ("/thread/" <> Text.Lazy.toStrict message.messageID))) "View Thread"
           H.h3 $ H.toHtml message.subject
-          H.p $ H.toHtml $ Text.take 200 message.content <> "..."
+          H.p $ H.toHtml $ Text.take 200 (Text.Lazy.toStrict message.content) <> "..."
 
     threadPage :: Text -> Handler H.Html
     threadPage messageId = liftIO $ do
@@ -124,7 +124,7 @@ server conn =
           H.div ! A.class_ "meta" $ do
             H.strong $ H.toHtml message.author
             H.span " • "
-            H.span $ H.toHtml (Text.fromStrict $ Text.Strict.pack $ ISO8601.iso8601Show message.date)
+            H.span $ H.toHtml (Text.pack $ ISO8601.iso8601Show message.date)
           H.h3 $ H.toHtml message.subject
           H.pre $ H.toHtml message.content
 
@@ -152,19 +152,19 @@ searchForm maybeQuery = H.form ! A.method "GET" ! A.action "/search" ! A.class_ 
 pagination :: Text -> Int -> Bool -> H.Html
 pagination query page hasNext = H.div ! A.class_ "pagination" $ do
   when (page > 0) $
-    H.a ! A.href (H.textValue $ "/search?q=" <> query <> "&page=" <> Text.fromStrict (Text.Strict.pack (show (page - 1)))) $
+    H.a ! A.href (H.textValue $ "/search?q=" <> query <> "&page=" <> Text.pack (show (page - 1))) $
       "← Previous"
   when hasNext $
-    H.a ! A.href (H.textValue $ "/search?q=" <> query <> "&page=" <> Text.fromStrict (Text.Strict.pack (show (page + 1)))) $
+    H.a ! A.href (H.textValue $ "/search?q=" <> query <> "&page=" <> Text.pack (show (page + 1))) $
       "Next →"
 
 authorPagination :: Text -> Int -> Bool -> H.Html
 authorPagination author page hasNext = H.div ! A.class_ "pagination" $ do
   when (page > 0) $
-    H.a ! A.href (H.textValue $ "/author/" <> author <> "?page=" <> Text.fromStrict (Text.Strict.pack (show (page - 1)))) $
+    H.a ! A.href (H.textValue $ "/author/" <> author <> "?page=" <> Text.pack (show (page - 1))) $
       "← Previous"
   when hasNext $
-    H.a ! A.href (H.textValue $ "/author/" <> author <> "?page=" <> Text.fromStrict (Text.Strict.pack (show (page + 1)))) $
+    H.a ! A.href (H.textValue $ "/author/" <> author <> "?page=" <> Text.pack (show (page + 1))) $
       "Next →"
 
 -- Basic CSS

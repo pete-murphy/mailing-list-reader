@@ -23,6 +23,7 @@ import Data.Foldable qualified as Foldable
 import Data.IMF (BodyHandler (..))
 import Data.IMF qualified as IMF
 import Data.MIME qualified as MIME
+import Data.Text qualified as Text
 import Data.Text.IO qualified as Text.IO
 import Data.Text.Lazy qualified as Text.Lazy
 import Data.Time qualified as Time
@@ -119,17 +120,18 @@ runScrape dbPath = do
   connMVar <- MVar.newMVar conn
   mailbox <- Pipes.Concurrent.spawn Pipes.Concurrent.unbounded
 
-  consumers <-
-    Traversable.for [1 .. 20] \i -> Async.async do
-      Pipes.runEffect do
-        Pipes.Concurrent.fromMailbox mailbox
-          >-> Pipes.Prelude.wither
-            (Applicative.optional <<< Scraper.fetchMessages i manager)
-          >-> Pipes.Prelude.mapMaybe
-            (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
-          >-> Pipes.Prelude.concat
-          >-> writeDB connMVar
-      Pipes.Concurrent.performGC
+  -- consumers <-
+  --   Traversable.for [1 .. 20] \i -> Async.async do
+  --     Pipes.runEffect do
+  --       Pipes.Concurrent.fromMailbox mailbox
+  --         >-> Pipes.Prelude.wither
+  --           (Applicative.optional <<< Scraper.fetchMessages i manager)
+  --         -- >-> Pipes.Prelude.mapMaybe
+  --         --   (hush <<< Megaparsec.runParser (Megaparsec.many Parser.messageP) "input")
+  --         -- >-> Pipes.Prelude.concat
+  --         -- >-> writeDB connMVar
+
+  --     Pipes.Concurrent.performGC
 
   producer <-
     Async.async do
@@ -138,8 +140,13 @@ runScrape dbPath = do
           >-> Pipes.Concurrent.toMailbox mailbox
       Pipes.Concurrent.performGC
 
-  Foldable.for_ (producer : consumers) Async.wait
+  -- Foldable.for_ (producer : consumers) Async.wait
   SQLite.close conn
+
+hush :: Either a b -> Maybe b
+hush = \case
+  Left _ -> Nothing
+  Right x -> Just x
 
 -- Build search index for existing database
 runIndexing :: FilePath -> IO ()
@@ -173,12 +180,12 @@ runSearch dbPath = do
             then putStrLn "No results found."
             else do
               putStrLn $ "\nFound " <> show (length results) <> " results:\n"
-              Foldable.for_ (zip [1 ..] results) \(i, result) -> do
-                putStrLn $ show i <> ". " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . subject)
-                putStrLn $ "   By: " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . author)
-                putStrLn $ "   Date: " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 10 result . message . date)
-                putStrLn $ "   " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 100 result . snippet) <> "..."
-                putStrLn ""
+          -- Foldable.for_ (zip [1 ..] results) \(i, result) -> do
+          --   putStrLn $ show i <> ". " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . subject)
+          --   putStrLn $ "   By: " <> Text.Lazy.unpack (Text.Lazy.fromStrict result . message . author)
+          --   putStrLn $ "   Date: " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 10 result . message . date)
+          --   putStrLn $ "   " <> Text.Lazy.unpack (Text.Lazy.fromStrict $ Text.take 100 result . snippet) <> "..."
+          --   putStrLn ""
           searchLoop conn
 
 -- Web server mode

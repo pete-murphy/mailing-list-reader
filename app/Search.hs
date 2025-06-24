@@ -75,7 +75,7 @@ searchMessages conn query limit offset = do
     searchQuery =
       SQLite.Query $
         Text.unlines
-          [ "SELECT m.content, m.author, m.subject, m.message_id, m.in_reply_to, m.references, m.date,",
+          [ "SELECT m.content, m.author, m.subject, m.message_id, m.in_reply_to, m.`references`, m.date,",
             "       bm25(messages_fts) as rank,",
             "       snippet(messages_fts, 0, '<mark>', '</mark>', '...', 32) as snippet",
             "FROM messages_fts",
@@ -93,7 +93,7 @@ searchByAuthor conn author limit offset = do
     authorQuery =
       SQLite.Query $
         Text.unlines
-          [ "SELECT content, author, subject, message_id, in_reply_to, references, date",
+          [ "SELECT content, author, subject, message_id, in_reply_to, `references`, date",
             "FROM messages",
             "WHERE author LIKE ?",
             "ORDER BY date DESC",
@@ -108,7 +108,7 @@ searchByDateRange conn query startDate endDate limit offset = do
     dateRangeQuery =
       SQLite.Query $
         Text.unlines
-          [ "SELECT m.content, m.author, m.subject, m.message_id, m.in_reply_to, m.references, m.date,",
+          [ "SELECT m.content, m.author, m.subject, m.message_id, m.in_reply_to, m.`references`, m.date,",
             "       bm25(messages_fts) as rank,",
             "       snippet(messages_fts, 0, '<mark>', '</mark>', '...', 32) as snippet",
             "FROM messages_fts",
@@ -126,7 +126,7 @@ getThreadContext conn messageId = do
     threadQuery =
       SQLite.Query $
         Text.unlines
-          [ "SELECT content, author, subject, message_id, in_reply_to, references, date",
+          [ "SELECT content, author, subject, message_id, in_reply_to, `references`, date",
             "FROM messages",
             "WHERE in_reply_to = ? OR message_id = ?",
             "ORDER BY date;"
