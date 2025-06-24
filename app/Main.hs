@@ -191,6 +191,52 @@ runSearch dbPath = do
 -- Web server mode
 runWebServer :: FilePath -> IO ()
 runWebServer dbPath = do
+  putStrLn $ "[LOG] Opening database: " ++ dbPath
   conn <- SQLite.open dbPath
-  Search.initializeSearchIndex conn -- Ensure FTS tables exist
+  putStrLn "[LOG] Initializing search index"
+  Search.initializeSearchIndex conn -- This will recreate the FTS table
+  putStrLn "[LOG] Populating search index"
+  Search.populateSearchIndex conn -- Populate it with data
+
+  -- Check database stats
+  putStrLn "[LOG] Checking database stats..."
+  [SQLite.Only messageCount] <- SQLite.query_ conn "SELECT COUNT(*) FROM messages"
+  putStrLn $ "[LOG] Total messages in database: " ++ show (messageCount :: Int)
+
+  -- Check if FTS table has data
+  [SQLite.Only ftsCount] <- SQLite.query_ conn "SELECT COUNT(*) FROM messages_fts"
+  putStrLn $ "[LOG] Total messages in FTS index: " ++ show (ftsCount :: Int)
+
+  -- Test FTS search with a simple query
+  putStrLn "[LOG] Testing FTS with simple query 'Haskell'..."
+  testResults <- SQLite.query conn "SELECT COUNT(*) FROM messages_fts WHERE messages_fts MATCH ?" [("Haskell" :: Text.Text)]
+  putStrLn $ "[LOG] FTS test query returned: " ++ show (map (\(SQLite.Only c) -> c :: Int) testResults)
+
+  -- Test with quoted phrase
+  putStrLn "[LOG] Testing FTS with quoted phrase..."
+  testResults1b <- SQLite.query conn "SELECT COUNT(*) FROM messages_fts WHERE messages_fts MATCH ?" [("\"On the purity of Haskell\"" :: Text.Text)]
+  putStrLn $ "[LOG] FTS quoted phrase query returned: " ++ show (map (\(SQLite.Only c) -> c :: Int) testResults1b)
+
+  -- Test problematic query
+  putStrLn "[LOG] Testing problematic query 'On the purity of Haskell'..."
+  testResults2 <- SQLite.query conn "SELECT COUNT(*) FROM messages_fts WHERE messages_fts MATCH ?" [("On the purity of Haskell" :: Text.Text)]
+  putStrLn $ "[LOG] Problematic query returned: " ++ show (map (\(SQLite.Only c) -> c :: Int) testResults2)
+
+  -- Test subject search for comparison
+  putStrLn "[LOG] Testing subject search for 'On the purity of Haskell'..."
+  testResults3 <- SQLite.query conn "SELECT COUNT(*) FROM messages WHERE subject LIKE ?" [("%" <> "On the purity of Haskell" <> "%" :: Text.Text)]
+  putStrLn $ "[LOG] Subject search returned: " ++ show (map (\(SQLite.Only c) -> c :: Int) testResults3)
+
+  -- Check if FTS table has actual content
+  putStrLn "[LOG] Checking FTS table content..."
+  sampleFTS <- SQLite.query_ conn "SELECT content FROM messages_fts LIMIT 1" :: IO [SQLite.Only Text.Text]
+  putStrLn $ "[LOG] Sample FTS content: " ++ show (take 100 . Text.unpack <$> map (\(SQLite.Only c) -> c) sampleFTS)
+
+  -- Try to populate FTS if it's empty
+  putStrLn "[LOG] Attempting to populate FTS table..."
+  -- SQLite.execute_ conn "DELETE FROM messages_fts"
+  -- Search.populateSearchIndex conn
+  putStrLn "[LOG] Skipping FTS repopulation to avoid corruption"
+
+  putStrLn "[LOG] Starting web server on port 8080"
   WebServer.startServer conn 8080

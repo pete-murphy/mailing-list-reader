@@ -54,7 +54,9 @@ server conn =
   where
     homePage :: Handler H.Html
     homePage = liftIO $ do
+      putStrLn "[LOG] Accessed home page"
       topics <- Search.getPopularTopics conn 20
+      putStrLn $ "[LOG] Retrieved " ++ show (length topics) ++ " popular topics"
       return $ pageTemplate "Haskell Mailing List Search" $ do
         H.div ! A.class_ "hero" $ do
           H.h1 "Haskell Mailing List Archive"
@@ -71,11 +73,16 @@ server conn =
           H.span ! A.class_ "count" $ H.toHtml $ " (" <> Text.pack (show count) <> " messages)"
 
     searchPage :: Maybe Text -> Maybe Int -> Handler H.Html
-    searchPage Nothing _ = homePage
+    searchPage Nothing _ = do
+      liftIO $ putStrLn "[LOG] Search page accessed with no query, redirecting to home"
+      homePage
     searchPage (Just query) maybePage = liftIO $ do
+      putStrLn $ "[LOG] Search page accessed with query: " ++ Text.unpack query
       let page = maybe 0 Prelude.id maybePage
           offset = page * 20
+      putStrLn $ "[LOG] Page: " ++ show page ++ ", Offset: " ++ show offset
       results <- Search.searchMessages conn query 20 offset
+      putStrLn $ "[LOG] Search returned " ++ show (length results) ++ " results"
       return $ pageTemplate ("Search: " <> query) $ do
         searchForm (Just query)
 
@@ -97,9 +104,12 @@ server conn =
 
     authorPage :: Text -> Maybe Int -> Handler H.Html
     authorPage author maybePage = liftIO $ do
+      putStrLn $ "[LOG] Author page accessed for: " ++ Text.unpack author
       let page = maybe 0 Prelude.id maybePage
           offset = page * 20
+      putStrLn $ "[LOG] Author search - Page: " ++ show page ++ ", Offset: " ++ show offset
       messages <- Search.searchByAuthor conn ("%" <> author <> "%") 20 offset
+      putStrLn $ "[LOG] Author search returned " ++ show (length messages) ++ " messages"
       return $ pageTemplate ("Messages by " <> author) $ do
         H.h1 $ H.toHtml $ "Messages by " <> author
         H.div ! A.class_ "messages" $ mapM_ messageItem messages
@@ -115,7 +125,9 @@ server conn =
 
     threadPage :: Text -> Handler H.Html
     threadPage messageId = liftIO $ do
+      putStrLn $ "[LOG] Thread page accessed for message ID: " ++ Text.unpack messageId
       thread <- Search.getThreadContext conn messageId
+      putStrLn $ "[LOG] Thread context returned " ++ show (length thread) ++ " messages"
       return $ pageTemplate "Thread View" $ do
         H.h1 "Thread Context"
         H.div ! A.class_ "thread" $ mapM_ threadMessage thread
@@ -196,5 +208,6 @@ cssStyles =
 -- Start the web server
 startServer :: SQLite.Connection -> Int -> IO ()
 startServer conn port = do
-  putStrLn $ "Starting server on http://localhost:" ++ show port
+  putStrLn $ "[LOG] Starting server on http://localhost:" ++ show port
+  putStrLn "[LOG] Server ready to accept connections"
   run port (serve searchAPI (server conn))
